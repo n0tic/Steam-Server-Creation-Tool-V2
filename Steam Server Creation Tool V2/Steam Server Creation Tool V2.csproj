@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="FileDownloader.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +61,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SteamAppListClient.cs" />
+    <Compile Include="SteamAppListResponse.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +76,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,7 +103,22 @@
     <None Include="Resources\maximize.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
+    <None Include="Resources\079-search-EDIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\075-reload-EDIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\016-double chevron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\021-browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\033-folder-7-EDIT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\031-ellipsis.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
