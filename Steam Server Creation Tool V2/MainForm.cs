@@ -18,16 +18,13 @@ namespace Steam_Server_Creation_Tool_V2
     public partial class MainForm : Form
     {
 
-        public enum ProgressType
-        {
-            Marquee,
-            Blocks
-        }
         public MainForm()
         {
             InitializeComponent();
 
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             InitializeAsyncStart();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
         private async Task InitializeAsyncStart()
@@ -42,7 +39,7 @@ namespace Steam_Server_Creation_Tool_V2
 
             await RefreshAppList();
 
-            ProgressBar(false, ProgressType.Marquee, 0);
+            //ProgressBar(false, ProgressType.Marquee, 0);
         }
 
         public async Task RefreshAppList()
@@ -69,22 +66,10 @@ namespace Steam_Server_Creation_Tool_V2
                 catch (Exception e)
                 {
                     // Handle or log the exception here
-                    Console.WriteLine($"An error occurred: {e.Message}");
+                    MessageBox.Show($"An error occurred: {e.Message}");
                 }
             }
         }
-
-        private void Close_Button_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void Minimize_Button_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
 
         private async void SteamCMD_InstallAuto_Button_Click(object sender, EventArgs e)
         {
@@ -135,26 +120,6 @@ namespace Steam_Server_Creation_Tool_V2
             Process.Start(Core.steamCMDURL);
         }
 
-        public void ProgressBar(bool enabled, ProgressType style, int progress)
-        {
-            if(!enabled)
-            {
-                App_ProgressBar.Visible = false;
-                App_ProgressBar.Enabled = false;
-                return;
-            }
-
-            if(style == ProgressType.Blocks)
-            {
-                App_ProgressBar.Style = ProgressBarStyle.Blocks;
-                App_ProgressBar.Value = progress;
-            }
-            else if(style == ProgressType.Marquee)
-            {
-                App_ProgressBar.Style = ProgressBarStyle.Marquee;
-            }
-        }
-
         private void SteamCMD_Button_Click(object sender, EventArgs e)
         {
             Panel_SteamCMD.Enabled = true;
@@ -173,20 +138,17 @@ namespace Steam_Server_Creation_Tool_V2
             Panel_SteamCMD.Visible = false;
         }
 
-        private void Label_MouseHover(object sender, EventArgs e)
-        {
-            if (sender is Label label)
-            {
-                label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline);
-            }
-        }
+        private void SteamCMD_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+        private void NewServer_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+        private void ManageServers_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+        private void Settings_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+        private void SteamCMD_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
+        private void NewServer_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
+        private void ManageServers_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
+        private void Settings_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
 
-        private void Label_MouseLeave(object sender, EventArgs e)
-        {
-            if (sender is Label label)
-            {
-                label.Font = new Font(label.Font, label.Font.Style & ~FontStyle.Underline);
-            }
-        }
+        private void Close_Button_Click(object sender, EventArgs e) => Environment.Exit(0);
+        private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
+        private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
     }
 }
