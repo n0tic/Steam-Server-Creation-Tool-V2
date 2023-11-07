@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
@@ -24,7 +21,7 @@ namespace Steam_Server_Creation_Tool_V2
             Blocks
         }
 
-        static List<System.Windows.Forms.Panel> panels = new List<System.Windows.Forms.Panel> ();
+        static List<System.Windows.Forms.Panel> panels = new List<System.Windows.Forms.Panel>();
 
         public static void Setup(MainForm form)
         {

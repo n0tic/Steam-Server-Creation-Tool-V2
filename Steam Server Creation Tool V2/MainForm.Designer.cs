@@ -72,7 +72,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Install_New_Server_Label = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.NewInstall_Dropbox = new System.Windows.Forms.ComboBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
@@ -426,7 +426,7 @@
             this.Panel_NewServer.Controls.Add(this.button1);
             this.Panel_NewServer.Controls.Add(this.Install_New_Server_Label);
             this.Panel_NewServer.Controls.Add(this.panel5);
-            this.Panel_NewServer.Controls.Add(this.comboBox1);
+            this.Panel_NewServer.Controls.Add(this.NewInstall_Dropbox);
             this.Panel_NewServer.Location = new System.Drawing.Point(0, 95);
             this.Panel_NewServer.Name = "Panel_NewServer";
             this.Panel_NewServer.Size = new System.Drawing.Size(642, 494);
@@ -680,20 +680,20 @@
             this.panel5.Size = new System.Drawing.Size(618, 2);
             this.panel5.TabIndex = 13;
             // 
-            // comboBox1
+            // NewInstall_Dropbox
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.NewInstall_Dropbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.NewInstall_Dropbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NewInstall_Dropbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewInstall_Dropbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewInstall_Dropbox.ForeColor = System.Drawing.Color.White;
+            this.NewInstall_Dropbox.FormattingEnabled = true;
+            this.NewInstall_Dropbox.Items.AddRange(new object[] {
             "Loading..."});
-            this.comboBox1.Location = new System.Drawing.Point(12, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(437, 23);
-            this.comboBox1.TabIndex = 2;
+            this.NewInstall_Dropbox.Location = new System.Drawing.Point(12, 43);
+            this.NewInstall_Dropbox.Name = "NewInstall_Dropbox";
+            this.NewInstall_Dropbox.Size = new System.Drawing.Size(437, 23);
+            this.NewInstall_Dropbox.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -702,8 +702,8 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
-            this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_NewServer);
+            this.Controls.Add(this.Panel_SteamCMD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -756,7 +756,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label Install_New_Server_Label;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -773,6 +772,7 @@
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Panel Panel_NewServer;
         public System.Windows.Forms.Panel Panel_SteamCMD;
+        public System.Windows.Forms.ComboBox NewInstall_Dropbox;
     }
 }
 

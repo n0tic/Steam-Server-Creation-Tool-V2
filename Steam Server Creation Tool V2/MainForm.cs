@@ -1,30 +1,23 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Steam_Server_Creation_Tool_V2
 {
     public partial class MainForm : Form
     {
+        SteamAppListResponse SteamList = null;
 
         public MainForm()
         {
             InitializeComponent();
 
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            #pragma warning disable CS4014 // Not awaited warning disabled
             InitializeAsyncStart();
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            #pragma warning restore CS4014
         }
 
         private async Task InitializeAsyncStart()
@@ -49,19 +42,19 @@ namespace Steam_Server_Creation_Tool_V2
                 var client = new SteamAppListClient(httpClient);
                 try
                 {
-                    var response = await client.GetAppListAsync();
+                    SteamList = await client.GetAppListAsync();
                     // Use the response here
 
-                    comboBox1.Items.Clear();
+                    NewInstall_Dropbox.Items.Clear();
 
-                    foreach (var item in response.AppList.Apps) 
+                    foreach (var item in SteamList.AppList.Apps)
                     {
-                        comboBox1.Items.Add(item.AppNameId);
+                        NewInstall_Dropbox.Items.Add(item.AppNameId);
                     }
 
-                    comboBox1.SelectedIndex = 0;
+                    NewInstall_Dropbox.SelectedIndex = 0;
 
-                    Install_New_Server_Label.Text = $"Install New Server ({response.AppList.Apps.Count})";
+                    Install_New_Server_Label.Text = $"Install New Server ({SteamList.AppList.Apps.Count})";
                 }
                 catch (Exception e)
                 {
@@ -73,7 +66,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         private async void SteamCMD_InstallAuto_Button_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(SteamCMD_InstallLocation_Textbox.Text) || !Directory.Exists(SteamCMD_InstallLocation_Textbox.Text))
+            if (string.IsNullOrEmpty(SteamCMD_InstallLocation_Textbox.Text) || !Directory.Exists(SteamCMD_InstallLocation_Textbox.Text))
             {
                 SteamCMD_InstallLocation_Textbox.Text = Core.SelectFolder();
             }
