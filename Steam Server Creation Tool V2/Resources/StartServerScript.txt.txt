@@ -1,0 +1,83 @@
+@ECHO OFF
+::===============================================================
+:: This batch-script will run the server in a "loop" meaning that
+:: the server will restart automatically if a crash occur or server has been shutdown improperly.
+:: NOTE: Make sure to close this cmd/window before the server.
+:: 
+:: You will need to edit the 3 lines below with valid information
+:: Row: 19, 20, 21 (Bellow the lines beginning with "::")
+:: 
+:: !DO NOT ADD SPACES UNLESS THERE ARE SPACES IN THE ARGUMENT OR DIRECTORY PATH!
+::
+:: Examples:
+:: SET serverExecutablePath=D:\Valheim Server
+:: SET serverExecutableFileName=valheim_server.exe
+:: SET serverLaunchOptions=-nographics -batchmode -name "My First Server" -port 2456 -world "DedicatedServer" -password "SomePasswordHere"
+::
+:: If there are no launch options just leave it blank like this:
+:: SET serverLaunchOptions=
+::===============================================================
+
+SET serverExecutablePath={server_dir}
+SET serverExecutableFileName=StartServerExecutable.exe
+SET serverLaunchOptions=-Some -Launch Options
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::================================================================
+:: DO NOT EDIT BELOW THIS LINE; UNLESS YOU KNOW WHAT YOU ARE DOING
+::================================================================
+
+SET pathExist=%serverExecutablePath%\%serverExecutableFileName%
+
+PUSHD {steamcmd_dir}
+START /wait steamcmd +force_install_dir "{server_dir}" +login "{login_cred}" +app_update {app_id} validated +quit
+PUSHD {server_dir}
+ECHO Protecting {app_name} from crashes...
+ECHO To exit {app_name}, close this window first. It will restart the server otherwise.
+TITLE "{app_name}"
+IF EXIST "%pathExist%" GOTO server
+
+CLS
+ECHO Please edit this file with valid information and try again.
+PAUSE
+EXIT
+
+:server
+ECHO (%time%) {app_name} Server started.
+START /wait %ServerExecutableFileName% %serverLaunchOptions%
+ECHO (%time%) WARNING: {app_name} Server closed or crashed, restarting.
+GOTO server

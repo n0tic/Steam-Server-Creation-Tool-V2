@@ -66,7 +66,7 @@
     <Compile Include="DataContainers\SteamAppListClient.cs" />
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
-    <Compile Include="Handlers\Settings.cs" />
+    <Compile Include="DataContainers\Settings.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +126,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\010-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\092-warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\028-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartServerScript.txt.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\033-feather.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

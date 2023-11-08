@@ -93,9 +93,29 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _028_download {
+            get {
+                object obj = ResourceManager.GetObject("028-download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _031_ellipsis {
             get {
                 object obj = ResourceManager.GetObject("031-ellipsis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _033_feather {
+            get {
+                object obj = ResourceManager.GetObject("033-feather", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +163,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _092_warning {
+            get {
+                object obj = ResourceManager.GetObject("092-warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -177,6 +207,24 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
             get {
                 object obj = ResourceManager.GetObject("minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ECHO OFF
+        ///::===============================================================
+        ///:: This batch-script will run the server in a &quot;loop&quot; meaning that
+        ///:: the server will restart automatically if a crash occur or server has been shutdown improperly.
+        ///:: NOTE: Make sure to close this cmd/window before the server.
+        ///:: 
+        ///:: You will need to edit the 3 lines below with valid information
+        ///:: Row: 19, 20, 21 (Bellow the lines beginning with &quot;::&quot;)
+        ///:: 
+        ///:: !DO NOT ADD SPACES UNLESS THERE ARE SPACES IN THE ARGUMENT OR DIR [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StartServerScript_txt {
+            get {
+                return ResourceManager.GetString("StartServerScript.txt", resourceCulture);
             }
         }
     }
