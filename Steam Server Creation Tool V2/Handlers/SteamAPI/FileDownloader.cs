@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,7 +7,7 @@ namespace Steam_Server_Creation_Tool_V2
 {
     public class FileDownloader
     {
-        public async Task DownloadFileAsync(string fileUrl, string destinationPath, IProgress<double> progress)
+        public async Task DownloadFileAsync(string fileUrl, string destinationPath)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -32,7 +31,6 @@ namespace Steam_Server_Creation_Tool_V2
                         // Create a new file stream where we will be saving the data (file).
                         using (var streamToWriteTo = File.Open(destinationFilePath, FileMode.Create))
                         {
-                            var totalRead = 0L;
                             var buffer = new byte[8192]; // 8KB buffer.
                             var isMoreToRead = true;
 
@@ -43,17 +41,12 @@ namespace Steam_Server_Creation_Tool_V2
                                 if (read == 0)
                                 {
                                     isMoreToRead = false;
-                                    progress.Report(1); // 100% completion.
                                     continue;
                                 }
 
                                 // Write the data to the file stream.
                                 await streamToWriteTo.WriteAsync(buffer, 0, read);
 
-                                // Calculate the progress and report it.
-                                totalRead += read;
-                                var calculatedProgress = (double)totalRead / contentLength.Value;
-                                progress.Report(calculatedProgress);
                             }
                             while (isMoreToRead);
                         }
@@ -62,7 +55,7 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
-        public async Task UnpackZipFileAsync(string zipFilePath, string extractPath, IProgress<double> progress)
+        public async Task UnpackZipFileAsync(string zipFilePath, string extractPath)
         {
             await Task.Run(() =>
             {
@@ -88,7 +81,6 @@ namespace Steam_Server_Creation_Tool_V2
                         // Calculate the progress and report it.
                         entriesProcessed++;
                         var calculatedProgress = (double)entriesProcessed / totalEntries;
-                        progress.Report(calculatedProgress);
                     }
                 }
             });

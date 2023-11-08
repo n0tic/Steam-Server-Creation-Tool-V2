@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.IO;
 using System.Net;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
@@ -179,6 +184,80 @@ namespace Steam_Server_Creation_Tool_V2
             return folderPath;
         }
 
+        public static void SaveSettings(Settings data)
+        {
+            string json_data = "";
+            try
+            {
+                json_data = JsonConvert.SerializeObject(data);
+            }
+            catch { MessageBox.Show("The settings and data could not be saved!", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+
+            if (!String.IsNullOrEmpty(json_data))
+            {
+                try
+                {
+                    File.WriteAllText("data.json", json_data);
+                }
+                catch { MessageBox.Show("Could not save settings and data!", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            else MessageBox.Show("Settings data seems empty. This should not be visible...", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static Settings LoadSettings()
+        {
+            string stringData = null;
+
+            if (System.IO.File.Exists("data.json"))
+            {
+                try
+                {
+                    stringData = File.ReadAllText("data.json");
+                    return JsonConvert.DeserializeObject<Settings>(stringData);
+                }
+                catch (Exception e) { MessageBox.Show(e.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
+            }
+            else if (System.IO.File.Exists("data"))
+            {
+                using (FileStream dataStream = new FileStream("data", FileMode.Open))
+                {
+                    try
+                    {
+                        BinaryFormatter converter = new BinaryFormatter();
+                        Settings data = converter.Deserialize(dataStream) as Settings;
+                        return data;
+                    }
+                    catch (ArgumentNullException x) { MessageBox.Show(x.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
+                    catch (SerializationException x) { MessageBox.Show("Saved data is corrupt and could not be loaded.\n\rSave file will automatically be overwritten on next save. \n\r\n\r" + x.Message, "Load Data Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
+                    catch (SecurityException x) { MessageBox.Show(x.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
+                }
+            }
+            else return null;
+        }
+
+        public static bool IsFolderEmpty(string path)
+        {
+            if (Directory.GetFiles(path).Length > 0) return true;
+            else return false;
+        }
+
         #endregion IO
+
+        #region Encode
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        #endregion Encode
     }
 }

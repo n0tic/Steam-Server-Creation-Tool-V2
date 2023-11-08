@@ -63,6 +63,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _010_check {
+            get {
+                object obj = ResourceManager.GetObject("010-check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _016_double_chevron {
             get {
                 object obj = ResourceManager.GetObject("016-double chevron", resourceCulture);
@@ -106,6 +116,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         internal static System.Drawing.Bitmap _075_reload_EDIT {
             get {
                 object obj = ResourceManager.GetObject("075-reload-EDIT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _076_remove {
+            get {
+                object obj = ResourceManager.GetObject("076-remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

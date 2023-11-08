@@ -21,5 +21,5 @@ public class App
     [JsonProperty("name")]
     public string Name { get; set; }
 
-    public string AppNameId { get; set; }
+    public string IdAppName { get; set; }
 }

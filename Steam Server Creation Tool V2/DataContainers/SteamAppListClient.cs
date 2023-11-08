@@ -30,12 +30,12 @@ public class SteamAppListClient
         }
         catch (HttpRequestException e)
         {
-            MessageBox.Show($"An error occurred connecting to Steam API: {e.Message}");
+            MessageBox.Show(e.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw;
         }
         catch (Exception e)
         {
-            MessageBox.Show($"An unexpected error occurred: {e.Message}");
+            MessageBox.Show(e.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw;
         }
     }
@@ -51,7 +51,7 @@ public class SteamAppListClient
 
         foreach (var item in apps.AppList.Apps)
         {
-            item.AppNameId = $"[{item.AppId}] {item.Name}";
+            item.IdAppName = $"[{item.AppId}] {item.Name}";
         }
 
         // Sort in descending order to avoid index shifting issues during removal
