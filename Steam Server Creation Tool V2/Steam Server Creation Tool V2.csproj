@@ -52,6 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Core.cs" />
+    <Compile Include="DataContainers\Github\Asset.cs" />
+    <Compile Include="DataContainers\Github\Author.cs" />
+    <Compile Include="DataContainers\Github\Converter.cs" />
+    <Compile Include="DataContainers\Github\GithubReleasesData.cs" />
+    <Compile Include="DataContainers\Github\Serialize.cs" />
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
     <Compile Include="Forms\SearchForm.cs">

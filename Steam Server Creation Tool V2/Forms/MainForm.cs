@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Steam_Server_Creation_Tool_V2.Forms;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
@@ -9,7 +10,7 @@ namespace Steam_Server_Creation_Tool_V2
 {
     public partial class MainForm : Form
     {
-        SteamAppListResponse SteamList = null;
+        public SteamAppListResponse SteamList = null;
 
         public Settings settings = null;
 
@@ -60,7 +61,7 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button_Click(null, null);
 
             // Start downloading Steam API data
-            await RefreshAppList();
+            await RefreshAPIData();
 
             // Disable progressbar
             App_ProgressBar.Visible = false;
@@ -69,6 +70,19 @@ namespace Steam_Server_Creation_Tool_V2
         private void ApplyLoadedSettings()
         {
             SteamCMD_InstallLocation_Textbox.Text = settings.steamCMD_installLocation;
+            SteamCMD_SettingsInstallLocation_Textbox.Text = settings.steamCMD_installLocation;
+
+            if (settings.useAnonymousAuth) Anon_Radio.Checked = true;
+            else Anon_Radio.Checked = false;
+
+            if(settings.userData != null)
+            {
+                UsernameField_Textbox.Text = settings.userData.Username;
+                PasswordField_Textbox.Text = settings.userData.Password;
+            }
+
+            foreach (var item in settings.installedServer) InstalledServerList.Items.Add(item.name);
+
         }
 
         public async Task RefreshAppList()
@@ -153,8 +167,12 @@ namespace Steam_Server_Creation_Tool_V2
             InstallFound();
         }
 
-        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.SteamCMD);
-        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.NewServer);
+        private void NewServerInstallLocation_Button_Click(object sender, EventArgs e) => NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
+        private async void RefreshAPI_Button_Click(object sender, EventArgs e) => await RefreshAPIData();
+        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers, this);
+        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings, this);
+        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.SteamCMD, this);
+        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.NewServer, this);
         private void SteamCMD_DownloadWebsite_Buttons_Click(object sender, EventArgs e) => Process.Start(Core.steamCMDURL);
         private void SteamCMD_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
         private void NewServer_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
@@ -185,6 +203,7 @@ namespace Steam_Server_Creation_Tool_V2
                 {
                     //Update location of steamcmd
                     SteamCMD_InstallLocation_Textbox.Text = ofd.FileName;
+                    SteamCMD_SettingsInstallLocation_Textbox.Text = ofd.FileName;
                     settings.steamCMD_installLocation = ofd.FileName;
 
                     //Set button information OK
@@ -196,12 +215,13 @@ namespace Steam_Server_Creation_Tool_V2
             InstallFound();
         }
 
-        private async void RefreshAPI_Button_Click(object sender, EventArgs e)
+        private async Task RefreshAPIData()
         {
             App_ProgressBar.Visible = true;
 
             NewInstall_Dropbox.Items.Clear();
 
+            NewInstall_Dropbox.Enabled = false;
             RefreshAPI_Button.Enabled = false;
             SearchServer_Button.Enabled = false;
             InstallServer_Button.Enabled = false;
@@ -218,6 +238,7 @@ namespace Steam_Server_Creation_Tool_V2
             SearchServer_Button.Enabled = true;
             InstallServer_Button.Enabled = true;
 
+            NewInstall_Dropbox.Enabled = true;
             SteamCMD_Button.Enabled = true;
             NewServer_Button.Enabled = true;
             ManageServers_Button.Enabled = true;
@@ -303,18 +324,20 @@ namespace Steam_Server_Creation_Tool_V2
             if(File.Exists(settings.steamCMD_installLocation))
             {
                 FoundInstallationLogo_Picturebox.Visible = true;
+                FoundInstallationLogo2.Visible = true;
+                InstallFound_Label2.Visible = true;
                 InstallFound_Label.Visible = true;
             }
             else
             {
                 FoundInstallationLogo_Picturebox.Visible = false;
+                FoundInstallationLogo2.Visible = false;
+                InstallFound_Label2.Visible = false;
                 InstallFound_Label.Visible = false;
             }
         }
 
-        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers);
-
-        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings);
+        
 
         private void InstallServer_Button_Click(object sender, EventArgs e)
         {
@@ -353,9 +376,12 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
         }
 
-        private void NewServerInstallLocation_Button_Click(object sender, EventArgs e)
+        private void SearchServer_Button_Click(object sender, EventArgs e)
         {
-            NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
+            using (SearchForm s = new SearchForm(this))
+            {
+                s.ShowDialog();
+            }
         }
     }
 }

@@ -9,23 +9,28 @@ namespace Steam_Server_Creation_Tool_V2
     [Serializable]
     public class Settings
     {
-        // User data
+        // User data / Settings
         public UserData userData;
-        public bool useUserData = false; // Use anonymous user.
+        public bool useAnonymousAuth = true; // Use anonymous user.
 
-        // Steam data
+        // Steam parameters
         public bool autoQuit = true;
-
         public bool validate = true;
+
+        // SteamCMD install directory
         public string steamCMD_installLocation = "";
 
         // Server data
         public List<InstalledServer> installedServer = new List<InstalledServer>();
 
+        /// <summary>
+        /// Get login information as string to use as parameters in SteamCMD client.
+        /// </summary>
+        /// <returns></returns>
         public string GetLogin()
         {
-            if (!useUserData) return "anonymous";
-            else if (useUserData && !userData.IsEmpty()) return userData.Username + " " + userData.GetPassword();
+            if (!useAnonymousAuth) return "anonymous";
+            else if (useAnonymousAuth && !userData.IsEmpty()) return userData.Username + " " + userData.GetPassword();
             else return null;
         }
     }

@@ -25,7 +25,7 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_Settings);
         }
 
-        public static void ChangePanel(Panel panel)
+        public static void ChangePanel(Panel panel, MainForm form)
         {
             for (int i = 0; i < panels.Count; i++)
             {
@@ -39,6 +39,22 @@ namespace Steam_Server_Creation_Tool_V2
                     panels[i].Enabled = false;
                     panels[i].Visible = false;
                 }
+            }
+
+            switch ((int)panel)
+            {
+                case (int)Panel.SteamCMD:
+                    form.Size = new Size(642, 327);
+                    break;
+                case (int)Panel.NewServer:
+                    form.Size = new Size(642, 436);
+                    break;
+                case (int)Panel.ManageServers:
+                    form.Size = new Size(642, 589);
+                    break;
+                case (int)Panel.Settings:
+                    form.Size = new Size(642, 461);
+                    break;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
 {
-    internal class Core
+    public static class Core
     {
         public static bool debug = false;
 
@@ -70,43 +71,50 @@ namespace Steam_Server_Creation_Tool_V2
 
         private static void Wc_DownloadStringCompleted(DownloadStringCompletedEventArgs e, bool message)
         {
-            /*
+
             if (!e.Cancelled && e.Error == null)
             {
-                var data = GithubReleasesData.FromJson(e.Result);
-                if (data != null)
+                var releasesData = GithubReleasesData.FromJson(e.Result);
+
+                if (releasesData != null)
                 {
-                    int majorversion = Int32.Parse(data[0].TagName.Split('.')[0]),
-                        minorversion = Int32.Parse(data[0].TagName.Split('.')[1]),
-                        buildversion = Int32.Parse(data[0].TagName.Split('.')[2]);
+                    int latestMajorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[0]);
+                    int latestMinorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[1]);
+                    int latestBuildVersion = Int32.Parse(releasesData[0].TagName.Split('.')[2]);
 
-                    bool update = false;
+                    bool requiresUpdate = false;
 
-                    // Previous update verification logic was flawed:
-                    // Simplified string "020" would become 2.
-                    // Simplified string "019" would be 19.
-                    // 2 < 19 so previous logic was flawed.
-                    if (majorversion > majorVersion) update = true;
-                    if (!update && minorversion > minorVersion) update = true;
-                    if (!update && minorversion >= minorVersion && buildversion > buildVersion) update = true;
+                    // Verify if an update is available based on version numbers
+                    if (latestMajorVersion > majorVersion)
+                        requiresUpdate = true;
+                    else if (!requiresUpdate && latestMinorVersion > minorVersion)
+                        requiresUpdate = true;
+                    else if (!requiresUpdate && latestMinorVersion >= minorVersion && latestBuildVersion > buildVersion)
+                        requiresUpdate = true;
 
-                    if (!update)
+                    if (!requiresUpdate)
                     {
-                        if (message) MessageBox.Show("You seem to be running the newest version!", "No Update Available!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (message)
+                        {
+                            MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                         checkingUpdate = false;
                         return;
                     }
                     else
                     {
-                        if (MessageBox.Show("There seem to be an update available.\n\rWould you like to go to the download location?", "Update Available!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        DialogResult userResponse = MessageBox.Show("An update is available. Would you like to visit the download page?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (userResponse == DialogResult.Yes)
                         {
                             Process.Start(projectURL + "/releases");
                         }
                     }
                 }
-            
             }
-            */
+
+
             checkingUpdate = false;
         }
 
@@ -248,6 +256,8 @@ namespace Steam_Server_Creation_Tool_V2
         }
 
         #endregion IO
+
+        public static bool Contains(this string source, string toCheck, StringComparison comp) => source?.IndexOf(toCheck, comp) >= 0;
 
         #region Encode
 

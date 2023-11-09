@@ -44,13 +44,13 @@
             this.NewServer_Button = new System.Windows.Forms.Label();
             this.SteamCMD_Button = new System.Windows.Forms.Label();
             this.App_ProgressBar = new System.Windows.Forms.ProgressBar();
-            this.SteamCMD_InstallLocation_Textbox = new System.Windows.Forms.TextBox();
             this.Panel_SteamCMD = new System.Windows.Forms.Panel();
-            this.InstallFound_Label = new System.Windows.Forms.Label();
-            this.FoundInstallationLogo_Picturebox = new System.Windows.Forms.PictureBox();
             this.ManualLocateSteamCMD_Button = new System.Windows.Forms.Button();
+            this.SteamCMD_InstallLocation_Textbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.InstallFound_Label = new System.Windows.Forms.Label();
+            this.FoundInstallationLogo_Picturebox = new System.Windows.Forms.PictureBox();
             this.SteamCMD_DownloadWebsite_Buttons = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -101,20 +101,26 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Panel_Settings = new System.Windows.Forms.Panel();
+            this.FoundInstallationLogo2 = new System.Windows.Forms.Label();
+            this.InstallFound_Label2 = new System.Windows.Forms.PictureBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.SteamCMD_SettingsInstallLocation_Textbox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Anon_Radio = new System.Windows.Forms.RadioButton();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.UsernameField_Textbox = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.PasswordField_Textbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
@@ -130,6 +136,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Panel_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallFound_Label2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -320,25 +327,15 @@
             this.App_ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.App_ProgressBar.TabIndex = 4;
             // 
-            // SteamCMD_InstallLocation_Textbox
-            // 
-            this.SteamCMD_InstallLocation_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.SteamCMD_InstallLocation_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SteamCMD_InstallLocation_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.SteamCMD_InstallLocation_Textbox.Location = new System.Drawing.Point(12, 201);
-            this.SteamCMD_InstallLocation_Textbox.Name = "SteamCMD_InstallLocation_Textbox";
-            this.SteamCMD_InstallLocation_Textbox.Size = new System.Drawing.Size(455, 20);
-            this.SteamCMD_InstallLocation_Textbox.TabIndex = 5;
-            // 
             // Panel_SteamCMD
             // 
             this.Panel_SteamCMD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.Panel_SteamCMD.Controls.Add(this.InstallFound_Label);
-            this.Panel_SteamCMD.Controls.Add(this.FoundInstallationLogo_Picturebox);
             this.Panel_SteamCMD.Controls.Add(this.ManualLocateSteamCMD_Button);
             this.Panel_SteamCMD.Controls.Add(this.SteamCMD_InstallLocation_Textbox);
             this.Panel_SteamCMD.Controls.Add(this.label3);
             this.Panel_SteamCMD.Controls.Add(this.panel3);
+            this.Panel_SteamCMD.Controls.Add(this.InstallFound_Label);
+            this.Panel_SteamCMD.Controls.Add(this.FoundInstallationLogo_Picturebox);
             this.Panel_SteamCMD.Controls.Add(this.SteamCMD_DownloadWebsite_Buttons);
             this.Panel_SteamCMD.Controls.Add(this.label2);
             this.Panel_SteamCMD.Controls.Add(this.panel2);
@@ -349,6 +346,56 @@
             this.Panel_SteamCMD.Name = "Panel_SteamCMD";
             this.Panel_SteamCMD.Size = new System.Drawing.Size(642, 494);
             this.Panel_SteamCMD.TabIndex = 6;
+            // 
+            // ManualLocateSteamCMD_Button
+            // 
+            this.ManualLocateSteamCMD_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManualLocateSteamCMD_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManualLocateSteamCMD_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManualLocateSteamCMD_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManualLocateSteamCMD_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManualLocateSteamCMD_Button.ForeColor = System.Drawing.Color.White;
+            this.ManualLocateSteamCMD_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.ManualLocateSteamCMD_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManualLocateSteamCMD_Button.Location = new System.Drawing.Point(476, 188);
+            this.ManualLocateSteamCMD_Button.Name = "ManualLocateSteamCMD_Button";
+            this.ManualLocateSteamCMD_Button.Size = new System.Drawing.Size(154, 27);
+            this.ManualLocateSteamCMD_Button.TabIndex = 21;
+            this.ManualLocateSteamCMD_Button.Text = "Locate SteamCMD";
+            this.ManualLocateSteamCMD_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ManualLocateSteamCMD_Button.UseVisualStyleBackColor = false;
+            this.ManualLocateSteamCMD_Button.Click += new System.EventHandler(this.ManualLocateSteamCMD_Button_Click);
+            // 
+            // SteamCMD_InstallLocation_Textbox
+            // 
+            this.SteamCMD_InstallLocation_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.SteamCMD_InstallLocation_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SteamCMD_InstallLocation_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SteamCMD_InstallLocation_Textbox.Location = new System.Drawing.Point(15, 192);
+            this.SteamCMD_InstallLocation_Textbox.Name = "SteamCMD_InstallLocation_Textbox";
+            this.SteamCMD_InstallLocation_Textbox.Size = new System.Drawing.Size(455, 20);
+            this.SteamCMD_InstallLocation_Textbox.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(15, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(214, 16);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Locate SteamCMD Installation";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Gray;
+            this.panel3.Location = new System.Drawing.Point(12, 183);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(618, 2);
+            this.panel3.TabIndex = 22;
             // 
             // InstallFound_Label
             // 
@@ -373,46 +420,6 @@
             this.FoundInstallationLogo_Picturebox.TabIndex = 18;
             this.FoundInstallationLogo_Picturebox.TabStop = false;
             // 
-            // ManualLocateSteamCMD_Button
-            // 
-            this.ManualLocateSteamCMD_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.ManualLocateSteamCMD_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ManualLocateSteamCMD_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ManualLocateSteamCMD_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManualLocateSteamCMD_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManualLocateSteamCMD_Button.ForeColor = System.Drawing.Color.White;
-            this.ManualLocateSteamCMD_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
-            this.ManualLocateSteamCMD_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManualLocateSteamCMD_Button.Location = new System.Drawing.Point(473, 197);
-            this.ManualLocateSteamCMD_Button.Name = "ManualLocateSteamCMD_Button";
-            this.ManualLocateSteamCMD_Button.Size = new System.Drawing.Size(154, 27);
-            this.ManualLocateSteamCMD_Button.TabIndex = 15;
-            this.ManualLocateSteamCMD_Button.Text = "Locate SteamCMD";
-            this.ManualLocateSteamCMD_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ManualLocateSteamCMD_Button.UseVisualStyleBackColor = false;
-            this.ManualLocateSteamCMD_Button.Click += new System.EventHandler(this.ManualLocateSteamCMD_Button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(12, 173);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 16);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Locate SteamCMD Installation";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Location = new System.Drawing.Point(9, 192);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(618, 2);
-            this.panel3.TabIndex = 16;
-            // 
             // SteamCMD_DownloadWebsite_Buttons
             // 
             this.SteamCMD_DownloadWebsite_Buttons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
@@ -423,7 +430,7 @@
             this.SteamCMD_DownloadWebsite_Buttons.ForeColor = System.Drawing.Color.White;
             this.SteamCMD_DownloadWebsite_Buttons.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._021_browser;
             this.SteamCMD_DownloadWebsite_Buttons.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SteamCMD_DownloadWebsite_Buttons.Location = new System.Drawing.Point(12, 129);
+            this.SteamCMD_DownloadWebsite_Buttons.Location = new System.Drawing.Point(12, 111);
             this.SteamCMD_DownloadWebsite_Buttons.Name = "SteamCMD_DownloadWebsite_Buttons";
             this.SteamCMD_DownloadWebsite_Buttons.Size = new System.Drawing.Size(189, 29);
             this.SteamCMD_DownloadWebsite_Buttons.TabIndex = 3;
@@ -439,7 +446,7 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(12, 102);
+            this.label2.Location = new System.Drawing.Point(12, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 16);
             this.label2.TabIndex = 14;
@@ -448,7 +455,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(9, 121);
+            this.panel2.Location = new System.Drawing.Point(9, 103);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(618, 2);
             this.panel2.TabIndex = 13;
@@ -755,6 +762,7 @@
             this.SearchServer_Button.Text = "Search";
             this.SearchServer_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SearchServer_Button.UseVisualStyleBackColor = false;
+            this.SearchServer_Button.Click += new System.EventHandler(this.SearchServer_Button_Click);
             // 
             // InstallServer_Button
             // 
@@ -1141,6 +1149,12 @@
             // Panel_Settings
             // 
             this.Panel_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_Settings.Controls.Add(this.FoundInstallationLogo2);
+            this.Panel_Settings.Controls.Add(this.InstallFound_Label2);
+            this.Panel_Settings.Controls.Add(this.button9);
+            this.Panel_Settings.Controls.Add(this.SteamCMD_SettingsInstallLocation_Textbox);
+            this.Panel_Settings.Controls.Add(this.label23);
+            this.Panel_Settings.Controls.Add(this.panel4);
             this.Panel_Settings.Controls.Add(this.button7);
             this.Panel_Settings.Controls.Add(this.groupBox6);
             this.Panel_Settings.Controls.Add(this.groupBox5);
@@ -1150,6 +1164,97 @@
             this.Panel_Settings.Name = "Panel_Settings";
             this.Panel_Settings.Size = new System.Drawing.Size(642, 494);
             this.Panel_Settings.TabIndex = 27;
+            // 
+            // FoundInstallationLogo2
+            // 
+            this.FoundInstallationLogo2.AutoSize = true;
+            this.FoundInstallationLogo2.BackColor = System.Drawing.Color.Transparent;
+            this.FoundInstallationLogo2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.FoundInstallationLogo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FoundInstallationLogo2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.FoundInstallationLogo2.Location = new System.Drawing.Point(256, 252);
+            this.FoundInstallationLogo2.Name = "FoundInstallationLogo2";
+            this.FoundInstallationLogo2.Size = new System.Drawing.Size(133, 16);
+            this.FoundInstallationLogo2.TabIndex = 36;
+            this.FoundInstallationLogo2.Text = "Installation Found!";
+            // 
+            // InstallFound_Label2
+            // 
+            this.InstallFound_Label2.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._010_check;
+            this.InstallFound_Label2.Location = new System.Drawing.Point(235, 249);
+            this.InstallFound_Label2.Name = "InstallFound_Label2";
+            this.InstallFound_Label2.Size = new System.Drawing.Size(20, 20);
+            this.InstallFound_Label2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InstallFound_Label2.TabIndex = 35;
+            this.InstallFound_Label2.TabStop = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(476, 277);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(154, 27);
+            this.button9.TabIndex = 32;
+            this.button9.Text = "Locate SteamCMD";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.ManualLocateSteamCMD_Button_Click);
+            // 
+            // SteamCMD_SettingsInstallLocation_Textbox
+            // 
+            this.SteamCMD_SettingsInstallLocation_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.SteamCMD_SettingsInstallLocation_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SteamCMD_SettingsInstallLocation_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SteamCMD_SettingsInstallLocation_Textbox.Location = new System.Drawing.Point(15, 281);
+            this.SteamCMD_SettingsInstallLocation_Textbox.Name = "SteamCMD_SettingsInstallLocation_Textbox";
+            this.SteamCMD_SettingsInstallLocation_Textbox.Size = new System.Drawing.Size(455, 20);
+            this.SteamCMD_SettingsInstallLocation_Textbox.TabIndex = 31;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label23.Location = new System.Drawing.Point(15, 253);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(214, 16);
+            this.label23.TabIndex = 34;
+            this.label23.Text = "Locate SteamCMD Installation";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Gray;
+            this.panel4.Location = new System.Drawing.Point(12, 272);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(618, 2);
+            this.panel4.TabIndex = 33;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(515, 321);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(115, 32);
+            this.button7.TabIndex = 30;
+            this.button7.Text = "Save Settings";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // groupBox6
             // 
@@ -1164,15 +1269,37 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SteamCMD Settings";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(6, 40);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(202, 17);
+            this.checkBox2.TabIndex = 31;
+            this.checkBox2.Text = "Automatically Close SteamCMD";
+            this.toolTip1.SetToolTip(this.checkBox2, "Automatically close SteamCMD window after finished work");
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(144, 17);
+            this.checkBox1.TabIndex = 30;
+            this.checkBox1.Text = "Validate Installations";
+            this.toolTip1.SetToolTip(this.checkBox1, "Automatic validation of file integrity of server files after installation");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.radioButton2);
-            this.groupBox5.Controls.Add(this.radioButton1);
+            this.groupBox5.Controls.Add(this.Anon_Radio);
             this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.UsernameField_Textbox);
             this.groupBox5.Controls.Add(this.button8);
             this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.PasswordField_Textbox);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox5.Location = new System.Drawing.Point(9, 43);
@@ -1181,6 +1308,31 @@
             this.groupBox5.TabIndex = 27;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Authentication Settings";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(212, 103);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(160, 17);
+            this.radioButton2.TabIndex = 29;
+            this.radioButton2.Text = "Use user authentication";
+            this.toolTip1.SetToolTip(this.radioButton2, "This will use user authentication when downloading files. Some servers may need t" +
+        "his.");
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // Anon_Radio
+            // 
+            this.Anon_Radio.AutoSize = true;
+            this.Anon_Radio.Checked = true;
+            this.Anon_Radio.Location = new System.Drawing.Point(6, 103);
+            this.Anon_Radio.Name = "Anon_Radio";
+            this.Anon_Radio.Size = new System.Drawing.Size(199, 17);
+            this.Anon_Radio.TabIndex = 28;
+            this.Anon_Radio.TabStop = true;
+            this.Anon_Radio.Text = "Use anonymous authentication";
+            this.toolTip1.SetToolTip(this.Anon_Radio, "This will use anonymous authentication when downloading files");
+            this.Anon_Radio.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -1195,15 +1347,15 @@
             this.label21.Text = "Password";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox3
+            // UsernameField_Textbox
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.Location = new System.Drawing.Point(6, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(606, 20);
-            this.textBox3.TabIndex = 26;
+            this.UsernameField_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.UsernameField_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameField_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.UsernameField_Textbox.Location = new System.Drawing.Point(6, 35);
+            this.UsernameField_Textbox.Name = "UsernameField_Textbox";
+            this.UsernameField_Textbox.Size = new System.Drawing.Size(606, 20);
+            this.UsernameField_Textbox.TabIndex = 26;
             // 
             // button8
             // 
@@ -1237,16 +1389,16 @@
             this.label22.Text = "Username";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox4
+            // PasswordField_Textbox
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox4.Location = new System.Drawing.Point(6, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(476, 20);
-            this.textBox4.TabIndex = 18;
+            this.PasswordField_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.PasswordField_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordField_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.PasswordField_Textbox.Location = new System.Drawing.Point(6, 77);
+            this.PasswordField_Textbox.Name = "PasswordField_Textbox";
+            this.PasswordField_Textbox.PasswordChar = '*';
+            this.PasswordField_Textbox.Size = new System.Drawing.Size(476, 20);
+            this.PasswordField_Textbox.TabIndex = 18;
             // 
             // label9
             // 
@@ -1269,71 +1421,6 @@
             this.panel7.Size = new System.Drawing.Size(618, 2);
             this.panel7.TabIndex = 13;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 103);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(199, 17);
-            this.radioButton1.TabIndex = 28;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Use anonymous authentication";
-            this.toolTip1.SetToolTip(this.radioButton1, "This will use anonymous authentication when downloading files");
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(212, 103);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(160, 17);
-            this.radioButton2.TabIndex = 29;
-            this.radioButton2.Text = "Use user authentication";
-            this.toolTip1.SetToolTip(this.radioButton2, "This will use user authentication when downloading files. Some servers may need t" +
-        "his.");
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(144, 17);
-            this.checkBox1.TabIndex = 30;
-            this.checkBox1.Text = "Validate Installations";
-            this.toolTip1.SetToolTip(this.checkBox1, "Automatic validation of file integrity of server files after installation");
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 40);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(202, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "Automatically Close SteamCMD";
-            this.toolTip1.SetToolTip(this.checkBox2, "Automatically close SteamCMD window after finished work");
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(512, 244);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(115, 32);
-            this.button7.TabIndex = 30;
-            this.button7.Text = "Save Settings";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1341,13 +1428,15 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
-            this.Controls.Add(this.Panel_NewServer);
-            this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
+            this.Controls.Add(this.Panel_NewServer);
+            this.Controls.Add(this.Panel_SteamCMD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TopPanel.ResumeLayout(false);
@@ -1373,6 +1462,7 @@
             this.groupBox3.PerformLayout();
             this.Panel_Settings.ResumeLayout(false);
             this.Panel_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallFound_Label2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1398,15 +1488,11 @@
         private System.Windows.Forms.PictureBox Minimize_Button;
         private System.Windows.Forms.Button SteamCMD_InstallAuto_Button;
         private System.Windows.Forms.ProgressBar App_ProgressBar;
-        private System.Windows.Forms.TextBox SteamCMD_InstallLocation_Textbox;
         private System.Windows.Forms.Button SteamCMD_DownloadWebsite_Buttons;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ManualLocateSteamCMD_Button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button InstallServer_Button;
         private System.Windows.Forms.Label Install_New_Server_Label;
         private System.Windows.Forms.Panel panel5;
@@ -1437,7 +1523,6 @@
         public System.Windows.Forms.Panel Panel_Settings;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ListBox InstalledServerList;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
@@ -1459,16 +1544,27 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox UsernameField_Textbox;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox PasswordField_Textbox;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton Anon_Radio;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ToolTip toolTip1;
+        public System.Windows.Forms.ListBox InstalledServerList;
+        private System.Windows.Forms.Button ManualLocateSteamCMD_Button;
+        private System.Windows.Forms.TextBox SteamCMD_InstallLocation_Textbox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox SteamCMD_SettingsInstallLocation_Textbox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label FoundInstallationLogo2;
+        private System.Windows.Forms.PictureBox InstallFound_Label2;
     }
 }
 
