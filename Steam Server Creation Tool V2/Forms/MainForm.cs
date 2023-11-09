@@ -72,10 +72,21 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_InstallLocation_Textbox.Text = settings.steamCMD_installLocation;
             SteamCMD_SettingsInstallLocation_Textbox.Text = settings.steamCMD_installLocation;
 
-            if (settings.useAnonymousAuth) Anon_Radio.Checked = true;
-            else Anon_Radio.Checked = false;
+            Validate_Checkbox.Checked = settings.validate;
+            AutoClose_Checkbox.Checked = settings.autoClose;
 
-            if(settings.userData != null)
+            if (settings.useAnonymousAuth)
+            {
+                Anon_Radio.Checked = true;
+                UserAuth_Radio.Checked = false;
+            }
+            else
+            {
+                Anon_Radio.Checked = false;
+                UserAuth_Radio.Checked = true;
+            }
+
+            if (settings.userData != null)
             {
                 UsernameField_Textbox.Text = settings.userData.Username;
                 PasswordField_Textbox.Text = settings.userData.Password;
@@ -382,6 +393,30 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 s.ShowDialog();
             }
+        }
+
+        private void TogglePassword_Button_Click(object sender, EventArgs e)
+        {
+            if (PasswordField_Textbox.PasswordChar == '*') PasswordField_Textbox.PasswordChar = '\0';
+            else PasswordField_Textbox.PasswordChar = '*';
+        }
+
+        private void SaveSettings_Button_Click(object sender, EventArgs e)
+        {
+            if(UsernameField_Textbox.Text != "" && PasswordField_Textbox.Text != "") {
+                settings.userData = new UserData();
+                settings.userData.SetUsername(UsernameField_Textbox.Text);
+                settings.userData.SetPassword(PasswordField_Textbox.Text);
+            }
+
+            settings.useAnonymousAuth = Anon_Radio.Checked;
+
+            settings.validate = Validate_Checkbox.Checked;
+            settings.autoClose = AutoClose_Checkbox.Checked;
+
+            settings.steamCMD_installLocation = SteamCMD_SettingsInstallLocation_Textbox.Text;
+
+            Core.SaveSettings(settings);
         }
     }
 }

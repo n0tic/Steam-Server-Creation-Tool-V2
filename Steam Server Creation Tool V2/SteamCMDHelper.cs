@@ -29,7 +29,7 @@ namespace Steam_Server_Creation_Tool_V2
             if (string.IsNullOrEmpty(login)) if (MessageBox.Show("Login information has failed validation.\n\rContinue with anonymous download?", "Login Information Error!", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.No) return;
 
             string quit = "";
-            if (form.settings.autoQuit) quit = "+quit";
+            if (form.settings.autoClose) quit = "+quit";
             else quit = "";
 
             // Start a new thread with the installation as async using user input

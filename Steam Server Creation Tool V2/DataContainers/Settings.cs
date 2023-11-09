@@ -14,7 +14,7 @@ namespace Steam_Server_Creation_Tool_V2
         public bool useAnonymousAuth = true; // Use anonymous user.
 
         // Steam parameters
-        public bool autoQuit = true;
+        public bool autoClose = true;
         public bool validate = true;
 
         // SteamCMD install directory

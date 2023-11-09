@@ -107,16 +107,16 @@
             this.SteamCMD_SettingsInstallLocation_Textbox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.SaveSettings_Button = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.AutoClose_Checkbox = new System.Windows.Forms.CheckBox();
+            this.Validate_Checkbox = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.UserAuth_Radio = new System.Windows.Forms.RadioButton();
             this.Anon_Radio = new System.Windows.Forms.RadioButton();
             this.label21 = new System.Windows.Forms.Label();
             this.UsernameField_Textbox = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.TogglePassword_Button = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.PasswordField_Textbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -1155,7 +1155,7 @@
             this.Panel_Settings.Controls.Add(this.SteamCMD_SettingsInstallLocation_Textbox);
             this.Panel_Settings.Controls.Add(this.label23);
             this.Panel_Settings.Controls.Add(this.panel4);
-            this.Panel_Settings.Controls.Add(this.button7);
+            this.Panel_Settings.Controls.Add(this.SaveSettings_Button);
             this.Panel_Settings.Controls.Add(this.groupBox6);
             this.Panel_Settings.Controls.Add(this.groupBox5);
             this.Panel_Settings.Controls.Add(this.label9);
@@ -1238,28 +1238,29 @@
             this.panel4.Size = new System.Drawing.Size(618, 2);
             this.panel4.TabIndex = 33;
             // 
-            // button7
+            // SaveSettings_Button
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(515, 321);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(115, 32);
-            this.button7.TabIndex = 30;
-            this.button7.Text = "Save Settings";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
+            this.SaveSettings_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.SaveSettings_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveSettings_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SaveSettings_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveSettings_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveSettings_Button.ForeColor = System.Drawing.Color.White;
+            this.SaveSettings_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
+            this.SaveSettings_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveSettings_Button.Location = new System.Drawing.Point(515, 321);
+            this.SaveSettings_Button.Name = "SaveSettings_Button";
+            this.SaveSettings_Button.Size = new System.Drawing.Size(115, 32);
+            this.SaveSettings_Button.TabIndex = 30;
+            this.SaveSettings_Button.Text = "Save Settings";
+            this.SaveSettings_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveSettings_Button.UseVisualStyleBackColor = false;
+            this.SaveSettings_Button.Click += new System.EventHandler(this.SaveSettings_Button_Click);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.checkBox2);
-            this.groupBox6.Controls.Add(this.checkBox1);
+            this.groupBox6.Controls.Add(this.AutoClose_Checkbox);
+            this.groupBox6.Controls.Add(this.Validate_Checkbox);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox6.Location = new System.Drawing.Point(9, 176);
@@ -1269,35 +1270,35 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SteamCMD Settings";
             // 
-            // checkBox2
+            // AutoClose_Checkbox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 40);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(202, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "Automatically Close SteamCMD";
-            this.toolTip1.SetToolTip(this.checkBox2, "Automatically close SteamCMD window after finished work");
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.AutoClose_Checkbox.AutoSize = true;
+            this.AutoClose_Checkbox.Location = new System.Drawing.Point(6, 40);
+            this.AutoClose_Checkbox.Name = "AutoClose_Checkbox";
+            this.AutoClose_Checkbox.Size = new System.Drawing.Size(202, 17);
+            this.AutoClose_Checkbox.TabIndex = 31;
+            this.AutoClose_Checkbox.Text = "Automatically Close SteamCMD";
+            this.toolTip1.SetToolTip(this.AutoClose_Checkbox, "Automatically close SteamCMD window after finished work");
+            this.AutoClose_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // Validate_Checkbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(144, 17);
-            this.checkBox1.TabIndex = 30;
-            this.checkBox1.Text = "Validate Installations";
-            this.toolTip1.SetToolTip(this.checkBox1, "Automatic validation of file integrity of server files after installation");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Validate_Checkbox.AutoSize = true;
+            this.Validate_Checkbox.Location = new System.Drawing.Point(6, 19);
+            this.Validate_Checkbox.Name = "Validate_Checkbox";
+            this.Validate_Checkbox.Size = new System.Drawing.Size(144, 17);
+            this.Validate_Checkbox.TabIndex = 30;
+            this.Validate_Checkbox.Text = "Validate Installations";
+            this.toolTip1.SetToolTip(this.Validate_Checkbox, "Automatic validation of file integrity of server files after installation");
+            this.Validate_Checkbox.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton2);
+            this.groupBox5.Controls.Add(this.UserAuth_Radio);
             this.groupBox5.Controls.Add(this.Anon_Radio);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.UsernameField_Textbox);
-            this.groupBox5.Controls.Add(this.button8);
+            this.groupBox5.Controls.Add(this.TogglePassword_Button);
             this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Controls.Add(this.PasswordField_Textbox);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1309,17 +1310,17 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Authentication Settings";
             // 
-            // radioButton2
+            // UserAuth_Radio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(212, 103);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(160, 17);
-            this.radioButton2.TabIndex = 29;
-            this.radioButton2.Text = "Use user authentication";
-            this.toolTip1.SetToolTip(this.radioButton2, "This will use user authentication when downloading files. Some servers may need t" +
+            this.UserAuth_Radio.AutoSize = true;
+            this.UserAuth_Radio.Location = new System.Drawing.Point(212, 103);
+            this.UserAuth_Radio.Name = "UserAuth_Radio";
+            this.UserAuth_Radio.Size = new System.Drawing.Size(160, 17);
+            this.UserAuth_Radio.TabIndex = 29;
+            this.UserAuth_Radio.Text = "Use user authentication";
+            this.toolTip1.SetToolTip(this.UserAuth_Radio, "This will use user authentication when downloading files. Some servers may need t" +
         "his.");
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.UserAuth_Radio.UseVisualStyleBackColor = true;
             // 
             // Anon_Radio
             // 
@@ -1357,24 +1358,25 @@
             this.UsernameField_Textbox.Size = new System.Drawing.Size(606, 20);
             this.UsernameField_Textbox.TabIndex = 26;
             // 
-            // button8
+            // TogglePassword_Button
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_feather;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(488, 74);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(124, 24);
-            this.button8.TabIndex = 25;
-            this.button8.Text = "Show Password";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button8, "WARNING! This will set the password as visible in the field. Toggle function.");
-            this.button8.UseVisualStyleBackColor = false;
+            this.TogglePassword_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.TogglePassword_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TogglePassword_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TogglePassword_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TogglePassword_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TogglePassword_Button.ForeColor = System.Drawing.Color.White;
+            this.TogglePassword_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_feather;
+            this.TogglePassword_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TogglePassword_Button.Location = new System.Drawing.Point(488, 74);
+            this.TogglePassword_Button.Name = "TogglePassword_Button";
+            this.TogglePassword_Button.Size = new System.Drawing.Size(124, 24);
+            this.TogglePassword_Button.TabIndex = 25;
+            this.TogglePassword_Button.Text = "Show Password";
+            this.TogglePassword_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.TogglePassword_Button, "WARNING! This will set the password as visible in the field. Toggle function.");
+            this.TogglePassword_Button.UseVisualStyleBackColor = false;
+            this.TogglePassword_Button.Click += new System.EventHandler(this.TogglePassword_Button_Click);
             // 
             // label22
             // 
@@ -1545,14 +1547,14 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox UsernameField_Textbox;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button TogglePassword_Button;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox PasswordField_Textbox;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton UserAuth_Radio;
         private System.Windows.Forms.RadioButton Anon_Radio;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button SaveSettings_Button;
+        private System.Windows.Forms.CheckBox AutoClose_Checkbox;
+        private System.Windows.Forms.CheckBox Validate_Checkbox;
         private System.Windows.Forms.ToolTip toolTip1;
         public System.Windows.Forms.ListBox InstalledServerList;
         private System.Windows.Forms.Button ManualLocateSteamCMD_Button;
