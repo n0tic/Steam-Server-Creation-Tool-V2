@@ -54,6 +54,12 @@
     <Compile Include="Core\Core.cs" />
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
+    <Compile Include="Forms\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\SteamAPI\FileDownloader.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -67,8 +73,12 @@
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
     <Compile Include="DataContainers\Settings.cs" />
+    <Compile Include="SteamCMDHelper.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

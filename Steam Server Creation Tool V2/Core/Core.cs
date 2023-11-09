@@ -25,7 +25,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static string steamCMDURL = "https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD";
         public static string steamCMDURL_Download = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
-        public static string serversURL = "https://api.steampowered.com/ISteamApps/GetAppList/v2?utc=" + Core.GetUTCTime();
+        public static string serversURL = "https://api.steampowered.com/ISteamApps/GetAppList/v2?utc=";
 
         #region Version
 
@@ -182,6 +182,11 @@ namespace Steam_Server_Creation_Tool_V2
                 }
             }
             return folderPath;
+        }
+
+        public static void SaveToFile(string fullPath, string data)
+        {
+            using (StreamWriter writer = new StreamWriter(fullPath)) writer.Write(data);
         }
 
         public static void SaveSettings(Settings data)

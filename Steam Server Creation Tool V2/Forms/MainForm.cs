@@ -265,7 +265,11 @@ namespace Steam_Server_Creation_Tool_V2
         {
             App app = GetSelectedApp();
 
-            if (app == null || NewInstall_Dropbox.SelectedIndex == -1) return;
+            if (app == null || NewInstall_Dropbox.SelectedIndex == -1) 
+            {
+                InstallServer_Button.Enabled = false;
+                return;
+            }
 
             if (app != null)
             {
@@ -283,12 +287,14 @@ namespace Steam_Server_Creation_Tool_V2
                 Installs_Label.Text = $"Installs found: {numberOfInstalls}";
 
                 NewServerName_Textbox.Text = app.Name;
+                InstallServer_Button.Enabled = true;
             }
             else
             {
                 NewServerAppName_Label.Text = "";
                 NewServerAppId_Label.Text = "";
                 NewServerName_Textbox.Text = "";
+                InstallServer_Button.Enabled = false;
             }
         }
 
@@ -309,5 +315,47 @@ namespace Steam_Server_Creation_Tool_V2
         private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers);
 
         private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings);
+
+        private void InstallServer_Button_Click(object sender, EventArgs e)
+        {
+            App app = GetSelectedApp();
+
+            if (string.IsNullOrEmpty(NewServerName_Textbox.Text) || string.IsNullOrEmpty(NewServerInstallLocation_Textbox.Text) || app == null)
+            {
+                MessageBox.Show($"Required fields are not filled in:{Environment.NewLine}Server Name{Environment.NewLine}Server Install Location{Environment.NewLine}Selected Server{Environment.NewLine}{Environment.NewLine}Please fill in all fields and select a valid server from the list.", "Required field missing information!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool unique = true;
+            foreach (var installed in settings.installedServer)
+            {
+                if (installed.name == NewServerName_Textbox.Text)
+                {
+                    unique = false;
+                    break;
+                }
+            }
+
+            if(!unique)
+            {
+                MessageBox.Show($"The name you have set for the installation is not unique. This is not allowed.", "Not a unique name!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Core.IsFolderEmpty(NewServerInstallLocation_Textbox.Text))
+            {
+                if(MessageBox.Show($"The installation directory is not empty.{Environment.NewLine}This will overwrite files and may potentially destroy a server or important files.{Environment.NewLine}{Environment.NewLine}Do you want to proceed?", "Selected folder not empty!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
+        }
+
+        private void NewServerInstallLocation_Button_Click(object sender, EventArgs e)
+        {
+            NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
+        }
     }
 }

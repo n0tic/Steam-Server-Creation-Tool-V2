@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Steam_Server_Creation_Tool_V2;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -18,7 +19,7 @@ public class SteamAppListClient
     {
         try
         {
-            const string requestUri = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
+            string requestUri = Core.serversURL + Core.GetUTCTime();      
             var responseString = await _httpClient.GetStringAsync(requestUri);
             var appListResponse = JsonConvert.DeserializeObject<SteamAppListResponse>(responseString);
 

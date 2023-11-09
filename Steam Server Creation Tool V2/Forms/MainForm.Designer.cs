@@ -61,7 +61,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.NewServerName_Textbox = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.NewServerInstallLocation_Button = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.NewServerInstallLocation_Textbox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -515,7 +515,7 @@
             // 
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.NewServerName_Textbox);
-            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.NewServerInstallLocation_Button);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.NewServerInstallLocation_Textbox);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -553,23 +553,24 @@
             this.toolTip1.SetToolTip(this.NewServerName_Textbox, "Give the server a unique name so you can quickly identify it in the installed ser" +
         "ver list");
             // 
-            // button9
+            // NewServerInstallLocation_Button
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(479, 79);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(130, 24);
-            this.button9.TabIndex = 25;
-            this.button9.Text = "Server Location";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.UseVisualStyleBackColor = false;
+            this.NewServerInstallLocation_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.NewServerInstallLocation_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NewServerInstallLocation_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.NewServerInstallLocation_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NewServerInstallLocation_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewServerInstallLocation_Button.ForeColor = System.Drawing.Color.White;
+            this.NewServerInstallLocation_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.NewServerInstallLocation_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewServerInstallLocation_Button.Location = new System.Drawing.Point(479, 79);
+            this.NewServerInstallLocation_Button.Name = "NewServerInstallLocation_Button";
+            this.NewServerInstallLocation_Button.Size = new System.Drawing.Size(130, 24);
+            this.NewServerInstallLocation_Button.TabIndex = 25;
+            this.NewServerInstallLocation_Button.Text = "Server Location";
+            this.NewServerInstallLocation_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NewServerInstallLocation_Button.UseVisualStyleBackColor = false;
+            this.NewServerInstallLocation_Button.Click += new System.EventHandler(this.NewServerInstallLocation_Button_Click);
             // 
             // label14
             // 
@@ -772,6 +773,7 @@
             this.InstallServer_Button.Text = "Install Server";
             this.InstallServer_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.InstallServer_Button.UseVisualStyleBackColor = false;
+            this.InstallServer_Button.Click += new System.EventHandler(this.InstallServer_Button_Click);
             // 
             // Install_New_Server_Label
             // 
@@ -1339,10 +1341,10 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
+            this.Controls.Add(this.Panel_NewServer);
             this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
-            this.Controls.Add(this.Panel_NewServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -1420,7 +1422,7 @@
         private System.Windows.Forms.Button GSLT_Button;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox NewServerName_Textbox;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button NewServerInstallLocation_Button;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Panel Panel_NewServer;
         public System.Windows.Forms.Panel Panel_SteamCMD;
