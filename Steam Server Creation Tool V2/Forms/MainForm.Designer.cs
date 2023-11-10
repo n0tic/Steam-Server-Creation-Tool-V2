@@ -122,6 +122,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button7 = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
@@ -330,6 +331,7 @@
             // Panel_SteamCMD
             // 
             this.Panel_SteamCMD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_SteamCMD.Controls.Add(this.button7);
             this.Panel_SteamCMD.Controls.Add(this.ManualLocateSteamCMD_Button);
             this.Panel_SteamCMD.Controls.Add(this.SteamCMD_InstallLocation_Textbox);
             this.Panel_SteamCMD.Controls.Add(this.label3);
@@ -1423,6 +1425,27 @@
             this.panel7.Size = new System.Drawing.Size(618, 2);
             this.panel7.TabIndex = 13;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_double_chevron;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(272, 46);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(135, 29);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Install SteamCMD";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button7, "This will automatically download SteamCMD, unpack & set reference in the applicat" +
+        "ion. It will also remove necessary files from the download.");
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1430,10 +1453,10 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
+            this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
-            this.Controls.Add(this.Panel_SteamCMD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1567,6 +1590,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label FoundInstallationLogo2;
         private System.Windows.Forms.PictureBox InstallFound_Label2;
+        private System.Windows.Forms.Button button7;
     }
 }
 

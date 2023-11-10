@@ -1,9 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Steam_Server_Creation_Tool_V2
+namespace AutoUpdater
 {
     public class FileDownloader
     {
@@ -93,6 +94,7 @@ namespace Steam_Server_Creation_Tool_V2
                 }
             });
         }
+
     }
 
 

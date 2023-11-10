@@ -418,5 +418,10 @@ namespace Steam_Server_Creation_Tool_V2
 
             Core.SaveSettings(settings);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(settings.userData.Username);
+        }
     }
 }

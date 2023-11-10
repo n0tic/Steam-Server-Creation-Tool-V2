@@ -21,8 +21,8 @@ namespace Steam_Server_Creation_Tool_V2
         public static string authorName = "N0tiC";
         public static string authorContact = "contact@bytevaultstudio.se";
 
-        public static string projectURL = "https://github.com/n0tic/SteamServerCreationTool";
-        public static string reposURL = "https://api.github.com/repos/n0tic/SteamServerCreationTool/releases";
+        public static string projectURL = "https://github.com/n0tic/Steam-Server-Creation-Tool-V2";
+        public static string reposURL = "https://api.github.com/repos/n0tic/Steam-Server-Creation-Tool-V2/releases";
 
         public static string steamCMDURL = "https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD";
         public static string steamCMDURL_Download = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
@@ -82,38 +82,32 @@ namespace Steam_Server_Creation_Tool_V2
                     int latestMinorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[1]);
                     int latestBuildVersion = Int32.Parse(releasesData[0].TagName.Split('.')[2]);
 
-                    bool requiresUpdate = false;
-
-                    // Verify if an update is available based on version numbers
-                    if (latestMajorVersion > majorVersion)
-                        requiresUpdate = true;
-                    else if (!requiresUpdate && latestMinorVersion > minorVersion)
-                        requiresUpdate = true;
-                    else if (!requiresUpdate && latestMinorVersion >= minorVersion && latestBuildVersion > buildVersion)
-                        requiresUpdate = true;
+                    bool requiresUpdate = (latestMajorVersion > majorVersion) || (latestMinorVersion > minorVersion) || (latestMinorVersion >= minorVersion && latestBuildVersion > buildVersion);
 
                     if (!requiresUpdate)
                     {
-                        if (message)
-                        {
-                            MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        if (message) MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         checkingUpdate = false;
                         return;
                     }
-                    else
-                    {
-                        DialogResult userResponse = MessageBox.Show("An update is available. Would you like to visit the download page?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                        if (userResponse == DialogResult.Yes)
+                    if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        // Start the process and exit the application
+                        Process.Start(new ProcessStartInfo
                         {
-                            Process.Start(projectURL + "/releases");
-                        }
+                            FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Steam Server Creation Tool V2.exe"),
+                            Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
+                            UseShellExecute = false,
+                            CreateNoWindow = true
+                        });
+
+                        // Exit the application
+                        Environment.Exit(0);
                     }
                 }
             }
-
 
             checkingUpdate = false;
         }
