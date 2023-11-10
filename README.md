@@ -2,7 +2,7 @@
 
 <p align="center">
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/n0tic/Steam-Server-Creation-Tool-V2?color=seagreen&include_prereleases">
-  <img src="https://img.shields.io/badge/status-Beta-blue" />
+  <img src="https://img.shields.io/badge/status-Alpha-blue" />
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
   <img alt="Visitor Count" src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2">
