@@ -22,9 +22,12 @@ namespace Steam_Server_Creation_Tool_V2
             UIHandler.Setup(this);
             ClearDefaultNSetup();
 
-#pragma warning disable CS4014 // Not awaited warning disabled
+            #pragma warning disable CS4014 // Not awaited warning disabled
             InitializeAsyncStart();
-#pragma warning restore CS4014
+            #pragma warning restore CS4014
+
+            Core.CheckForUpdates();
+
         }
 
         private void ClearDefaultNSetup()
@@ -61,7 +64,9 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button_Click(null, null);
 
             // Start downloading Steam API data
-            await RefreshAPIData();
+            //await RefreshAPIData();
+
+            
 
             // Disable progressbar
             App_ProgressBar.Visible = false;

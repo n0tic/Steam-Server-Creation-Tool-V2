@@ -33,9 +33,9 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 1;
+        public static int buildVersion = 0;
 
-        private static bool checkingUpdate;
+        private static bool checkingUpdate = false;
 
         public enum BuildTypes
         {
@@ -71,13 +71,14 @@ namespace Steam_Server_Creation_Tool_V2
 
         private static void Wc_DownloadStringCompleted(DownloadStringCompletedEventArgs e, bool message)
         {
-
             if (!e.Cancelled && e.Error == null)
             {
                 var releasesData = GithubReleasesData.FromJson(e.Result);
 
                 if (releasesData != null)
                 {
+                    MessageBox.Show(releasesData.ToString());
+
                     int latestMajorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[0]);
                     int latestMinorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[1]);
                     int latestBuildVersion = Int32.Parse(releasesData[0].TagName.Split('.')[2]);
