@@ -83,6 +83,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _016_folder_24 {
+            get {
+                object obj = ResourceManager.GetObject("016-folder-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _021_browser {
             get {
                 object obj = ResourceManager.GetObject("021-browser", resourceCulture);
@@ -206,6 +216,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         internal static System.Drawing.Bitmap minimize {
             get {
                 object obj = ResourceManager.GetObject("minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_1 {
+            get {
+                object obj = ResourceManager.GetObject("refresh-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

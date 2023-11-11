@@ -81,7 +81,7 @@
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
     <Compile Include="DataContainers\Settings.cs" />
-    <Compile Include="SteamCMDHelper.cs" />
+    <Compile Include="Handlers\SteamAPI\SteamCMDHelper.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +98,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Build.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -159,6 +162,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoSSCT.ico" />
+    <None Include="Resources\016-folder-24.png" />
+    <None Include="Resources\refresh-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

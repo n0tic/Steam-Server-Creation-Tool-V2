@@ -6,6 +6,7 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
@@ -33,9 +34,10 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 0;
+        public static int buildVersion = 1;
 
         private static bool checkingUpdate = false;
+        public static bool updateAvailable = false;
 
         public enum BuildTypes
         {
@@ -50,7 +52,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         #region Network
 
-        public static void CheckForUpdates(bool message = false)
+        public static async Task CheckForUpdatesAsync(bool message = false)
         {
             if (checkingUpdate) return;
 
@@ -62,56 +64,54 @@ namespace Steam_Server_Creation_Tool_V2
                 {
                     wc.Headers.Add("User-Agent", "request");
 
-                    wc.DownloadStringCompleted += (sender, e) => Wc_DownloadStringCompleted(e, message);
-                    wc.DownloadStringAsync(new Uri(reposURL));
+                    string result = await wc.DownloadStringTaskAsync(new Uri(reposURL));
+
+                    var releasesData = GithubReleasesData.FromJson(result);
+
+                    if (releasesData != null)
+                    {
+                        int latestMajorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[0]);
+                        int latestMinorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[1]);
+                        int latestBuildVersion = Int32.Parse(releasesData[0].TagName.Split('.')[2]);
+
+                        bool requiresUpdate = (latestMajorVersion > majorVersion) ||
+                                              (latestMinorVersion > minorVersion) ||
+                                              (latestMinorVersion >= minorVersion && latestBuildVersion > buildVersion);
+
+                        if (!requiresUpdate)
+                        {
+                            if (message) MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            checkingUpdate = false;
+                            return;
+                        }
+
+                        updateAvailable = true;
+
+                        if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            // Start the process and exit the application
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Steam Server Creation Tool V2.exe"),
+                                Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
+                                UseShellExecute = false,
+                                CreateNoWindow = true
+                            });
+
+                            // Exit the application
+                            Environment.Exit(0);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Something went wrong. Private repository or no release found.");
+                    }
                 }
             }
             catch { checkingUpdate = false; }
+            finally { checkingUpdate = false; }
         }
 
-        private static void Wc_DownloadStringCompleted(DownloadStringCompletedEventArgs e, bool message)
-        {
-            if (!e.Cancelled && e.Error == null)
-            {
-                var releasesData = GithubReleasesData.FromJson(e.Result);
-
-                if (releasesData != null)
-                {
-                    MessageBox.Show(releasesData.ToString());
-
-                    int latestMajorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[0]);
-                    int latestMinorVersion = Int32.Parse(releasesData[0].TagName.Split('.')[1]);
-                    int latestBuildVersion = Int32.Parse(releasesData[0].TagName.Split('.')[2]);
-
-                    bool requiresUpdate = (latestMajorVersion > majorVersion) || (latestMinorVersion > minorVersion) || (latestMinorVersion >= minorVersion && latestBuildVersion > buildVersion);
-
-                    if (!requiresUpdate)
-                    {
-                        if (message) MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        checkingUpdate = false;
-                        return;
-                    }
-
-                    if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        // Start the process and exit the application
-                        Process.Start(new ProcessStartInfo
-                        {
-                            FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Steam Server Creation Tool V2.exe"),
-                            Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
-                            UseShellExecute = false,
-                            CreateNoWindow = true
-                        });
-
-                        // Exit the application
-                        Environment.Exit(0);
-                    }
-                }
-            }
-
-            checkingUpdate = false;
-        }
 
         public static bool CheckNetwork()
         {
@@ -194,39 +194,24 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static void SaveSettings(Settings data)
         {
-            string json_data = "";
             try
             {
-                json_data = JsonConvert.SerializeObject(data);
-            }
-            catch { MessageBox.Show("The settings and data could not be saved!", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-
-            if (!String.IsNullOrEmpty(json_data))
-            {
-                try
+                using (FileStream dataStream = new FileStream("data", FileMode.Create))
                 {
-                    File.WriteAllText("data.json", json_data);
+                    BinaryFormatter converter = new BinaryFormatter();
+                    converter.Serialize(dataStream, data);
                 }
-                catch { MessageBox.Show("Could not save settings and data!", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
-            else MessageBox.Show("Settings data seems empty. This should not be visible...", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                // Log or provide detailed information for debugging
+                MessageBox.Show($"Error saving settings and data: {ex.Message}", "Error Saving Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public static Settings LoadSettings()
         {
-            string stringData = null;
-
-            if (System.IO.File.Exists("data.json"))
-            {
-                try
-                {
-                    stringData = File.ReadAllText("data.json");
-                    return JsonConvert.DeserializeObject<Settings>(stringData);
-                }
-                catch (Exception e) { MessageBox.Show(e.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
-            }
-            else if (System.IO.File.Exists("data"))
+            if (File.Exists("data"))
             {
                 using (FileStream dataStream = new FileStream("data", FileMode.Open))
                 {
@@ -236,17 +221,23 @@ namespace Steam_Server_Creation_Tool_V2
                         Settings data = converter.Deserialize(dataStream) as Settings;
                         return data;
                     }
-                    catch (ArgumentNullException x) { MessageBox.Show(x.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
-                    catch (SerializationException x) { MessageBox.Show("Saved data is corrupt and could not be loaded.\n\rSave file will automatically be overwritten on next save. \n\r\n\r" + x.Message, "Load Data Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
-                    catch (SecurityException x) { MessageBox.Show(x.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error); return null; }
+                    catch (Exception ex)
+                    {
+                        // Log or provide detailed information for debugging
+                        MessageBox.Show($"Error reading binary data: {ex.Message}", "Error Reading Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
                 }
             }
-            else return null;
+            else
+            {
+                return null;
+            }
         }
 
         public static bool IsFolderEmpty(string path)
         {
-            if (Directory.GetFiles(path).Length > 0) return true;
+            if (Directory.GetFiles(path).Length < 1) return true;
             else return false;
         }
 

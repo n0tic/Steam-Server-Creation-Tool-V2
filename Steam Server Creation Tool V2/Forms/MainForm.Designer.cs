@@ -79,28 +79,40 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.NewInstall_Dropbox = new System.Windows.Forms.ComboBox();
             this.Panel_ManageServers = new System.Windows.Forms.Panel();
+            this.ManageDirectory_Button = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.ManageInstallDate_Label = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.ManageAppId_Label = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.ManageAppName_Label = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ManageName_Button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ManageServerName_Textbox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ManageInstallDirectory_Textbox = new System.Windows.Forms.TextBox();
+            this.ManageGuide_Button = new System.Windows.Forms.Button();
+            this.ManageDelete_Button = new System.Windows.Forms.Button();
+            this.ManageUpdate_Button = new System.Windows.Forms.Button();
+            this.ManageGenerateScript_Button = new System.Windows.Forms.Button();
             this.InstalledServerList = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Panel_Settings = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Version_Label = new System.Windows.Forms.Label();
+            this.NewVersion_Panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NewVersion_Label = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.CheckUpdates_Button = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.FoundInstallationLogo2 = new System.Windows.Forms.Label();
             this.InstallFound_Label2 = new System.Windows.Forms.PictureBox();
             this.button9 = new System.Windows.Forms.Button();
@@ -109,6 +121,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.SaveSettings_Button = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.CheckForUpdates_Checkbox = new System.Windows.Forms.CheckBox();
             this.AutoClose_Checkbox = new System.Windows.Forms.CheckBox();
             this.Validate_Checkbox = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -122,7 +136,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button7 = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
@@ -137,6 +150,12 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Panel_Settings.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.NewVersion_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstallFound_Label2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -331,7 +350,6 @@
             // Panel_SteamCMD
             // 
             this.Panel_SteamCMD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.Panel_SteamCMD.Controls.Add(this.button7);
             this.Panel_SteamCMD.Controls.Add(this.ManualLocateSteamCMD_Button);
             this.Panel_SteamCMD.Controls.Add(this.SteamCMD_InstallLocation_Textbox);
             this.Panel_SteamCMD.Controls.Add(this.label3);
@@ -357,7 +375,7 @@
             this.ManualLocateSteamCMD_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ManualLocateSteamCMD_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManualLocateSteamCMD_Button.ForeColor = System.Drawing.Color.White;
-            this.ManualLocateSteamCMD_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.ManualLocateSteamCMD_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
             this.ManualLocateSteamCMD_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ManualLocateSteamCMD_Button.Location = new System.Drawing.Point(476, 188);
             this.ManualLocateSteamCMD_Button.Name = "ManualLocateSteamCMD_Button";
@@ -570,7 +588,7 @@
             this.NewServerInstallLocation_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NewServerInstallLocation_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewServerInstallLocation_Button.ForeColor = System.Drawing.Color.White;
-            this.NewServerInstallLocation_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.NewServerInstallLocation_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
             this.NewServerInstallLocation_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NewServerInstallLocation_Button.Location = new System.Drawing.Point(479, 79);
             this.NewServerInstallLocation_Button.Name = "NewServerInstallLocation_Button";
@@ -682,9 +700,9 @@
             this.NewServerAppId_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NewServerAppId_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewServerAppId_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.NewServerAppId_Label.Location = new System.Drawing.Point(64, 42);
+            this.NewServerAppId_Label.Location = new System.Drawing.Point(62, 42);
             this.NewServerAppId_Label.Name = "NewServerAppId_Label";
-            this.NewServerAppId_Label.Size = new System.Drawing.Size(545, 16);
+            this.NewServerAppId_Label.Size = new System.Drawing.Size(547, 16);
             this.NewServerAppId_Label.TabIndex = 23;
             this.NewServerAppId_Label.Text = "Placeholder";
             this.NewServerAppId_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -708,9 +726,9 @@
             this.NewServerAppName_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NewServerAppName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewServerAppName_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.NewServerAppName_Label.Location = new System.Drawing.Point(93, 20);
+            this.NewServerAppName_Label.Location = new System.Drawing.Point(88, 20);
             this.NewServerAppName_Label.Name = "NewServerAppName_Label";
-            this.NewServerAppName_Label.Size = new System.Drawing.Size(516, 16);
+            this.NewServerAppName_Label.Size = new System.Drawing.Size(521, 16);
             this.NewServerAppName_Label.TabIndex = 21;
             this.NewServerAppName_Label.Text = "Placeholder";
             this.NewServerAppName_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -825,12 +843,13 @@
             // Panel_ManageServers
             // 
             this.Panel_ManageServers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_ManageServers.Controls.Add(this.ManageDirectory_Button);
             this.Panel_ManageServers.Controls.Add(this.groupBox4);
             this.Panel_ManageServers.Controls.Add(this.groupBox3);
-            this.Panel_ManageServers.Controls.Add(this.button4);
-            this.Panel_ManageServers.Controls.Add(this.button3);
-            this.Panel_ManageServers.Controls.Add(this.button2);
-            this.Panel_ManageServers.Controls.Add(this.button1);
+            this.Panel_ManageServers.Controls.Add(this.ManageGuide_Button);
+            this.Panel_ManageServers.Controls.Add(this.ManageDelete_Button);
+            this.Panel_ManageServers.Controls.Add(this.ManageUpdate_Button);
+            this.Panel_ManageServers.Controls.Add(this.ManageGenerateScript_Button);
             this.Panel_ManageServers.Controls.Add(this.InstalledServerList);
             this.Panel_ManageServers.Controls.Add(this.label18);
             this.Panel_ManageServers.Controls.Add(this.panel6);
@@ -839,13 +858,32 @@
             this.Panel_ManageServers.Size = new System.Drawing.Size(642, 494);
             this.Panel_ManageServers.TabIndex = 26;
             // 
+            // ManageDirectory_Button
+            // 
+            this.ManageDirectory_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageDirectory_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageDirectory_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageDirectory_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageDirectory_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageDirectory_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageDirectory_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
+            this.ManageDirectory_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageDirectory_Button.Location = new System.Drawing.Point(416, 39);
+            this.ManageDirectory_Button.Name = "ManageDirectory_Button";
+            this.ManageDirectory_Button.Size = new System.Drawing.Size(107, 29);
+            this.ManageDirectory_Button.TabIndex = 28;
+            this.ManageDirectory_Button.Text = "Open Folder";
+            this.ManageDirectory_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageDirectory_Button, "This will open the directory of the server in explorer");
+            this.ManageDirectory_Button.UseVisualStyleBackColor = false;
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.ManageInstallDate_Label);
             this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.ManageAppId_Label);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.ManageAppName_Label);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -856,18 +894,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Server Information";
             // 
-            // label13
+            // ManageInstallDate_Label
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(101, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(511, 16);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "Placeholder";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageInstallDate_Label.BackColor = System.Drawing.Color.Transparent;
+            this.ManageInstallDate_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ManageInstallDate_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageInstallDate_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ManageInstallDate_Label.Location = new System.Drawing.Point(101, 63);
+            this.ManageInstallDate_Label.Name = "ManageInstallDate_Label";
+            this.ManageInstallDate_Label.Size = new System.Drawing.Size(511, 16);
+            this.ManageInstallDate_Label.TabIndex = 25;
+            this.ManageInstallDate_Label.Text = "Placeholder";
+            this.ManageInstallDate_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label20
             // 
@@ -882,18 +920,18 @@
             this.label20.TabIndex = 24;
             this.label20.Text = "Install Date:";
             // 
-            // label15
+            // ManageAppId_Label
             // 
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label15.Location = new System.Drawing.Point(64, 42);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(548, 16);
-            this.label15.TabIndex = 23;
-            this.label15.Text = "Placeholder";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageAppId_Label.BackColor = System.Drawing.Color.Transparent;
+            this.ManageAppId_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ManageAppId_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAppId_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ManageAppId_Label.Location = new System.Drawing.Point(64, 42);
+            this.ManageAppId_Label.Name = "ManageAppId_Label";
+            this.ManageAppId_Label.Size = new System.Drawing.Size(548, 16);
+            this.ManageAppId_Label.TabIndex = 23;
+            this.ManageAppId_Label.Text = "Placeholder";
+            this.ManageAppId_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
             // 
@@ -908,18 +946,18 @@
             this.label16.TabIndex = 22;
             this.label16.Text = "App ID:";
             // 
-            // label17
+            // ManageAppName_Label
             // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label17.Location = new System.Drawing.Point(93, 20);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(519, 16);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Placeholder";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageAppName_Label.BackColor = System.Drawing.Color.Transparent;
+            this.ManageAppName_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ManageAppName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAppName_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ManageAppName_Label.Location = new System.Drawing.Point(93, 20);
+            this.ManageAppName_Label.Name = "ManageAppName_Label";
+            this.ManageAppName_Label.Size = new System.Drawing.Size(519, 16);
+            this.ManageAppName_Label.TabIndex = 21;
+            this.ManageAppName_Label.Text = "Placeholder";
+            this.ManageAppName_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label19
             // 
@@ -936,12 +974,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.ManageName_Button);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.ManageServerName_Textbox);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.ManageInstallDirectory_Textbox);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox3.Location = new System.Drawing.Point(9, 279);
@@ -951,23 +989,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Server Installation Settings";
             // 
-            // button6
+            // ManageName_Button
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(507, 33);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(102, 24);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Save Name";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
+            this.ManageName_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageName_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageName_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageName_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageName_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageName_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageName_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
+            this.ManageName_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageName_Button.Location = new System.Drawing.Point(507, 33);
+            this.ManageName_Button.Name = "ManageName_Button";
+            this.ManageName_Button.Size = new System.Drawing.Size(102, 24);
+            this.ManageName_Button.TabIndex = 28;
+            this.ManageName_Button.Text = "Save Name";
+            this.ManageName_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ManageName_Button.UseVisualStyleBackColor = false;
+            this.ManageName_Button.Click += new System.EventHandler(this.ManageName_Button_Click);
             // 
             // label10
             // 
@@ -982,16 +1021,16 @@
             this.label10.Text = "Install Location";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // ManageServerName_Textbox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(6, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(495, 20);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.Text = "Server Name";
+            this.ManageServerName_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageServerName_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageServerName_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ManageServerName_Textbox.Location = new System.Drawing.Point(6, 35);
+            this.ManageServerName_Textbox.Name = "ManageServerName_Textbox";
+            this.ManageServerName_Textbox.Size = new System.Drawing.Size(495, 20);
+            this.ManageServerName_Textbox.TabIndex = 26;
+            this.ManageServerName_Textbox.Text = "Server Name";
             // 
             // button5
             // 
@@ -1001,7 +1040,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.button5.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(432, 74);
             this.button5.Name = "button5";
@@ -1024,96 +1063,97 @@
             this.label12.Text = "Server Name";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox2
+            // ManageInstallDirectory_Textbox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.Location = new System.Drawing.Point(6, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(420, 20);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.Text = "Location...";
+            this.ManageInstallDirectory_Textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageInstallDirectory_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageInstallDirectory_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ManageInstallDirectory_Textbox.Location = new System.Drawing.Point(6, 77);
+            this.ManageInstallDirectory_Textbox.Name = "ManageInstallDirectory_Textbox";
+            this.ManageInstallDirectory_Textbox.Size = new System.Drawing.Size(420, 20);
+            this.ManageInstallDirectory_Textbox.TabIndex = 18;
+            this.ManageInstallDirectory_Textbox.Text = "Location...";
             // 
-            // button4
+            // ManageGuide_Button
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._092_warning;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(550, 40);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(77, 29);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Guides";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button4, "Find guides on google to setup server");
-            this.button4.UseVisualStyleBackColor = false;
+            this.ManageGuide_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageGuide_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageGuide_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageGuide_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageGuide_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageGuide_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageGuide_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._092_warning;
+            this.ManageGuide_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageGuide_Button.Location = new System.Drawing.Point(550, 40);
+            this.ManageGuide_Button.Name = "ManageGuide_Button";
+            this.ManageGuide_Button.Size = new System.Drawing.Size(77, 29);
+            this.ManageGuide_Button.TabIndex = 24;
+            this.ManageGuide_Button.Text = "Guides";
+            this.ManageGuide_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageGuide_Button, "Find guides on google to setup server");
+            this.ManageGuide_Button.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // ManageDelete_Button
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._076_remove;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(361, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(168, 29);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Delete Selected Server";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button3, "WARNING! Make sure to stop the server first. This will remove/delete the selected" +
+            this.ManageDelete_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageDelete_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageDelete_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageDelete_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageDelete_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageDelete_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageDelete_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._076_remove;
+            this.ManageDelete_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageDelete_Button.Location = new System.Drawing.Point(295, 39);
+            this.ManageDelete_Button.Name = "ManageDelete_Button";
+            this.ManageDelete_Button.Size = new System.Drawing.Size(115, 29);
+            this.ManageDelete_Button.TabIndex = 23;
+            this.ManageDelete_Button.Text = "Delete Server";
+            this.ManageDelete_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageDelete_Button, "WARNING! Make sure to stop the server first. This will remove/delete the selected" +
         " server.\r\n");
-            this.button3.UseVisualStyleBackColor = false;
+            this.ManageDelete_Button.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // ManageUpdate_Button
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._075_reload_EDIT;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(182, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 29);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Update Selected Server";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button2, "WARNING! Make sure to stop the server first. This will update the selected server" +
+            this.ManageUpdate_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageUpdate_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageUpdate_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageUpdate_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageUpdate_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageUpdate_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageUpdate_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._075_reload_EDIT;
+            this.ManageUpdate_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageUpdate_Button.Location = new System.Drawing.Point(170, 39);
+            this.ManageUpdate_Button.Name = "ManageUpdate_Button";
+            this.ManageUpdate_Button.Size = new System.Drawing.Size(119, 29);
+            this.ManageUpdate_Button.TabIndex = 22;
+            this.ManageUpdate_Button.Text = "Update Server";
+            this.ManageUpdate_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageUpdate_Button, "WARNING! Make sure to stop the server first. This will update the selected server" +
         ".");
-            this.button2.UseVisualStyleBackColor = false;
+            this.ManageUpdate_Button.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // ManageGenerateScript_Button
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._031_ellipsis;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(9, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 29);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Generate Auto-Script";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button1, "This will generate a script that you can edit to run the server from a cmd window" +
+            this.ManageGenerateScript_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageGenerateScript_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageGenerateScript_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageGenerateScript_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageGenerateScript_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageGenerateScript_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageGenerateScript_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._031_ellipsis;
+            this.ManageGenerateScript_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageGenerateScript_Button.Location = new System.Drawing.Point(9, 39);
+            this.ManageGenerateScript_Button.Name = "ManageGenerateScript_Button";
+            this.ManageGenerateScript_Button.Size = new System.Drawing.Size(155, 29);
+            this.ManageGenerateScript_Button.TabIndex = 21;
+            this.ManageGenerateScript_Button.Text = "Generate Auto-Script";
+            this.ManageGenerateScript_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageGenerateScript_Button, "This will generate a script that you can edit to run the server from a cmd window" +
         ". It has crash prevention and configured correctly, it may save system resources" +
         ".");
-            this.button1.UseVisualStyleBackColor = false;
+            this.ManageGenerateScript_Button.UseVisualStyleBackColor = false;
+            this.ManageGenerateScript_Button.Click += new System.EventHandler(this.ManageGenerateScript_Button_Click);
             // 
             // InstalledServerList
             // 
@@ -1126,6 +1166,7 @@
             this.InstalledServerList.ScrollAlwaysVisible = true;
             this.InstalledServerList.Size = new System.Drawing.Size(618, 199);
             this.InstalledServerList.TabIndex = 15;
+            this.InstalledServerList.SelectedIndexChanged += new System.EventHandler(this.InstalledServerList_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -1151,6 +1192,11 @@
             // Panel_Settings
             // 
             this.Panel_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_Settings.Controls.Add(this.panel11);
+            this.Panel_Settings.Controls.Add(this.NewVersion_Panel);
+            this.Panel_Settings.Controls.Add(this.CheckUpdates_Button);
+            this.Panel_Settings.Controls.Add(this.label24);
+            this.Panel_Settings.Controls.Add(this.panel8);
             this.Panel_Settings.Controls.Add(this.FoundInstallationLogo2);
             this.Panel_Settings.Controls.Add(this.InstallFound_Label2);
             this.Panel_Settings.Controls.Add(this.button9);
@@ -1166,6 +1212,139 @@
             this.Panel_Settings.Name = "Panel_Settings";
             this.Panel_Settings.Size = new System.Drawing.Size(642, 494);
             this.Panel_Settings.TabIndex = 27;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.panel11.Controls.Add(this.pictureBox3);
+            this.panel11.Controls.Add(this.pictureBox4);
+            this.panel11.Controls.Add(this.Version_Label);
+            this.panel11.Location = new System.Drawing.Point(12, 342);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(132, 20);
+            this.panel11.TabIndex = 41;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.minimize;
+            this.pictureBox3.Location = new System.Drawing.Point(597, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.close;
+            this.pictureBox4.Location = new System.Drawing.Point(621, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // Version_Label
+            // 
+            this.Version_Label.BackColor = System.Drawing.Color.Transparent;
+            this.Version_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Version_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Version_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Version_Label.Location = new System.Drawing.Point(2, 2);
+            this.Version_Label.Name = "Version_Label";
+            this.Version_Label.Size = new System.Drawing.Size(122, 16);
+            this.Version_Label.TabIndex = 30;
+            this.Version_Label.Text = "Username";
+            this.Version_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NewVersion_Panel
+            // 
+            this.NewVersion_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.NewVersion_Panel.Controls.Add(this.pictureBox1);
+            this.NewVersion_Panel.Controls.Add(this.NewVersion_Label);
+            this.NewVersion_Panel.Controls.Add(this.pictureBox2);
+            this.NewVersion_Panel.Location = new System.Drawing.Point(150, 365);
+            this.NewVersion_Panel.Name = "NewVersion_Panel";
+            this.NewVersion_Panel.Size = new System.Drawing.Size(191, 24);
+            this.NewVersion_Panel.TabIndex = 40;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.minimize;
+            this.pictureBox1.Location = new System.Drawing.Point(597, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // NewVersion_Label
+            // 
+            this.NewVersion_Label.BackColor = System.Drawing.Color.Transparent;
+            this.NewVersion_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NewVersion_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewVersion_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.NewVersion_Label.Location = new System.Drawing.Point(9, 4);
+            this.NewVersion_Label.Name = "NewVersion_Label";
+            this.NewVersion_Label.Size = new System.Drawing.Size(173, 16);
+            this.NewVersion_Label.TabIndex = 39;
+            this.NewVersion_Label.Text = "New version (7.7.7) available";
+            this.NewVersion_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.close;
+            this.pictureBox2.Location = new System.Drawing.Point(621, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // CheckUpdates_Button
+            // 
+            this.CheckUpdates_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.CheckUpdates_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckUpdates_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CheckUpdates_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckUpdates_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckUpdates_Button.ForeColor = System.Drawing.Color.White;
+            this.CheckUpdates_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.refresh_1;
+            this.CheckUpdates_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CheckUpdates_Button.Location = new System.Drawing.Point(12, 365);
+            this.CheckUpdates_Button.Name = "CheckUpdates_Button";
+            this.CheckUpdates_Button.Size = new System.Drawing.Size(132, 24);
+            this.CheckUpdates_Button.TabIndex = 30;
+            this.CheckUpdates_Button.Text = "Check Updates";
+            this.CheckUpdates_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.CheckUpdates_Button, "WARNING! This will set the password as visible in the field. Toggle function.");
+            this.CheckUpdates_Button.UseVisualStyleBackColor = false;
+            this.CheckUpdates_Button.Click += new System.EventHandler(this.CheckUpdates_Button_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label24.Location = new System.Drawing.Point(15, 316);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(154, 16);
+            this.label24.TabIndex = 38;
+            this.label24.Text = "Automatic Installation";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Location = new System.Drawing.Point(12, 335);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(618, 2);
+            this.panel8.TabIndex = 37;
             // 
             // FoundInstallationLogo2
             // 
@@ -1198,11 +1377,11 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._033_folder_7_EDIT;
+            this.button9.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(476, 277);
+            this.button9.Location = new System.Drawing.Point(488, 277);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(154, 27);
+            this.button9.Size = new System.Drawing.Size(142, 27);
             this.button9.TabIndex = 32;
             this.button9.Text = "Locate SteamCMD";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1216,7 +1395,7 @@
             this.SteamCMD_SettingsInstallLocation_Textbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.SteamCMD_SettingsInstallLocation_Textbox.Location = new System.Drawing.Point(15, 281);
             this.SteamCMD_SettingsInstallLocation_Textbox.Name = "SteamCMD_SettingsInstallLocation_Textbox";
-            this.SteamCMD_SettingsInstallLocation_Textbox.Size = new System.Drawing.Size(455, 20);
+            this.SteamCMD_SettingsInstallLocation_Textbox.Size = new System.Drawing.Size(467, 20);
             this.SteamCMD_SettingsInstallLocation_Textbox.TabIndex = 31;
             // 
             // label23
@@ -1250,7 +1429,7 @@
             this.SaveSettings_Button.ForeColor = System.Drawing.Color.White;
             this.SaveSettings_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
             this.SaveSettings_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveSettings_Button.Location = new System.Drawing.Point(515, 321);
+            this.SaveSettings_Button.Location = new System.Drawing.Point(515, 357);
             this.SaveSettings_Button.Name = "SaveSettings_Button";
             this.SaveSettings_Button.Size = new System.Drawing.Size(115, 32);
             this.SaveSettings_Button.TabIndex = 30;
@@ -1261,6 +1440,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.panel9);
+            this.groupBox6.Controls.Add(this.CheckForUpdates_Checkbox);
             this.groupBox6.Controls.Add(this.AutoClose_Checkbox);
             this.groupBox6.Controls.Add(this.Validate_Checkbox);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1272,6 +1453,26 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SteamCMD Settings";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Gray;
+            this.panel9.Location = new System.Drawing.Point(219, 17);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(2, 30);
+            this.panel9.TabIndex = 14;
+            // 
+            // CheckForUpdates_Checkbox
+            // 
+            this.CheckForUpdates_Checkbox.AutoSize = true;
+            this.CheckForUpdates_Checkbox.Location = new System.Drawing.Point(228, 18);
+            this.CheckForUpdates_Checkbox.Name = "CheckForUpdates_Checkbox";
+            this.CheckForUpdates_Checkbox.Size = new System.Drawing.Size(130, 17);
+            this.CheckForUpdates_Checkbox.TabIndex = 32;
+            this.CheckForUpdates_Checkbox.Text = "Check for updates";
+            this.toolTip1.SetToolTip(this.CheckForUpdates_Checkbox, "Automatic validation of file integrity of server files after installation");
+            this.CheckForUpdates_Checkbox.UseVisualStyleBackColor = true;
+            this.CheckForUpdates_Checkbox.CheckedChanged += new System.EventHandler(this.CheckForUpdates_Checkbox_CheckedChanged);
+            // 
             // AutoClose_Checkbox
             // 
             this.AutoClose_Checkbox.AutoSize = true;
@@ -1282,6 +1483,7 @@
             this.AutoClose_Checkbox.Text = "Automatically Close SteamCMD";
             this.toolTip1.SetToolTip(this.AutoClose_Checkbox, "Automatically close SteamCMD window after finished work");
             this.AutoClose_Checkbox.UseVisualStyleBackColor = true;
+            this.AutoClose_Checkbox.CheckedChanged += new System.EventHandler(this.AutoClose_Checkbox_CheckedChanged);
             // 
             // Validate_Checkbox
             // 
@@ -1293,6 +1495,7 @@
             this.Validate_Checkbox.Text = "Validate Installations";
             this.toolTip1.SetToolTip(this.Validate_Checkbox, "Automatic validation of file integrity of server files after installation");
             this.Validate_Checkbox.UseVisualStyleBackColor = true;
+            this.Validate_Checkbox.CheckedChanged += new System.EventHandler(this.Validate_Checkbox_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -1336,6 +1539,7 @@
             this.Anon_Radio.Text = "Use anonymous authentication";
             this.toolTip1.SetToolTip(this.Anon_Radio, "This will use anonymous authentication when downloading files");
             this.Anon_Radio.UseVisualStyleBackColor = true;
+            this.Anon_Radio.CheckedChanged += new System.EventHandler(this.Anon_Radio_CheckedChanged);
             // 
             // label21
             // 
@@ -1425,27 +1629,6 @@
             this.panel7.Size = new System.Drawing.Size(618, 2);
             this.panel7.TabIndex = 13;
             // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_double_chevron;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(272, 46);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(135, 29);
-            this.button7.TabIndex = 24;
-            this.button7.Text = "Install SteamCMD";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button7, "This will automatically download SteamCMD, unpack & set reference in the applicat" +
-        "ion. It will also remove necessary files from the download.");
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1453,10 +1636,10 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
-            this.Controls.Add(this.Panel_SteamCMD);
-            this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
+            this.Controls.Add(this.Panel_SteamCMD);
+            this.Controls.Add(this.Panel_Settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1487,6 +1670,12 @@
             this.groupBox3.PerformLayout();
             this.Panel_Settings.ResumeLayout(false);
             this.Panel_Settings.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.NewVersion_Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstallFound_Label2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -1548,23 +1737,23 @@
         public System.Windows.Forms.Panel Panel_Settings;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ManageUpdate_Button;
+        private System.Windows.Forms.Button ManageGenerateScript_Button;
+        private System.Windows.Forms.Button ManageDelete_Button;
+        private System.Windows.Forms.Button ManageGuide_Button;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ManageServerName_Textbox;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox ManageInstallDirectory_Textbox;
+        private System.Windows.Forms.Button ManageName_Button;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label ManageAppId_Label;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label ManageAppName_Label;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label ManageInstallDate_Label;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1590,7 +1779,20 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label FoundInstallationLogo2;
         private System.Windows.Forms.PictureBox InstallFound_Label2;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label Version_Label;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button CheckUpdates_Button;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.CheckBox CheckForUpdates_Checkbox;
+        private System.Windows.Forms.Label NewVersion_Label;
+        private System.Windows.Forms.Button ManageDirectory_Button;
+        private System.Windows.Forms.Panel NewVersion_Panel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 

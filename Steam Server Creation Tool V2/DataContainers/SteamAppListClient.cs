@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+[Serializable]
 public class SteamAppListClient
 {
     private readonly HttpClient _httpClient;

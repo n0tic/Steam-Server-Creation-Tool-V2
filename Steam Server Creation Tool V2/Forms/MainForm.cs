@@ -1,8 +1,10 @@
-﻿using Steam_Server_Creation_Tool_V2.Forms;
+﻿#pragma warning disable CS4014 // Not awaited warning disabled
+using Steam_Server_Creation_Tool_V2.Forms;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,24 +22,35 @@ namespace Steam_Server_Creation_Tool_V2
 
             // Setup UI Panels
             UIHandler.Setup(this);
+
+            //Activate default panel
+            SteamCMD_Button_Click(null, null);
+
+            //Set default values to labels and fields
             ClearDefaultNSetup();
 
-            #pragma warning disable CS4014 // Not awaited warning disabled
+            //We do not await this async command
             InitializeAsyncStart();
-            #pragma warning restore CS4014
-
-            Core.CheckForUpdates();
-
         }
 
         private void ClearDefaultNSetup()
         {
+            Version_Label.Text = $"Version: {Core.GetVersion()}";
+            SetNewVersionStatus(false);
             SteamCMD_InstallLocation_Textbox.Text = "";
             NewInstall_Dropbox.Items.Clear();
             NewServerAppName_Label.Text = "";
             NewServerAppId_Label.Text = "";
             NewServerName_Textbox.Text = "";
             NewServerInstallLocation_Textbox.Text = "";
+            InstalledServerList_SelectedIndexChanged(null, null);
+        }
+
+        private void SetNewVersionStatus(bool state, string message = "")
+        {
+            NewVersion_Panel.Visible = state;
+            NewVersion_Label.Text = message;
+            NewVersion_Label.Visible = state;
         }
 
         private async Task InitializeAsyncStart()
@@ -51,22 +64,22 @@ namespace Steam_Server_Creation_Tool_V2
             //Load settings
             settings = Core.LoadSettings();
 
-            if (settings == null)
-            {
-                settings = new Settings();
-            }
-
+            if (settings == null) settings = new Settings() { userData = new UserData() };
+            
             InstallFound();
-
+            
             ApplyLoadedSettings();
 
-            //Activate default panel
-            SteamCMD_Button_Click(null, null);
-
             // Start downloading Steam API data
-            //await RefreshAPIData();
+            await RefreshAPIData();
 
-            
+            //Check for updates
+            if (settings.CheckUpdates)
+            {
+                await Core.CheckForUpdatesAsync(false);
+                if(Core.updateAvailable) SetNewVersionStatus(true);
+                else SetNewVersionStatus(false);
+            }
 
             // Disable progressbar
             App_ProgressBar.Visible = false;
@@ -79,6 +92,7 @@ namespace Steam_Server_Creation_Tool_V2
 
             Validate_Checkbox.Checked = settings.validate;
             AutoClose_Checkbox.Checked = settings.autoClose;
+            CheckForUpdates_Checkbox.Checked = settings.CheckUpdates;
 
             if (settings.useAnonymousAuth)
             {
@@ -94,11 +108,11 @@ namespace Steam_Server_Creation_Tool_V2
             if (settings.userData != null)
             {
                 UsernameField_Textbox.Text = settings.userData.Username;
-                PasswordField_Textbox.Text = settings.userData.Password;
+                // TODO: Find reason why password is not working when decoding...
+                //PasswordField_Textbox.Text = Core.Base64Decode(settings.userData.Password);
             }
 
-            foreach (var item in settings.installedServer) InstalledServerList.Items.Add(item.name);
-
+            UpdateInstalledServersInfo();
         }
 
         public async Task RefreshAppList()
@@ -181,8 +195,14 @@ namespace Steam_Server_Creation_Tool_V2
             Core.SaveSettings(settings);
 
             InstallFound();
+
+            App_ProgressBar.Visible = false;
         }
 
+        private void CheckForUpdates_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
+        private void Anon_Radio_CheckedChanged(object sender, EventArgs e) => settings.useAnonymousAuth = Anon_Radio.Checked;
+        private void Validate_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.validate = Validate_Checkbox.Checked;
+        private void AutoClose_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.autoClose = AutoClose_Checkbox.Checked;
         private void NewServerInstallLocation_Button_Click(object sender, EventArgs e) => NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
         private async void RefreshAPI_Button_Click(object sender, EventArgs e) => await RefreshAPIData();
         private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers, this);
@@ -218,17 +238,15 @@ namespace Steam_Server_Creation_Tool_V2
                 if (ofd.ShowDialog() == DialogResult.OK && ofd.CheckFileExists)
                 {
                     //Update location of steamcmd
-                    SteamCMD_InstallLocation_Textbox.Text = ofd.FileName;
                     SteamCMD_SettingsInstallLocation_Textbox.Text = ofd.FileName;
+                    SteamCMD_InstallLocation_Textbox.Text = ofd.FileName;
                     settings.steamCMD_installLocation = ofd.FileName;
 
-                    //Set button information OK
+                    InstallFound();
 
                     Core.SaveSettings(settings);
                 }
             }
-
-            InstallFound();
         }
 
         private async Task RefreshAPIData()
@@ -236,6 +254,8 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = true;
 
             NewInstall_Dropbox.Items.Clear();
+
+            Install_New_Server_Label.Text = "Install New Server";
 
             NewInstall_Dropbox.Enabled = false;
             RefreshAPI_Button.Enabled = false;
@@ -355,11 +375,12 @@ namespace Steam_Server_Creation_Tool_V2
 
         
 
-        private void InstallServer_Button_Click(object sender, EventArgs e)
+        private async void InstallServer_Button_Click(object sender, EventArgs e)
         {
+            // TODO: Disable buttons
             App app = GetSelectedApp();
 
-            if (string.IsNullOrEmpty(NewServerName_Textbox.Text) || string.IsNullOrEmpty(NewServerInstallLocation_Textbox.Text) || app == null)
+            if (NewServerName_Textbox.Text == "" || NewServerInstallLocation_Textbox.Text == "" || app == null)
             {
                 MessageBox.Show($"Required fields are not filled in:{Environment.NewLine}Server Name{Environment.NewLine}Server Install Location{Environment.NewLine}Selected Server{Environment.NewLine}{Environment.NewLine}Please fill in all fields and select a valid server from the list.", "Required field missing information!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -389,7 +410,15 @@ namespace Steam_Server_Creation_Tool_V2
                 }
             }
 
-            SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
+            await SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
+
+            UpdateInstalledServersInfo();
+        }
+
+        private void UpdateInstalledServersInfo()
+        {
+            InstalledServerList.Items.Clear();
+            foreach (var item in settings.installedServer) InstalledServerList.Items.Add(item.name);
         }
 
         private void SearchServer_Button_Click(object sender, EventArgs e)
@@ -418,15 +447,93 @@ namespace Steam_Server_Creation_Tool_V2
 
             settings.validate = Validate_Checkbox.Checked;
             settings.autoClose = AutoClose_Checkbox.Checked;
+            settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
 
             settings.steamCMD_installLocation = SteamCMD_SettingsInstallLocation_Textbox.Text;
 
             Core.SaveSettings(settings);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private async void CheckUpdates_Button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(settings.userData.Username);
+            App_ProgressBar.Visible = true;
+            await Core.CheckForUpdatesAsync(true);
+            if (Core.updateAvailable) SetNewVersionStatus(true);
+            else SetNewVersionStatus(false);
+            App_ProgressBar.Visible = false;
+        }
+
+        private void InstalledServerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(InstalledServerList.SelectedIndex != -1) 
+            {
+                InstalledServer server = null;
+
+                foreach (var item in settings.installedServer)
+                {
+                    if(item.name == (string)InstalledServerList.SelectedItem)
+                    {
+                        server = item;
+                        break;
+                    }
+                }
+
+                ManageGenerateScript_Button.Enabled = true;
+                ManageUpdate_Button.Enabled = true;
+                ManageDelete_Button.Enabled = true;
+                ManageDirectory_Button.Enabled = true;
+                ManageGuide_Button.Enabled = true;
+
+                if (server != null)
+                {
+                    ManageServerName_Textbox.Text = server.name;
+                    ManageInstallDirectory_Textbox.Text = server.installPath;
+                    ManageAppName_Label.Text = server.name;
+                    ManageAppId_Label.Text = server.app.AppId.ToString();
+                    ManageInstallDate_Label.Text = server.installDate;
+                }
+            }
+            else
+            {
+                ManageGenerateScript_Button.Enabled = false;
+                ManageUpdate_Button.Enabled = false;
+                ManageDelete_Button.Enabled = false;
+                ManageDirectory_Button.Enabled = false;
+                ManageGuide_Button.Enabled = false;
+
+                ManageServerName_Textbox.Text = "";
+                ManageInstallDirectory_Textbox.Text = "";
+                ManageAppName_Label.Text = "";
+                ManageAppId_Label.Text = "";
+                ManageInstallDate_Label.Text = "";
+            }
+        }
+
+        private void ManageGenerateScript_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManageName_Button_Click(object sender, EventArgs e)
+        {
+            int server = -1;
+
+            for (int i = 0; i < settings.installedServer.Count; i++)
+            {
+                MessageBox.Show($"{InstalledServerList.SelectedItem} == {settings.installedServer[i].name}");
+                if (InstalledServerList.SelectedItem.ToString() == settings.installedServer[i].name)
+                {
+                    server = i;
+                    break;
+                }
+            }
+
+            if (server != -1 && settings.installedServer[server].name != ManageServerName_Textbox.Text && ManageServerName_Textbox.Text != "")
+            {
+                settings.installedServer[server].name = ManageServerName_Textbox.Text;
+                UpdateInstalledServersInfo();
+                Core.SaveSettings(settings);
+            }
         }
     }
 }

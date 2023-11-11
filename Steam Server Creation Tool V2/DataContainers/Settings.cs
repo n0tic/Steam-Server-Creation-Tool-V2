@@ -14,6 +14,7 @@ namespace Steam_Server_Creation_Tool_V2
         public bool useAnonymousAuth = true; // Use anonymous user.
 
         // Steam parameters
+        public bool CheckUpdates = true;
         public bool autoClose = true;
         public bool validate = true;
 
@@ -29,8 +30,8 @@ namespace Steam_Server_Creation_Tool_V2
         /// <returns></returns>
         public string GetLogin()
         {
-            if (!useAnonymousAuth) return "anonymous";
-            else if (useAnonymousAuth && !userData.IsEmpty()) return userData.Username + " " + userData.GetPassword();
+            if (useAnonymousAuth) return "anonymous";
+            else if (!useAnonymousAuth && !userData.IsEmpty()) return userData.Username + " " + userData.GetPassword();
             else return null;
         }
     }

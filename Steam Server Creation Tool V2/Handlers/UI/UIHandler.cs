@@ -29,16 +29,8 @@ namespace Steam_Server_Creation_Tool_V2
         {
             for (int i = 0; i < panels.Count; i++)
             {
-                if (i == (int)panel)
-                {
-                    panels[i].Enabled = true;
-                    panels[i].Visible = true;
-                }
-                else
-                {
-                    panels[i].Enabled = false;
-                    panels[i].Visible = false;
-                }
+                if (i == (int)panel) panels[i].Visible = true;
+                else panels[i].Visible = false;
             }
 
             switch ((int)panel)
@@ -53,9 +45,11 @@ namespace Steam_Server_Creation_Tool_V2
                     form.Size = new Size(642, 589);
                     break;
                 case (int)Panel.Settings:
-                    form.Size = new Size(642, 461);
+                    form.Size = new Size(642, 497);
                     break;
             }
+
+            form.InstalledServerList.SelectedItems.Clear();
         }
 
         public static void Label_MouseHover(object sender, EventArgs e)
