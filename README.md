@@ -6,7 +6,9 @@
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
   <img alt="Visitor Count" src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2">
+  <!-- https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2 -->
 </p>
+
 
 ### WIP : NOTE : Work In Progress
 
@@ -17,7 +19,7 @@
 ![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_RiPqPqSR34.png)-->
 
 # Steam Server Creation Tool V2 #
-The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
+SteamCMD GUI / UI | The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
 
 <!--# How does it work?
 [![YoutubeImage](http://bytevaultstudio.se/ShareX/youtubeX.png)](https://youtu.be/54oPT-_8D4U) 
