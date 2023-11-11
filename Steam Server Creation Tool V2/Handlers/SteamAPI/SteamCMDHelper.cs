@@ -11,9 +11,15 @@ using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    public enum InstallationType
+    {
+        NewInstall,
+        Update
+    }
+
     internal class SteamCMDHelper
     {
-        internal static async Task StartNewDownload(MainForm form, App app, string installName, string installDir)
+        internal static async Task StartNewDownload(MainForm form, App app, string installName, string installDir, InstallationType steamCMD_type = InstallationType.NewInstall)
         {
             //Keep track of success
             bool install = true;
@@ -70,11 +76,11 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                     
                     // Register installation if new and save settings.
-                    if (install)
+                    if (install && steamCMD_type == InstallationType.NewInstall)
                     {
                         string startScript = Properties.Resources.StartServerScript_txt;
                         startScript = startScript.Replace("{steamcmd_dir}", $"\"{Path.GetDirectoryName(form.settings.steamCMD_installLocation)}\"")
-                           .Replace("{server_dir}", installDir)
+                            .Replace("{server_dir}", installDir)
                            .Replace("{app_id}", appID)
                            .Replace("{app_name}", app.Name)
                            .Replace("{login_cred}", form.settings.GetLogin());
@@ -83,9 +89,9 @@ namespace Steam_Server_Creation_Tool_V2
 
                         form.settings.installedServer.Add(new InstalledServer(installName, installDir, DateTime.Now.ToString("dd/MM/yyyy HH:mm"), app));
                         Core.SaveSettings(form.settings);
-
-                        System.Media.SystemSounds.Exclamation.Play();
                     }
+
+                    System.Media.SystemSounds.Exclamation.Play();
                 }
             });
         }

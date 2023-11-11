@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
 {
-    static class UIHandler
+    public static class UIHandler
     {
         static List<System.Windows.Forms.Panel> panels = new List<System.Windows.Forms.Panel>();
 
@@ -25,7 +25,7 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_Settings);
         }
 
-        public static void ChangePanel(Panel panel, MainForm form)
+        public static async void ChangePanel(Panel panel, MainForm form)
         {
             for (int i = 0; i < panels.Count; i++)
             {
@@ -40,6 +40,11 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
                 case (int)Panel.NewServer:
                     form.Size = new Size(642, 436);
+                    if(!form.updateRecieved)
+                    {
+                        await form.RefreshAPIData();
+                        form.updateRecieved = true;
+                    }
                     break;
                 case (int)Panel.ManageServers:
                     form.Size = new Size(642, 589);

@@ -102,6 +102,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Panel_Settings = new System.Windows.Forms.Panel();
+            this.Information_Button = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -794,7 +795,7 @@
             this.InstallServer_Button.ForeColor = System.Drawing.Color.White;
             this.InstallServer_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_double_chevron;
             this.InstallServer_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InstallServer_Button.Location = new System.Drawing.Point(518, 292);
+            this.InstallServer_Button.Location = new System.Drawing.Point(519, 294);
             this.InstallServer_Button.Name = "InstallServer_Button";
             this.InstallServer_Button.Size = new System.Drawing.Size(109, 32);
             this.InstallServer_Button.TabIndex = 12;
@@ -1197,6 +1198,7 @@
             // Panel_Settings
             // 
             this.Panel_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_Settings.Controls.Add(this.Information_Button);
             this.Panel_Settings.Controls.Add(this.panel11);
             this.Panel_Settings.Controls.Add(this.NewVersion_Panel);
             this.Panel_Settings.Controls.Add(this.CheckUpdates_Button);
@@ -1217,6 +1219,25 @@
             this.Panel_Settings.Name = "Panel_Settings";
             this.Panel_Settings.Size = new System.Drawing.Size(642, 494);
             this.Panel_Settings.TabIndex = 27;
+            // 
+            // Information_Button
+            // 
+            this.Information_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.Information_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Information_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Information_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Information_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Information_Button.ForeColor = System.Drawing.Color.White;
+            this.Information_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._073_question;
+            this.Information_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Information_Button.Location = new System.Drawing.Point(558, 3);
+            this.Information_Button.Name = "Information_Button";
+            this.Information_Button.Size = new System.Drawing.Size(69, 27);
+            this.Information_Button.TabIndex = 42;
+            this.Information_Button.Text = "About";
+            this.Information_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Information_Button.UseVisualStyleBackColor = false;
+            this.Information_Button.Click += new System.EventHandler(this.Information_Button_Click);
             // 
             // panel11
             // 
@@ -1641,10 +1662,10 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
+            this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
             this.Controls.Add(this.Panel_SteamCMD);
-            this.Controls.Add(this.Panel_Settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1798,6 +1819,7 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button Information_Button;
     }
 }
 

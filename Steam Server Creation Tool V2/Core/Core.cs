@@ -28,6 +28,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static string steamCMDURL = "https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD";
         public static string steamCMDURL_Download = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
         public static string serversURL = "https://api.steampowered.com/ISteamApps/GetAppList/v2?utc=";
+        public static string donateURL = "https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2";
 
         #region Version
 
@@ -46,6 +47,10 @@ namespace Steam_Server_Creation_Tool_V2
             Normal
         }
 
+        /// <summary>
+        /// Get version in format Major.Minor.Build Build-type
+        /// </summary>
+        /// <returns></returns>
         public static string GetVersion() => $"{majorVersion}.{minorVersion}.{buildVersion} {buildType}";
 
         #endregion Version
@@ -156,12 +161,12 @@ namespace Steam_Server_Creation_Tool_V2
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public static void MoveWindow(Form main, MouseEventArgs e)
+        public static void MoveWindow(Form form, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(main.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                SendMessage(form.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 

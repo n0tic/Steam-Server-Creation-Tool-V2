@@ -1,0 +1,269 @@
+﻿namespace Steam_Server_Creation_Tool_V2.Forms
+{
+    partial class AboutForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
+            this.TopPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.AppNameLabel = new System.Windows.Forms.Label();
+            this.MovePanel = new System.Windows.Forms.Panel();
+            this.Close_Button = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Donate_Button = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Version_Label = new System.Windows.Forms.Label();
+            this.TopPanel.SuspendLayout();
+            this.MovePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Donate_Button)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // TopPanel
+            // 
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.TopPanel.Controls.Add(this.Version_Label);
+            this.TopPanel.Controls.Add(this.panel1);
+            this.TopPanel.Controls.Add(this.AppNameLabel);
+            this.TopPanel.Controls.Add(this.MovePanel);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Name = "TopPanel";
+            this.TopPanel.Size = new System.Drawing.Size(414, 68);
+            this.TopPanel.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel1.Location = new System.Drawing.Point(-10, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(587, 10);
+            this.panel1.TabIndex = 30;
+            // 
+            // AppNameLabel
+            // 
+            this.AppNameLabel.AutoSize = true;
+            this.AppNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AppNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppNameLabel.ForeColor = System.Drawing.Color.White;
+            this.AppNameLabel.Location = new System.Drawing.Point(3, 29);
+            this.AppNameLabel.Name = "AppNameLabel";
+            this.AppNameLabel.Size = new System.Drawing.Size(80, 29);
+            this.AppNameLabel.TabIndex = 9;
+            this.AppNameLabel.Text = "About";
+            // 
+            // MovePanel
+            // 
+            this.MovePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.MovePanel.Controls.Add(this.Close_Button);
+            this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MovePanel.Location = new System.Drawing.Point(0, 0);
+            this.MovePanel.Name = "MovePanel";
+            this.MovePanel.Size = new System.Drawing.Size(414, 23);
+            this.MovePanel.TabIndex = 10;
+            this.MovePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovePanel_MouseDown);
+            // 
+            // Close_Button
+            // 
+            this.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Close_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.close;
+            this.Close_Button.Location = new System.Drawing.Point(390, 3);
+            this.Close_Button.Name = "Close_Button";
+            this.Close_Button.Size = new System.Drawing.Size(18, 18);
+            this.Close_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Close_Button.TabIndex = 2;
+            this.Close_Button.TabStop = false;
+            this.Close_Button.Click += new System.EventHandler(this.Close_Button_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel2.Location = new System.Drawing.Point(-5, 442);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(427, 10);
+            this.panel2.TabIndex = 31;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel3.Location = new System.Drawing.Point(412, 66);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 485);
+            this.panel3.TabIndex = 32;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel4.Location = new System.Drawing.Point(-8, 65);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 386);
+            this.panel4.TabIndex = 33;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox1.Location = new System.Drawing.Point(8, 74);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(397, 164);
+            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Description";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox2.Location = new System.Drawing.Point(8, 244);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(397, 114);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Backstory";
+            // 
+            // Donate_Button
+            // 
+            this.Donate_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Donate_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.Donate;
+            this.Donate_Button.Location = new System.Drawing.Point(134, 380);
+            this.Donate_Button.Name = "Donate_Button";
+            this.Donate_Button.Size = new System.Drawing.Size(142, 55);
+            this.Donate_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Donate_Button.TabIndex = 37;
+            this.Donate_Button.TabStop = false;
+            this.Donate_Button.Click += new System.EventHandler(this.Donate_Button_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 363);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(397, 18);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Donations are not forced upon you but greatly appreciated!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(3, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(391, 145);
+            this.label2.TabIndex = 38;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label3.Location = new System.Drawing.Point(3, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(391, 95);
+            this.label3.TabIndex = 39;
+            this.label3.Text = resources.GetString("label3.Text");
+            // 
+            // Version_Label
+            // 
+            this.Version_Label.BackColor = System.Drawing.Color.Transparent;
+            this.Version_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Version_Label.ForeColor = System.Drawing.Color.White;
+            this.Version_Label.Location = new System.Drawing.Point(83, 37);
+            this.Version_Label.Name = "Version_Label";
+            this.Version_Label.Size = new System.Drawing.Size(253, 18);
+            this.Version_Label.TabIndex = 38;
+            this.Version_Label.Text = "Version 0.0.1 Alpha";
+            this.Version_Label.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // AboutForm
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.ClientSize = new System.Drawing.Size(414, 444);
+            this.Controls.Add(this.Donate_Button);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.TopPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "AboutForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "AboutForm";
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
+            this.MovePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Donate_Button)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel TopPanel;
+        private System.Windows.Forms.Label AppNameLabel;
+        private System.Windows.Forms.Panel MovePanel;
+        private System.Windows.Forms.PictureBox Close_Button;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox Donate_Button;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Version_Label;
+    }
+}

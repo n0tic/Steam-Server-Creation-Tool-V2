@@ -13,9 +13,14 @@ namespace Steam_Server_Creation_Tool_V2
 {
     public partial class MainForm : Form
     {
+        // Settings data - Servers, User auth etc
+        public Settings settings = null;
+
+        // Steam API data
         public SteamAppListResponse SteamList = null;
 
-        public Settings settings = null;
+        // Have we recieved Steam API data?
+        public bool updateRecieved = false;
 
         public MainForm()
         {
@@ -32,8 +37,13 @@ namespace Steam_Server_Creation_Tool_V2
 
             //We do not await this async command
             InitializeAsyncStart();
+
+            
         }
 
+        /// <summary>
+        /// Clear and set default values for placeholder values
+        /// </summary>
         private void ClearDefaultNSetup()
         {
             Version_Label.Text = $"Version: {Core.GetVersion()}";
@@ -47,6 +57,11 @@ namespace Steam_Server_Creation_Tool_V2
             InstalledServerList_SelectedIndexChanged(null, null);
         }
 
+        /// <summary>
+        /// Activate/Deactivate version update availability status
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="message"></param>
         private void SetNewVersionStatus(bool state, string message = "")
         {
             NewVersion_Panel.Visible = state;
@@ -54,6 +69,10 @@ namespace Steam_Server_Creation_Tool_V2
             NewVersion_Label.Visible = state;
         }
 
+        /// <summary>
+        /// Async startup initiator
+        /// </summary>
+        /// <returns></returns>
         private async Task InitializeAsyncStart()
         {
             if (!Core.CheckNetwork())
@@ -72,12 +91,12 @@ namespace Steam_Server_Creation_Tool_V2
             ApplyLoadedSettings();
 
             // Start downloading Steam API data
-            await RefreshAPIData();
+            //await RefreshAPIData();
 
             //Check for updates
             if (settings.CheckUpdates)
             {
-                await Core.CheckForUpdatesAsync(false);
+                await Core.CheckForUpdatesAsync();
                 if(Core.updateAvailable) SetNewVersionStatus(true);
                 else SetNewVersionStatus(false);
             }
@@ -86,6 +105,9 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// Apply loaded settings to UI elements
+        /// </summary>
         private void ApplyLoadedSettings()
         {
             SteamCMD_InstallLocation_Textbox.Text = settings.steamCMD_installLocation;
@@ -116,6 +138,10 @@ namespace Steam_Server_Creation_Tool_V2
             UpdateInstalledServersInfo();
         }
 
+        /// <summary>
+        /// Get Steam API data from request
+        /// </summary>
+        /// <returns></returns>
         public async Task RefreshAppList()
         {
             using (var httpClient = new HttpClient())
@@ -145,6 +171,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Start download/unpack steamcmd into a directory automatically
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SteamCMD_InstallAuto_Button_Click(object sender, EventArgs e)
         {
             App_ProgressBar.Visible = true;
@@ -200,6 +231,7 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = false;
         }
 
+        #region One-line Buttons
         private void CheckForUpdates_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
         private void Anon_Radio_CheckedChanged(object sender, EventArgs e) => settings.useAnonymousAuth = Anon_Radio.Checked;
         private void Validate_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.validate = Validate_Checkbox.Checked;
@@ -223,7 +255,13 @@ namespace Steam_Server_Creation_Tool_V2
         private void Close_Button_Click(object sender, EventArgs e) => Environment.Exit(0);
         private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
+        #endregion One-line buttons
 
+        /// <summary>
+        /// Allow for manual locating of steamcmd.exe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManualLocateSteamCMD_Button_Click(object sender, EventArgs e)
         {
             //Initiate a OpenFileDialog
@@ -250,7 +288,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
-        private async Task RefreshAPIData()
+        /// <summary>
+        /// Reset values, lock UI - Update Steam API data
+        /// </summary>
+        /// <returns></returns>
+        public async Task RefreshAPIData()
         {
             App_ProgressBar.Visible = true;
 
@@ -258,6 +300,11 @@ namespace Steam_Server_Creation_Tool_V2
 
             Install_New_Server_Label.Text = "Install New Server";
 
+            ServerSetupHelp_Button.Enabled = false;
+            GSLT_Button.Enabled = false;
+            NewServerInstallLocation_Button.Enabled = false;
+            NewServerName_Textbox.Enabled = false;
+            NewServerInstallLocation_Textbox.Enabled = false;
             NewInstall_Dropbox.Enabled = false;
             RefreshAPI_Button.Enabled = false;
             SearchServer_Button.Enabled = false;
@@ -271,6 +318,11 @@ namespace Steam_Server_Creation_Tool_V2
             //RefreshAPI_Button
             await RefreshAppList();
 
+            ServerSetupHelp_Button.Enabled = true;
+            NewServerInstallLocation_Button.Enabled = true;
+            NewServerName_Textbox.Enabled = true;
+            NewServerInstallLocation_Textbox.Enabled = true;
+            GSLT_Button.Enabled = true;
             RefreshAPI_Button.Enabled = true;
             SearchServer_Button.Enabled = true;
             InstallServer_Button.Enabled = true;
@@ -286,6 +338,11 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// Google query search for selected game regarding server setup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ServerSetupHelp_Button_Click(object sender, EventArgs e)
         {
             App app = GetSelectedApp();
@@ -301,6 +358,10 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Get selected app from dropbox in SteamCMD section
+        /// </summary>
+        /// <returns></returns>
         private App GetSelectedApp()
         {
             string selectedItem = NewInstall_Dropbox.SelectedItem?.ToString();
@@ -319,6 +380,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Selection change logic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewInstall_Dropbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             App app = GetSelectedApp();
@@ -356,6 +422,9 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// steamcmd.exe found indicator
+        /// </summary>
         public void InstallFound()
         {
             if(File.Exists(settings.steamCMD_installLocation))
@@ -374,11 +443,14 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
-        
-
+        /// <summary>
+        /// Start installation of server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void InstallServer_Button_Click(object sender, EventArgs e)
         {
-            // TODO: Disable buttons
+            // TODO: Add boolean for when operation in progress and add function to stop user from closing down application while IO
             App app = GetSelectedApp();
 
             if (NewServerName_Textbox.Text == "" || NewServerInstallLocation_Textbox.Text == "" || app == null)
@@ -403,6 +475,18 @@ namespace Steam_Server_Creation_Tool_V2
                 return;
             }
 
+            if(!Directory.Exists(NewServerInstallLocation_Textbox.Text))
+            {
+                MessageBox.Show($"The selected folder for installation doesnt exist. Try again.", "Directory missing!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!File.Exists(settings.steamCMD_installLocation))
+            {
+                MessageBox.Show($"It looks like SteamCMD installation is missing. Visit SteamCMD and reference it manually or use the automatic feature.", "SteamCMD missing!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (!Core.IsFolderEmpty(NewServerInstallLocation_Textbox.Text))
             {
                 if(MessageBox.Show($"The installation directory is not empty.{Environment.NewLine}This will overwrite files and may potentially destroy a server or important files.{Environment.NewLine}{Environment.NewLine}Do you want to proceed?", "Selected folder not empty!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
@@ -411,17 +495,29 @@ namespace Steam_Server_Creation_Tool_V2
                 }
             }
 
+            App_ProgressBar.Visible = true;
+
             await SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
 
             UpdateInstalledServersInfo();
+
+            App_ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// Update installed server information into listbox of Manage section
+        /// </summary>
         private void UpdateInstalledServersInfo()
         {
             InstalledServerList.Items.Clear();
             foreach (var item in settings.installedServer) InstalledServerList.Items.Add(item.name);
         }
 
+        /// <summary>
+        /// Open search form dialogue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchServer_Button_Click(object sender, EventArgs e)
         {
             using (SearchForm s = new SearchForm(this))
@@ -430,12 +526,22 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Toggle visibility of password field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TogglePassword_Button_Click(object sender, EventArgs e)
         {
             if (PasswordField_Textbox.PasswordChar == '*') PasswordField_Textbox.PasswordChar = '\0';
             else PasswordField_Textbox.PasswordChar = '*';
         }
 
+        /// <summary>
+        /// Save settings logic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveSettings_Button_Click(object sender, EventArgs e)
         {
             if(UsernameField_Textbox.Text != "" && PasswordField_Textbox.Text != "") {
@@ -455,6 +561,11 @@ namespace Steam_Server_Creation_Tool_V2
             Core.SaveSettings(settings);
         }
 
+        /// <summary>
+        /// Check for updates button logic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CheckUpdates_Button_Click(object sender, EventArgs e)
         {
             App_ProgressBar.Visible = true;
@@ -464,6 +575,11 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// Installed server selection logic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InstalledServerList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(InstalledServerList.SelectedIndex != -1) 
@@ -486,6 +602,8 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageDelete_Button.Enabled = true;
                 ManageOpenDirectory_Button.Enabled = true;
                 ManageGuide_Button.Enabled = true;
+                ManageServerName_Textbox.Enabled = true;
+                ManageInstallDirectory_Textbox.Enabled = true;
 
                 if (server != null)
                 {
@@ -505,6 +623,8 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageDelete_Button.Enabled = false;
                 ManageOpenDirectory_Button.Enabled = false;
                 ManageGuide_Button.Enabled = false;
+                ManageServerName_Textbox.Enabled = false;
+                ManageInstallDirectory_Textbox.Enabled = false;
 
                 ManageServerName_Textbox.Text = "";
                 ManageInstallDirectory_Textbox.Text = "";
@@ -514,6 +634,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Generate StartServerScript for selected server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageGenerateScript_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
@@ -542,6 +667,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Change name of selected server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageName_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
@@ -554,6 +684,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Move selected server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void ManageMoveServerLocation_Button_Click(object sender, EventArgs e)
         {
             App_ProgressBar.Visible = true;
@@ -580,6 +715,11 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// Open file explorer of selected server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageOpenDirectory_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
@@ -602,6 +742,10 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Find selected server from Manage section
+        /// </summary>
+        /// <returns></returns>
         private int Manage_FindServer()
         {
             for (int i = 0; i < settings.installedServer.Count; i++)
@@ -615,7 +759,12 @@ namespace Steam_Server_Creation_Tool_V2
             return -1;
         }
 
-        private void ManageUpdate_Button_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Update selected server from Manage section
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ManageUpdate_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
 
@@ -626,10 +775,15 @@ namespace Steam_Server_Creation_Tool_V2
                     return;
                 }
 
-                // TODO: Fix steamcmd update sequence
+                await SteamCMDHelper.StartNewDownload(this, settings.installedServer[server].app, settings.installedServer[server].name, settings.installedServer[server].installPath, InstallationType.Update);
             }
         }
 
+        /// <summary>
+        /// Delete selected server from Manage section
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageDelete_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
@@ -680,6 +834,11 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Google query search for selected game regarding server setup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageGuide_Button_Click(object sender, EventArgs e)
         {
             int server = Manage_FindServer();
@@ -692,6 +851,19 @@ namespace Steam_Server_Creation_Tool_V2
             else
             {
                 MessageBox.Show("There was an error loading data from selection. Please try again.", "Error Getting Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Open up AboutForm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Information_Button_Click(object sender, EventArgs e)
+        {
+            using(AboutForm f =  new AboutForm())
+            {
+                f.ShowDialog();
             }
         }
     }
