@@ -17,7 +17,7 @@
 ![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_RiPqPqSR34.png)-->
 
 # Steam Server Creation Tool V2 #
-The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
+SteamCMD GUI / UI | The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
 
 <!--# How does it work?
 [![YoutubeImage](http://bytevaultstudio.se/ShareX/youtubeX.png)](https://youtu.be/54oPT-_8D4U) 
