@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.AppNameLabel = new System.Windows.Forms.Label();
             this.MovePanel = new System.Windows.Forms.Panel();
             this.Close_Button = new System.Windows.Forms.PictureBox();
@@ -37,7 +38,6 @@
             this.Search_Textbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.SetSelectedItem_Button = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,6 +57,14 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(362, 68);
             this.TopPanel.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel1.Location = new System.Drawing.Point(-10, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(386, 10);
+            this.panel1.TabIndex = 30;
             // 
             // AppNameLabel
             // 
@@ -105,6 +113,7 @@
             this.SearchServerList_Listbox.Size = new System.Drawing.Size(338, 199);
             this.SearchServerList_Listbox.TabIndex = 16;
             this.SearchServerList_Listbox.SelectedIndexChanged += new System.EventHandler(this.SearchServerList_Listbox_SelectedIndexChanged);
+            this.SearchServerList_Listbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchServerList_Listbox_KeyUp);
             // 
             // Search_Textbox
             // 
@@ -116,6 +125,7 @@
             this.Search_Textbox.Size = new System.Drawing.Size(338, 20);
             this.Search_Textbox.TabIndex = 27;
             this.Search_Textbox.TextChanged += new System.EventHandler(this.Search_Textbox_TextChanged);
+            this.Search_Textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Search_Textbox_KeyPress);
             // 
             // label12
             // 
@@ -146,14 +156,6 @@
             this.SetSelectedItem_Button.Text = "Set Selected Item";
             this.SetSelectedItem_Button.UseVisualStyleBackColor = false;
             this.SetSelectedItem_Button.Click += new System.EventHandler(this.SetSelectedItem_Button_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
-            this.panel1.Location = new System.Drawing.Point(-10, 64);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 10);
-            this.panel1.TabIndex = 30;
             // 
             // panel2
             // 

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -478,27 +479,31 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                 }
 
+                ManageName_Button.Enabled = true;
+                ManageMoveServerLocation_Button.Enabled = true;
                 ManageGenerateScript_Button.Enabled = true;
                 ManageUpdate_Button.Enabled = true;
                 ManageDelete_Button.Enabled = true;
-                ManageDirectory_Button.Enabled = true;
+                ManageOpenDirectory_Button.Enabled = true;
                 ManageGuide_Button.Enabled = true;
 
                 if (server != null)
                 {
                     ManageServerName_Textbox.Text = server.name;
                     ManageInstallDirectory_Textbox.Text = server.installPath;
-                    ManageAppName_Label.Text = server.name;
+                    ManageAppName_Label.Text = server.app.Name;
                     ManageAppId_Label.Text = server.app.AppId.ToString();
                     ManageInstallDate_Label.Text = server.installDate;
                 }
             }
             else
             {
+                ManageName_Button.Enabled = false;
+                ManageMoveServerLocation_Button.Enabled = false;
                 ManageGenerateScript_Button.Enabled = false;
                 ManageUpdate_Button.Enabled = false;
                 ManageDelete_Button.Enabled = false;
-                ManageDirectory_Button.Enabled = false;
+                ManageOpenDirectory_Button.Enabled = false;
                 ManageGuide_Button.Enabled = false;
 
                 ManageServerName_Textbox.Text = "";
@@ -511,28 +516,182 @@ namespace Steam_Server_Creation_Tool_V2
 
         private void ManageGenerateScript_Button_Click(object sender, EventArgs e)
         {
+            int server = Manage_FindServer();
 
+            if(server != -1)
+            {
+                if (settings.installedServer[server] != null)
+                {
+                    if (File.Exists(settings.installedServer[server].installPath + @"\StartServerScript.bat"))
+                    {
+                        if (MessageBox.Show("There is already a generated script in this directory. \n\rAre you sure you want to overwrite?", "Overwrite Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+
+                    string startScript = Properties.Resources.StartServerScript_txt;
+                    startScript = startScript.Replace("{steamcmd_dir}", "\"" + Path.GetDirectoryName(settings.steamCMD_installLocation) + "\"");
+                    startScript = startScript.Replace("{server_dir}", settings.installedServer[server].installPath);
+                    startScript = startScript.Replace("{app_id}", settings.installedServer[server].app.AppId.ToString());
+                    startScript = startScript.Replace("{app_name}", settings.installedServer[server].app.Name);
+                    startScript = startScript.Replace("{login_cred}", settings.GetLogin());
+
+                    Core.SaveToFile(settings.installedServer[server].installPath + @"\StartServerScript.bat", startScript);
+                }
+            }
         }
 
         private void ManageName_Button_Click(object sender, EventArgs e)
         {
-            int server = -1;
-
-            for (int i = 0; i < settings.installedServer.Count; i++)
-            {
-                MessageBox.Show($"{InstalledServerList.SelectedItem} == {settings.installedServer[i].name}");
-                if (InstalledServerList.SelectedItem.ToString() == settings.installedServer[i].name)
-                {
-                    server = i;
-                    break;
-                }
-            }
+            int server = Manage_FindServer();
 
             if (server != -1 && settings.installedServer[server].name != ManageServerName_Textbox.Text && ManageServerName_Textbox.Text != "")
             {
                 settings.installedServer[server].name = ManageServerName_Textbox.Text;
                 UpdateInstalledServersInfo();
                 Core.SaveSettings(settings);
+            }
+        }
+
+        private async void ManageMoveServerLocation_Button_Click(object sender, EventArgs e)
+        {
+            App_ProgressBar.Visible = true;
+
+            // TODO: Add check for empty directory
+
+            int server = Manage_FindServer();
+
+            if (server != -1)
+            {
+                string sourceDirectory = settings.installedServer[server].installPath;
+                string targetDirectory = Core.SelectFolder();
+
+                try
+                {
+                    await IO.MoveFolderAsync(sourceDirectory, targetDirectory);
+                    settings.installedServer[server].installPath = targetDirectory;
+                    UpdateInstalledServersInfo();
+                    Core.SaveSettings(settings);
+                }
+                catch { }
+            }
+
+            App_ProgressBar.Visible = false;
+        }
+
+        private void ManageOpenDirectory_Button_Click(object sender, EventArgs e)
+        {
+            int server = Manage_FindServer();
+
+            if (server != -1)
+            {
+                string sourceDirectory = settings.installedServer[server].installPath;
+
+                // Check if the directory exists before attempting to open it
+                if (Directory.Exists(sourceDirectory))
+                {
+                    // Open the directory using the default file manager
+                    Process.Start(sourceDirectory);
+                }
+                else
+                {
+                    // Handle the case where the directory does not exist
+                    MessageBox.Show($"The directory '{sourceDirectory}' does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private int Manage_FindServer()
+        {
+            for (int i = 0; i < settings.installedServer.Count; i++)
+            {
+                if (InstalledServerList.SelectedItem.ToString() == settings.installedServer[i].name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private void ManageUpdate_Button_Click(object sender, EventArgs e)
+        {
+            int server = Manage_FindServer();
+
+            if (server != -1 && settings.installedServer[server] != null)
+            {
+                if (MessageBox.Show("Make sure the server is offline before proceeding. Otherwise, this may result in server corruption.", "Server Warning!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+                {
+                    return;
+                }
+
+                // TODO: Fix steamcmd update sequence
+            }
+        }
+
+        private void ManageDelete_Button_Click(object sender, EventArgs e)
+        {
+            int server = Manage_FindServer();
+
+            if (server != -1 && settings.installedServer[server] != null)
+            {
+                if (MessageBox.Show("Are you sure you want to delete the install server?\n\rThis will completely remove files and database references.", "Deletion Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    //Initiate new Thread to async the move of server files.
+                    new Thread(() =>
+                    {
+                        //Start progressbar
+                        Invoke(new Action(() => {
+                            InstalledServerList.SelectedIndex = -1;
+                        }));
+
+                        try
+                        {
+                            //Delete directory with all files.
+                            try
+                            {
+                                Directory.Delete(settings.installedServer[server].installPath, true);
+                            }
+                            catch (PathTooLongException x) { MessageBox.Show(x.Message); }
+                            catch (DirectoryNotFoundException x) { MessageBox.Show(x.Message); }
+                            catch (IOException x) { MessageBox.Show(x.Message); }
+                            catch (UnauthorizedAccessException x) { MessageBox.Show(x.Message); }
+                            catch (ArgumentNullException x) { MessageBox.Show(x.Message); }
+                            catch (ArgumentException x) { MessageBox.Show(x.Message); }
+
+                            settings.installedServer.RemoveAt(server);
+                        }
+                        catch (ArgumentNullException x) { MessageBox.Show(x.Message); }
+                        catch (PathTooLongException x) { MessageBox.Show(x.Message); }
+                        catch (DirectoryNotFoundException x) { MessageBox.Show(x.Message); }
+                        catch (IOException x) { MessageBox.Show(x.Message); }
+                        catch (UnauthorizedAccessException x) { MessageBox.Show(x.Message); }
+                        catch (ArgumentException x) { MessageBox.Show(x.Message); }
+
+                        //Stop progressbar, modify button, save new settings and lastly, refresh list.
+                        Invoke(new Action(() => {
+                            Core.SaveSettings(settings);
+
+                            UpdateInstalledServersInfo();
+                        }));
+                    }).Start();
+                }
+            }
+        }
+
+        private void ManageGuide_Button_Click(object sender, EventArgs e)
+        {
+            int server = Manage_FindServer();
+
+            if (server != -1 && settings.installedServer[server] != null)
+            {
+                string query = settings.installedServer[server].name.Replace(' ', '+');
+                Process.Start("https://www.google.com/search?q=" + query + "+server+setup");
+            }
+            else
+            {
+                MessageBox.Show("There was an error loading data from selection. Please try again.", "Error Getting Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

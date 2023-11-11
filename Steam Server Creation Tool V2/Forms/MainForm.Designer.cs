@@ -79,7 +79,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.NewInstall_Dropbox = new System.Windows.Forms.ComboBox();
             this.Panel_ManageServers = new System.Windows.Forms.Panel();
-            this.ManageDirectory_Button = new System.Windows.Forms.Button();
+            this.ManageOpenDirectory_Button = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ManageInstallDate_Label = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -91,7 +91,7 @@
             this.ManageName_Button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.ManageServerName_Textbox = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.ManageMoveServerLocation_Button = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.ManageInstallDirectory_Textbox = new System.Windows.Forms.TextBox();
             this.ManageGuide_Button = new System.Windows.Forms.Button();
@@ -843,7 +843,7 @@
             // Panel_ManageServers
             // 
             this.Panel_ManageServers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.Panel_ManageServers.Controls.Add(this.ManageDirectory_Button);
+            this.Panel_ManageServers.Controls.Add(this.ManageOpenDirectory_Button);
             this.Panel_ManageServers.Controls.Add(this.groupBox4);
             this.Panel_ManageServers.Controls.Add(this.groupBox3);
             this.Panel_ManageServers.Controls.Add(this.ManageGuide_Button);
@@ -858,24 +858,25 @@
             this.Panel_ManageServers.Size = new System.Drawing.Size(642, 494);
             this.Panel_ManageServers.TabIndex = 26;
             // 
-            // ManageDirectory_Button
+            // ManageOpenDirectory_Button
             // 
-            this.ManageDirectory_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.ManageDirectory_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ManageDirectory_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ManageDirectory_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageDirectory_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManageDirectory_Button.ForeColor = System.Drawing.Color.White;
-            this.ManageDirectory_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
-            this.ManageDirectory_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManageDirectory_Button.Location = new System.Drawing.Point(416, 39);
-            this.ManageDirectory_Button.Name = "ManageDirectory_Button";
-            this.ManageDirectory_Button.Size = new System.Drawing.Size(107, 29);
-            this.ManageDirectory_Button.TabIndex = 28;
-            this.ManageDirectory_Button.Text = "Open Folder";
-            this.ManageDirectory_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.ManageDirectory_Button, "This will open the directory of the server in explorer");
-            this.ManageDirectory_Button.UseVisualStyleBackColor = false;
+            this.ManageOpenDirectory_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageOpenDirectory_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageOpenDirectory_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageOpenDirectory_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageOpenDirectory_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageOpenDirectory_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageOpenDirectory_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
+            this.ManageOpenDirectory_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageOpenDirectory_Button.Location = new System.Drawing.Point(416, 39);
+            this.ManageOpenDirectory_Button.Name = "ManageOpenDirectory_Button";
+            this.ManageOpenDirectory_Button.Size = new System.Drawing.Size(107, 29);
+            this.ManageOpenDirectory_Button.TabIndex = 28;
+            this.ManageOpenDirectory_Button.Text = "Open Folder";
+            this.ManageOpenDirectory_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ManageOpenDirectory_Button, "This will open the directory of the server in explorer");
+            this.ManageOpenDirectory_Button.UseVisualStyleBackColor = false;
+            this.ManageOpenDirectory_Button.Click += new System.EventHandler(this.ManageOpenDirectory_Button_Click);
             // 
             // groupBox4
             // 
@@ -977,7 +978,7 @@
             this.groupBox3.Controls.Add(this.ManageName_Button);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.ManageServerName_Textbox);
-            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.ManageMoveServerLocation_Button);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.ManageInstallDirectory_Textbox);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1032,23 +1033,24 @@
             this.ManageServerName_Textbox.TabIndex = 26;
             this.ManageServerName_Textbox.Text = "Server Name";
             // 
-            // button5
+            // ManageMoveServerLocation_Button
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(432, 74);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(177, 24);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Change Server Location";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
+            this.ManageMoveServerLocation_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ManageMoveServerLocation_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ManageMoveServerLocation_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManageMoveServerLocation_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageMoveServerLocation_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageMoveServerLocation_Button.ForeColor = System.Drawing.Color.White;
+            this.ManageMoveServerLocation_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._016_folder_24;
+            this.ManageMoveServerLocation_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageMoveServerLocation_Button.Location = new System.Drawing.Point(432, 74);
+            this.ManageMoveServerLocation_Button.Name = "ManageMoveServerLocation_Button";
+            this.ManageMoveServerLocation_Button.Size = new System.Drawing.Size(177, 24);
+            this.ManageMoveServerLocation_Button.TabIndex = 25;
+            this.ManageMoveServerLocation_Button.Text = "Change Server Location";
+            this.ManageMoveServerLocation_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ManageMoveServerLocation_Button.UseVisualStyleBackColor = false;
+            this.ManageMoveServerLocation_Button.Click += new System.EventHandler(this.ManageMoveServerLocation_Button_Click);
             // 
             // label12
             // 
@@ -1092,6 +1094,7 @@
             this.ManageGuide_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.ManageGuide_Button, "Find guides on google to setup server");
             this.ManageGuide_Button.UseVisualStyleBackColor = false;
+            this.ManageGuide_Button.Click += new System.EventHandler(this.ManageGuide_Button_Click);
             // 
             // ManageDelete_Button
             // 
@@ -1112,6 +1115,7 @@
             this.toolTip1.SetToolTip(this.ManageDelete_Button, "WARNING! Make sure to stop the server first. This will remove/delete the selected" +
         " server.\r\n");
             this.ManageDelete_Button.UseVisualStyleBackColor = false;
+            this.ManageDelete_Button.Click += new System.EventHandler(this.ManageDelete_Button_Click);
             // 
             // ManageUpdate_Button
             // 
@@ -1132,6 +1136,7 @@
             this.toolTip1.SetToolTip(this.ManageUpdate_Button, "WARNING! Make sure to stop the server first. This will update the selected server" +
         ".");
             this.ManageUpdate_Button.UseVisualStyleBackColor = false;
+            this.ManageUpdate_Button.Click += new System.EventHandler(this.ManageUpdate_Button_Click);
             // 
             // ManageGenerateScript_Button
             // 
@@ -1744,7 +1749,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox ManageServerName_Textbox;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ManageMoveServerLocation_Button;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox ManageInstallDirectory_Textbox;
         private System.Windows.Forms.Button ManageName_Button;
@@ -1786,7 +1791,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.CheckBox CheckForUpdates_Checkbox;
         private System.Windows.Forms.Label NewVersion_Label;
-        private System.Windows.Forms.Button ManageDirectory_Button;
+        private System.Windows.Forms.Button ManageOpenDirectory_Button;
         private System.Windows.Forms.Panel NewVersion_Panel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LogoSSCT.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\LogoSSCT.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -68,6 +68,7 @@
     <Compile Include="Forms\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\IO.cs" />
     <Compile Include="Handlers\SteamAPI\FileDownloader.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -98,7 +99,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Build.bat">
+    <None Include="Resources\Build.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -161,7 +162,7 @@
     <None Include="Resources\033-feather.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LogoSSCT.ico" />
+    <Content Include="Resources\LogoSSCT.ico" />
     <None Include="Resources\016-folder-24.png" />
     <None Include="Resources\refresh-1.png" />
   </ItemGroup>

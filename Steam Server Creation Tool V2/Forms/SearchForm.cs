@@ -28,6 +28,9 @@ namespace Steam_Server_Creation_Tool_V2.Forms
             {
                 SearchServerList_Listbox.Items.Add(item.IdAppName);
             }
+
+            Search_Textbox.Select();
+            Search_Textbox.Focus();
         }
 
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
@@ -81,6 +84,33 @@ namespace Steam_Server_Creation_Tool_V2.Forms
             }
 
             Close();
+        }
+
+        private void SearchServerList_Listbox_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Check if Enter key is pressed and there is only one item in the ListBox
+            if (e.KeyCode == Keys.Enter && SearchServerList_Listbox.Items.Count == 1)
+            {
+                // Prevent the default button press sound
+                e.Handled = true;
+
+                SearchServerList_Listbox.SelectedIndex = 0;
+
+                SetSelectedItem_Button_Click(null, null);
+            }
+        }
+
+        private void Search_Textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && SearchServerList_Listbox.Items.Count == 1)
+            {
+                // Prevent the default button press sound
+                e.Handled = true;
+
+                SearchServerList_Listbox.SelectedIndex = 0;
+
+                SetSelectedItem_Button_Click(null, null);
+            }
         }
     }
 }

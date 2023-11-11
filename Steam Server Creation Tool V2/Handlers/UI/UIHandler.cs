@@ -49,7 +49,7 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
             }
 
-            form.InstalledServerList.SelectedItems.Clear();
+            form.InstalledServerList.SelectedIndex = -1;
         }
 
         public static void Label_MouseHover(object sender, EventArgs e)
