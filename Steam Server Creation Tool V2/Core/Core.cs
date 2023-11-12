@@ -15,12 +15,12 @@ namespace Steam_Server_Creation_Tool_V2
     {
         public static bool debug = false;
 
-        public static string softwareName = "Steam Server Creation Tool";
-        public static string softwareNameShort = "SSCT";
+        public static string softwareName = "Steam Server Creation Tool V2";
+        public static string softwareNameShort = "SSCTV2";
 
         public static string authorRealName = "Victor";
         public static string authorName = "N0tiC";
-        public static string authorContact = "contact@bytevaultstudio.se";
+        public static string discordCommunity = "https://discord.gg/WypdXXJ34p";
 
         public static string projectURL = "https://github.com/n0tic/Steam-Server-Creation-Tool-V2";
         public static string reposURL = "https://api.github.com/repos/n0tic/Steam-Server-Creation-Tool-V2/releases";
@@ -35,7 +35,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 1;
+        public static int buildVersion = 2;
 
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;

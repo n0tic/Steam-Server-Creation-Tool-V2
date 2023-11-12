@@ -1347,7 +1347,8 @@
             this.CheckUpdates_Button.TabIndex = 30;
             this.CheckUpdates_Button.Text = "Check Updates";
             this.CheckUpdates_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.CheckUpdates_Button, "WARNING! This will set the password as visible in the field. Toggle function.");
+            this.toolTip1.SetToolTip(this.CheckUpdates_Button, "Check for updates. You will see if an update is available to the right of this bu" +
+        "tton.");
             this.CheckUpdates_Button.UseVisualStyleBackColor = false;
             this.CheckUpdates_Button.Click += new System.EventHandler(this.CheckUpdates_Button_Click);
             // 

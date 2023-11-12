@@ -223,6 +223,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ManageServers {
+            get {
+                object obj = ResourceManager.GetObject("ManageServers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap maximize {
             get {
                 object obj = ResourceManager.GetObject("maximize", resourceCulture);
@@ -243,9 +253,29 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewServer {
+            get {
+                object obj = ResourceManager.GetObject("NewServer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_1 {
             get {
                 object obj = ResourceManager.GetObject("refresh-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings {
+            get {
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -265,6 +295,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         internal static string StartServerScript_txt {
             get {
                 return ResourceManager.GetString("StartServerScript.txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteamCMD {
+            get {
+                object obj = ResourceManager.GetObject("SteamCMD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

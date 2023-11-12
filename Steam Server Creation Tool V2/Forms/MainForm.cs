@@ -87,7 +87,7 @@ namespace Steam_Server_Creation_Tool_V2
             //Load settings
             settings = Core.LoadSettings();
 
-            if (settings == null) settings = new Settings() { userData = new UserData() };
+            if (settings == null) settings = new Settings();
             
             InstallFound();
             
@@ -134,8 +134,8 @@ namespace Steam_Server_Creation_Tool_V2
             if (settings.userData != null)
             {
                 UsernameField_Textbox.Text = settings.userData.Username;
-                // TODO: Find reason why password is not working when decoding...
-                //PasswordField_Textbox.Text = Core.Base64Decode(settings.userData.Password);
+                // Find reason why password is not working (sometimes) when decoding... Bug?
+                PasswordField_Textbox.Text = Core.Base64Decode(settings.userData.Password);
             }
 
             UpdateInstalledServersInfo();
@@ -598,6 +598,7 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private async void CheckUpdates_Button_Click(object sender, EventArgs e)
         {
+            // Work in progress only works if repo is public
             workInProgress = false;
             App_ProgressBar.Visible = true;
             await Core.CheckForUpdatesAsync(true);

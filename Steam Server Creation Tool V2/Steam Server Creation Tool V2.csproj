@@ -108,7 +108,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Resources\Build.bat" />
+    <None Include="Build.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -169,6 +171,10 @@
     <None Include="Resources\033-feather.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SteamCMD.png" />
+    <None Include="Resources\NewServer.png" />
+    <None Include="Resources\ManageServers.png" />
+    <None Include="Resources\Settings.png" />
     <None Include="Comments.txt" />
     <None Include="Resources\073-question.png" />
     <None Include="Resources\Donate.png" />
