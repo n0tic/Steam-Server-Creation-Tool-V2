@@ -10,7 +10,7 @@
 
 <img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
 
-Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes additions or remove servers.
+Steam Server Creation Tool V2 is an upgraded utility for effortless download of multiplayer game servers using the Steam platform. Unlike the traditional SteamCMD console commands, this version features a user-friendly interface, simplifying tasks like installation, updates and managment. The tool is built with the idea of staying up-to-date and functional, even if Steam makes additions or remove servers.
 
 The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer. It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
 
