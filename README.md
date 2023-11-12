@@ -36,6 +36,12 @@ It extrapolates servers from that list, creates a database with name and referen
 - Application fetch steamcmd from:
   - Website: https://developer.valvesoftware.com/wiki/SteamCMD
   - Direct: https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
+  
+# Requirements
+- Internet Connection
+- .NET Framework 4.8
+- Newtonsoft Json (Included)
+
 
 # StartServerScript?
 WARNING: If you are using a username and password; the password will be in clear text format in the script! 
@@ -58,11 +64,7 @@ The server is set to launch the file "valheim_server.exe" with the launch option
 If this would be valid information, the script would then run the server and monitor that process. If this window is closed or the server has crashed, the server will automatically be restarted as the StartServerScript is protecting the process. In order to stop the server from restarting you need to close the StartServerScript first - Alternatively, select Y to terminate the process; When prompted. NOTE: Some servers require/want you to close the server with the CTRL+C command.
 
 Note: In the event of issues connecting to the server, server crashes, or misconfigurations, troubleshooting and configuration adjustments will be required. This aspect falls outside the scope of the script itself. Best of luck!
-  
-# Requirements
-- Internet Connection
-- .NET Framework 4.8
-- Newtonsoft Json (Included)
+
 
 # Bugs?
 
