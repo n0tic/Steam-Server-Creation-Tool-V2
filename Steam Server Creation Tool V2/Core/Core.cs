@@ -24,6 +24,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static string projectURL = "https://github.com/n0tic/Steam-Server-Creation-Tool-V2";
         public static string reposURL = "https://api.github.com/repos/n0tic/Steam-Server-Creation-Tool-V2/releases";
+        public static string releaseURL = "https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases/";
 
         public static string steamCMDURL = "https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD";
         public static string steamCMDURL_Download = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
@@ -35,7 +36,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 2;
+        public static int buildVersion = 1;
 
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;
@@ -98,23 +99,35 @@ namespace Steam_Server_Creation_Tool_V2
 
                         if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
-
-                            Process.Start(reposURL);
-                            /*
-                            form.App_ProgressBar.Visible = true;
-
-                            // Start the process and exit the application
-                            Process.Start(new ProcessStartInfo
+                            if(form.settings.allowAutoUpdate)
                             {
-                                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe"),
-                                Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
-                                UseShellExecute = false,
-                                CreateNoWindow = true
-                            });
+                                form.App_ProgressBar.Visible = true;
 
-                            // Exit the application
-                            Application.Exit();
-                            */
+                                string updater = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe");
+
+                                if(File.Exists(updater))
+                                {
+                                    // Start the process and exit the application
+                                    Process.Start(new ProcessStartInfo
+                                    {
+                                        FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe"),
+                                        Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
+                                        UseShellExecute = false,
+                                        CreateNoWindow = true
+                                    });
+
+                                    // Exit the application
+                                    Application.Exit();
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"AutoUpdater.exe was not located. Download it and try again.{Environment.NewLine}{Environment.NewLine}False positive and does not come with the software by default.", "AutoUpdater Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    checkingUpdate = false;
+                                    form.workInProgress = false;
+                                    return;
+                                }
+                            }
+                            else Process.Start(releaseURL);
                         }
                     }
                     else

@@ -122,6 +122,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.SaveSettings_Button = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.AllowUpdater_Checkbox = new System.Windows.Forms.CheckBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.CheckForUpdates_Checkbox = new System.Windows.Forms.CheckBox();
             this.AutoClose_Checkbox = new System.Windows.Forms.CheckBox();
@@ -1468,6 +1469,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.AllowUpdater_Checkbox);
             this.groupBox6.Controls.Add(this.panel9);
             this.groupBox6.Controls.Add(this.CheckForUpdates_Checkbox);
             this.groupBox6.Controls.Add(this.AutoClose_Checkbox);
@@ -1480,6 +1482,18 @@
             this.groupBox6.TabIndex = 29;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SteamCMD Settings";
+            // 
+            // AllowUpdater_Checkbox
+            // 
+            this.AllowUpdater_Checkbox.AutoSize = true;
+            this.AllowUpdater_Checkbox.Location = new System.Drawing.Point(228, 40);
+            this.AllowUpdater_Checkbox.Name = "AllowUpdater_Checkbox";
+            this.AllowUpdater_Checkbox.Size = new System.Drawing.Size(131, 17);
+            this.AllowUpdater_Checkbox.TabIndex = 33;
+            this.AllowUpdater_Checkbox.Text = "Allow AutoUpdater";
+            this.toolTip1.SetToolTip(this.AllowUpdater_Checkbox, "Automatic validation of file integrity of server files after installation");
+            this.AllowUpdater_Checkbox.UseVisualStyleBackColor = true;
+            this.AllowUpdater_Checkbox.CheckedChanged += new System.EventHandler(this.AllowUpdater_Checkbox_CheckedChanged);
             // 
             // panel9
             // 
@@ -1822,6 +1836,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Information_Button;
         public System.Windows.Forms.ProgressBar App_ProgressBar;
+        private System.Windows.Forms.CheckBox AllowUpdater_Checkbox;
     }
 }
 

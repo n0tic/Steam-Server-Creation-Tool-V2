@@ -93,9 +93,6 @@ namespace Steam_Server_Creation_Tool_V2
             
             ApplyLoadedSettings();
 
-            // Start downloading Steam API data
-            //await RefreshAPIData();
-
             //Check for updates
             if (settings.CheckUpdates) // TODO: Bug where it shows messagebox anyway?
             {
@@ -118,6 +115,7 @@ namespace Steam_Server_Creation_Tool_V2
             Validate_Checkbox.Checked = settings.validate;
             AutoClose_Checkbox.Checked = settings.autoClose;
             CheckForUpdates_Checkbox.Checked = settings.CheckUpdates;
+            AllowUpdater_Checkbox.Checked = settings.allowAutoUpdate;
 
             if (settings.useAnonymousAuth)
             {
@@ -238,6 +236,7 @@ namespace Steam_Server_Creation_Tool_V2
         }
 
         #region One-line Buttons
+        private void AllowUpdater_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.allowAutoUpdate = AllowUpdater_Checkbox.Checked;
         private void CheckForUpdates_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
         private void Anon_Radio_CheckedChanged(object sender, EventArgs e) => settings.useAnonymousAuth = Anon_Radio.Checked;
         private void Validate_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.validate = Validate_Checkbox.Checked;
@@ -259,6 +258,9 @@ namespace Steam_Server_Creation_Tool_V2
         private void Settings_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         private void GSLT_Button_Click(object sender, EventArgs e) => Process.Start("https://steamcommunity.com/dev/managegameservers?l=english");
         private void Close_Button_Click(object sender, EventArgs e) => CloseApplication();
+        private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
+        private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
+        #endregion One-line buttons
 
         /// <summary>
         /// Attempt to shut down application
@@ -275,10 +277,6 @@ namespace Steam_Server_Creation_Tool_V2
             }
             else Environment.Exit(0);
         }
-
-        private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
-        private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
-        #endregion One-line buttons
 
         /// <summary>
         /// Allow for manual locating of steamcmd.exe
@@ -583,6 +581,7 @@ namespace Steam_Server_Creation_Tool_V2
             settings.validate = Validate_Checkbox.Checked;
             settings.autoClose = AutoClose_Checkbox.Checked;
             settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
+            settings.allowAutoUpdate = AllowUpdater_Checkbox.Checked;
 
             settings.steamCMD_installLocation = SteamCMD_SettingsInstallLocation_Textbox.Text;
 
