@@ -1309,6 +1309,7 @@
             // 
             // NewVersion_Label
             // 
+            this.NewVersion_Label.AutoEllipsis = true;
             this.NewVersion_Label.BackColor = System.Drawing.Color.Transparent;
             this.NewVersion_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NewVersion_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1728,7 +1729,6 @@
         private System.Windows.Forms.PictureBox Close_Button;
         private System.Windows.Forms.PictureBox Minimize_Button;
         private System.Windows.Forms.Button SteamCMD_InstallAuto_Button;
-        private System.Windows.Forms.ProgressBar App_ProgressBar;
         private System.Windows.Forms.Button SteamCMD_DownloadWebsite_Buttons;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
@@ -1821,6 +1821,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Information_Button;
+        public System.Windows.Forms.ProgressBar App_ProgressBar;
     }
 }
 

@@ -40,6 +40,8 @@ namespace Steam_Server_Creation_Tool_V2
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;
 
+        public static string newUpdateVersion = "No data";
+
         public enum BuildTypes
         {
             Alpha,
@@ -57,7 +59,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         #region Network
 
-        public static async Task CheckForUpdatesAsync(bool message = false)
+        public static async Task CheckForUpdatesAsync(MainForm form, bool message = false)
         {
             if (checkingUpdate) return;
 
@@ -91,20 +93,23 @@ namespace Steam_Server_Creation_Tool_V2
                         }
 
                         updateAvailable = true;
+                        newUpdateVersion = $"{latestMajorVersion}.{latestMinorVersion}.{latestBuildVersion}";
 
                         if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
+                            form.App_ProgressBar.Visible = true;
+
                             // Start the process and exit the application
                             Process.Start(new ProcessStartInfo
                             {
-                                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Steam Server Creation Tool V2.exe"),
+                                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe"),
                                 Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
                                 UseShellExecute = false,
                                 CreateNoWindow = true
                             });
 
                             // Exit the application
-                            Environment.Exit(0);
+                            Application.Exit();
                         }
                     }
                     else

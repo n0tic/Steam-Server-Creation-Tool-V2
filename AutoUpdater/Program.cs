@@ -11,9 +11,14 @@ namespace AutoUpdater
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Downloading and applying the update. Please wait and do not close this window...");
+            if(args.Length < 1) Environment.Exit(0);
+
+            Console.WriteLine("## Downloading and applying the update ##");
+            Console.WriteLine("Do not close this window.");
+            Console.WriteLine("");
+            Console.WriteLine("Please wait... This should only take a few seconds...");
 
             FileDownloader downloader = new FileDownloader();
 
@@ -23,7 +28,7 @@ namespace AutoUpdater
             try
             {
                 // Download the file with progress reporting.
-                await downloader.DownloadFileAsync(args[0], AppDomain.CurrentDomain.BaseDirectory);
+                downloader.DownloadFile(args[0], AppDomain.CurrentDomain.BaseDirectory);
 
                 string filename = Path.GetFileName(args[0]);
 
@@ -31,7 +36,7 @@ namespace AutoUpdater
                 zipFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filename);
 
                 // Unpack the zip file
-                await downloader.UnpackZipFileAsync(zipFilePath, AppDomain.CurrentDomain.BaseDirectory);
+                downloader.UnpackZipFile(zipFilePath, AppDomain.CurrentDomain.BaseDirectory);
             }
             catch (Exception ex)
             {

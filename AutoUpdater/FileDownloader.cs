@@ -8,28 +8,24 @@ namespace AutoUpdater
 {
     public class FileDownloader
     {
-        public async Task DownloadFileAsync(string fileUrl, string destinationPath)
+        public void DownloadFile(string fileUrl, string destinationPath)
         {
             using (HttpClient client = new HttpClient())
             {
-                // Send a GET request to the specified Uri as an asynchronous operation.
-                using (HttpResponseMessage response = await client.GetAsync(fileUrl, HttpCompletionOption.ResponseHeadersRead))
+                using (HttpResponseMessage response = client.GetAsync(fileUrl, HttpCompletionOption.ResponseHeadersRead).Result)
                 {
-                    // Ensure we got a successful response.
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new HttpRequestException($"The request did not complete successfully and returned status code {response.StatusCode}.");
                     }
 
-                    // Get the total content length of the response.
                     var contentLength = response.Content.Headers.ContentLength;
 
-                    using (var streamToReadFrom = await response.Content.ReadAsStreamAsync())
+                    using (var streamToReadFrom = response.Content.ReadAsStreamAsync().Result)
                     {
                         string fileName = Path.GetFileName(fileUrl);
                         string destinationFilePath = Path.Combine(destinationPath, fileName);
 
-                        // Create a new file stream where we will be saving the data (file).
                         using (var streamToWriteTo = File.Open(destinationFilePath, FileMode.Create))
                         {
                             var buffer = new byte[8192]; // 8KB buffer.
@@ -37,17 +33,14 @@ namespace AutoUpdater
 
                             do
                             {
-                                // Read from the web response in chunks.
-                                var read = await streamToReadFrom.ReadAsync(buffer, 0, buffer.Length);
+                                var read = streamToReadFrom.Read(buffer, 0, buffer.Length);
                                 if (read == 0)
                                 {
                                     isMoreToRead = false;
                                     continue;
                                 }
 
-                                // Write the data to the file stream.
-                                await streamToWriteTo.WriteAsync(buffer, 0, read);
-
+                                streamToWriteTo.Write(buffer, 0, read);
                             }
                             while (isMoreToRead);
                         }
@@ -56,45 +49,35 @@ namespace AutoUpdater
             }
         }
 
-        public async Task UnpackZipFileAsync(string zipFilePath, string extractPath)
+        public void UnpackZipFile(string zipFilePath, string extractPath)
         {
-            await Task.Run(() =>
+            using (var zipToOpen = new FileStream(zipFilePath, FileMode.Open))
+            using (var archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
             {
-                using (var zipToOpen = new FileStream(zipFilePath, FileMode.Open))
-                using (var archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
+                var totalEntries = archive.Entries.Count;
+                var entriesProcessed = 0;
+
+                foreach (var entry in archive.Entries)
                 {
-                    // Retrieve the total count of entries in the archive.
-                    var totalEntries = archive.Entries.Count;
-                    var entriesProcessed = 0;
+                    string destinationPath = Path.Combine(extractPath, entry.FullName);
 
-                    // Loop through each file in the zip.
-                    foreach (var entry in archive.Entries)
+                    string destinationDirectory = Path.GetDirectoryName(destinationPath);
+                    if (!Directory.Exists(destinationDirectory))
                     {
-                        // Combine the base folder with the entry name to get the full path to extract to.
-                        string destinationPath = Path.Combine(extractPath, entry.FullName);
-
-                        // Ensure the directory exists.
-                        string destinationDirectory = Path.GetDirectoryName(destinationPath);
-                        if (!Directory.Exists(destinationDirectory))
-                        {
-                            Directory.CreateDirectory(destinationDirectory);
-                        }
-
-                        // Extract the entry to the specified path.
-                        try
-                        {
-                            entry.ExtractToFile(destinationPath, true);
-                        }
-                        catch { }
-
-                        // Calculate the progress and report it.
-                        entriesProcessed++;
-                        var calculatedProgress = (double)entriesProcessed / totalEntries;
+                        Directory.CreateDirectory(destinationDirectory);
                     }
-                }
-            });
-        }
 
+                    try
+                    {
+                        entry.ExtractToFile(destinationPath, true);
+                    }
+                    catch { }
+
+                    entriesProcessed++;
+                    var calculatedProgress = (double)entriesProcessed / totalEntries;
+                }
+            }
+        }
     }
 
 

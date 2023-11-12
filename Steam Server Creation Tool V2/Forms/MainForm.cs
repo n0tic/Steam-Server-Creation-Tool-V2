@@ -68,7 +68,7 @@ namespace Steam_Server_Creation_Tool_V2
         private void SetNewVersionStatus(bool state, string message = "")
         {
             NewVersion_Panel.Visible = state;
-            NewVersion_Label.Text = message;
+            NewVersion_Label.Text = $"New version ({message}) available";;
             NewVersion_Label.Visible = state;
         }
 
@@ -97,11 +97,10 @@ namespace Steam_Server_Creation_Tool_V2
             //await RefreshAPIData();
 
             //Check for updates
-            if (settings.CheckUpdates)
+            if (settings.CheckUpdates) // TODO: Bug where it shows messagebox anyway?
             {
-                await Core.CheckForUpdatesAsync();
-                if(Core.updateAvailable) SetNewVersionStatus(true);
-                else SetNewVersionStatus(false);
+                await Core.CheckForUpdatesAsync(this);
+                SetNewVersionStatus(Core.updateAvailable, Core.newUpdateVersion);
             }
 
             // Disable progressbar
@@ -601,9 +600,8 @@ namespace Steam_Server_Creation_Tool_V2
             // Work in progress only works if repo is public
             workInProgress = false;
             App_ProgressBar.Visible = true;
-            await Core.CheckForUpdatesAsync(true);
-            if (Core.updateAvailable) SetNewVersionStatus(true);
-            else SetNewVersionStatus(false);
+            await Core.CheckForUpdatesAsync(this, true);
+            SetNewVersionStatus(Core.updateAvailable, Core.newUpdateVersion);
             App_ProgressBar.Visible = false;
             workInProgress = true;
         }
