@@ -1,46 +1,32 @@
-<img src="https://socialify.git.ci/n0tic/Steam-Server-Creation-Tool-V2/image?description=1&font=Inter&forks=1&issues=1&language=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Light" alt="Banner" width="768"/>
-
-<p align="center">
-  <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/n0tic/Steam-Server-Creation-Tool-V2?color=seagreen&include_prereleases">
-  <img src="https://img.shields.io/badge/status-Alpha-blue" />
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
-  <img alt="Visitor Count" src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2">
-  <!-- https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2 -->
-</p>
-
-
-<div style="text-align:center">
-    <img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
-</div>
-
----------------------------------------------------------------------------------------------------------------------------------
-<!--*Images show version v0.2.2 Beta*
-
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_qSXUhdDBoe.png)
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_RiPqPqSR34.png)-->
-
 # Steam Server Creation Tool V2 #
 SteamCMD GUI / UI | The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
-
-<!--# How does it work?
-[![YoutubeImage](http://bytevaultstudio.se/ShareX/youtubeX.png)](https://youtu.be/54oPT-_8D4U) 
-
-The Image above will take you to a Youtube video.-->
 
 The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer.
 It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
 
-- Application fetch app list from:
-  - API: https://api.steampowered.com/ISteamApps/GetAppList/v2
-- Application fetch steamcmd from:
-  - Website: https://developer.valvesoftware.com/wiki/SteamCMD
-  - Direct: https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
+---------------------------------------------------------------------------------------------------------------------------------
+
+<img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
+<p align="left">
+  <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/n0tic/Steam-Server-Creation-Tool-V2?color=seagreen&include_prereleases">
+  <img src="https://img.shields.io/badge/status-Alpha-blue" />
+  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
+  <img src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2" alt="visitor badge"/>
+  <!-- https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2 -->
+</p>
   
 # Requirements
 - Internet Connection
 - .NET Framework 4.8
 - Newtonsoft Json (Included)
+
+# How does it work?
+- Application fetch steam "apps":
+  - API: https://api.steampowered.com/ISteamApps/GetAppList/v2
+- Application fetch steamcmd from:
+  - Direct: https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
+  - Website: https://developer.valvesoftware.com/wiki/SteamCMD
 
 
 # StartServerScript?
