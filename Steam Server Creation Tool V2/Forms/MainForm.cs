@@ -244,10 +244,10 @@ namespace Steam_Server_Creation_Tool_V2
         private void AutoClose_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.autoClose = AutoClose_Checkbox.Checked;
         private void NewServerInstallLocation_Button_Click(object sender, EventArgs e) => NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
         private async void RefreshAPI_Button_Click(object sender, EventArgs e) => await RefreshAPIData();
-        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers, this);
-        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings, this);
-        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.SteamCMD, this);
-        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.NewServer, this);
+        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers, this, sender);
+        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings, this, sender);
+        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.SteamCMD, this, sender);
+        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.NewServer, this, sender);
         private void SteamCMD_DownloadWebsite_Buttons_Click(object sender, EventArgs e) => Process.Start(Core.steamCMDURL);
         private void SteamCMD_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
         private void NewServer_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
@@ -598,12 +598,12 @@ namespace Steam_Server_Creation_Tool_V2
         private async void CheckUpdates_Button_Click(object sender, EventArgs e)
         {
             // Work in progress only works if repo is public
-            workInProgress = false;
+            workInProgress = true;
             App_ProgressBar.Visible = true;
             await Core.CheckForUpdatesAsync(this, true);
             SetNewVersionStatus(Core.updateAvailable, Core.newUpdateVersion);
             App_ProgressBar.Visible = false;
-            workInProgress = true;
+            workInProgress = false;
         }
 
         /// <summary>

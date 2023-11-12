@@ -13,15 +13,18 @@ namespace AutoUpdater
     {
         static void Main(string[] args)
         {
-            if(args.Length < 1) Environment.Exit(0);
-
-            Console.WriteLine("## Downloading and applying the update ##");
-            Console.WriteLine("Do not close this window.");
-            Console.WriteLine("");
-            Console.WriteLine("Please wait... This should only take a few seconds...");
-
             FileDownloader downloader = new FileDownloader();
 
+            if (args.Length < 1 || !downloader.IsValidUrl(args[0]))
+            {
+                Console.WriteLine("Invalid argument. Exiting...");
+                Thread.Sleep(2000);
+                Environment.Exit(0);
+            }
+
+            Console.WriteLine("Please wait while the update is being prepared... This should only take a few seconds...");
+
+            // Initiate variable
             string zipFilePath = "";
 
             // Download data and unpack
@@ -30,6 +33,7 @@ namespace AutoUpdater
                 // Download the file with progress reporting.
                 downloader.DownloadFile(args[0], AppDomain.CurrentDomain.BaseDirectory);
 
+                //Get filename
                 string filename = Path.GetFileName(args[0]);
 
                 // Assuming the zip file is named 'steamcmd.zip' and is located in the downloadPath.
@@ -40,8 +44,6 @@ namespace AutoUpdater
             }
             catch (Exception ex)
             {
-                if(ex.Message == "Index was outside the bounds of the array.") Environment.Exit(0);
-
                 Console.Clear();
                 Console.WriteLine($"Please report this error:{Environment.NewLine}{Environment.NewLine}{ex.Message}");
                 Console.ReadLine();
@@ -51,13 +53,16 @@ namespace AutoUpdater
             // Delete file
             try
             {
-                Thread.Sleep(2000);
+                //Wait one second
+                Thread.Sleep(1000);
+                //Try deleting file
                 if (File.Exists(zipFilePath)) File.Delete(zipFilePath);
             }
             catch (Exception ex)
             {
                 Console.Clear();
                 Console.WriteLine($"Please report this error:{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                Console.ReadLine();
                 Environment.Exit(0);
             }
 

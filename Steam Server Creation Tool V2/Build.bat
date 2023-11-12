@@ -16,7 +16,8 @@ mkdir "%newDirPath%"
 echo Directory created at: %newDirPath%
 
 REM Specify the files to copy
-set "filesToCopy="AutoUpdater.exe" "Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
+REM set "filesToCopy="AutoUpdater.exe" "Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
+set "filesToCopy="Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
 
 REM Loop through the array and copy each file
 for %%f in (%filesToCopy%) do (

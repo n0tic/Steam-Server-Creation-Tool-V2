@@ -89,6 +89,7 @@ namespace Steam_Server_Creation_Tool_V2
                         {
                             if (message) MessageBox.Show("You are using the latest version.", "No Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             checkingUpdate = false;
+                            form.workInProgress = false;
                             return;
                         }
 
@@ -97,6 +98,9 @@ namespace Steam_Server_Creation_Tool_V2
 
                         if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
+
+                            Process.Start(reposURL);
+                            /*
                             form.App_ProgressBar.Visible = true;
 
                             // Start the process and exit the application
@@ -110,16 +114,18 @@ namespace Steam_Server_Creation_Tool_V2
 
                             // Exit the application
                             Application.Exit();
+                            */
                         }
                     }
                     else
                     {
                         Console.WriteLine("Something went wrong. Private repository or no release found.");
+                        form.workInProgress = false;
                     }
                 }
             }
-            catch { checkingUpdate = false; }
-            finally { checkingUpdate = false; }
+            catch { checkingUpdate = false; form.workInProgress = false; }
+            finally { checkingUpdate = false; form.workInProgress = false; }
         }
 
 

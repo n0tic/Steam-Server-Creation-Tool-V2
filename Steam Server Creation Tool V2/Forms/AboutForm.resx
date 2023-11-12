@@ -124,9 +124,9 @@ The application is requesting a full list of applications from the Steam's API s
 </value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>As the go-to person for PC-related assistance among friends, I often handle gaming and server tasks. Using SteamCMD led to a lot of batch files. One for each server, prompting me to create a tool. Now, with a simple selection from a list, I can set server locations and efficiently manage them through this program.
+    <value>As the go-to person for PC-related assistance among friends, I often handle gaming and server tasks. Using SteamCMD led to a lot of batch files. One for each server, prompting me to create a tool. Now, with a simple selection from a list, I can set the server location and efficiently manage them through this program.
 
-Thats where this tool was born.</value>
+That's where this tool was born.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

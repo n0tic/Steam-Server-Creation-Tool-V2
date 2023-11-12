@@ -25,7 +25,7 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_Settings);
         }
 
-        public static async void ChangePanel(Panel panel, MainForm form)
+        public static async void ChangePanel(Panel panel, MainForm form, object label = null)
         {
             for (int i = 0; i < panels.Count; i++)
             {
@@ -59,6 +59,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static void Label_MouseHover(object sender, EventArgs e)
         {
+            // TODO: Fix logic for this to stay upon selection
             if (sender is Label label) { label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline); }
         }
 
