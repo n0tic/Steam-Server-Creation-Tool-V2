@@ -15,8 +15,12 @@ Steam Server Creation Tool V2 is an upgraded utility for effortless download of 
 The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer. It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
 
 ---------------------------------------------------------------------------------------------------------------------------------
+# Links
+[Discord Group](https://discord.gg/WypdXXJ34p)
 
-  
+[Downloads](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases)
+
+
 # Requirements
 - Internet Connection
 - .NET Framework 4.8
