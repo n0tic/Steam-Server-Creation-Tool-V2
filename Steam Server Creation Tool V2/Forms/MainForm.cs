@@ -22,6 +22,9 @@ namespace Steam_Server_Creation_Tool_V2
         // Have we recieved Steam API data?
         public bool updateRecieved = false;
 
+        // Are we running a process/task?
+        public bool workInProgress = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -178,6 +181,7 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private async void SteamCMD_InstallAuto_Button_Click(object sender, EventArgs e)
         {
+            workInProgress = true;
             App_ProgressBar.Visible = true;
 
             if (string.IsNullOrEmpty(SteamCMD_InstallLocation_Textbox.Text) || !Directory.Exists(SteamCMD_InstallLocation_Textbox.Text))
@@ -205,6 +209,7 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 MessageBox.Show(ex.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 App_ProgressBar.Visible = false;
+                workInProgress = false;
             }
 
             // Delete file
@@ -216,6 +221,7 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 MessageBox.Show(ex.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 App_ProgressBar.Visible = false;
+                workInProgress = false;
             }
 
             // Add steam installation location to settings data
@@ -229,6 +235,7 @@ namespace Steam_Server_Creation_Tool_V2
             InstallFound();
 
             App_ProgressBar.Visible = false;
+            workInProgress = false;
         }
 
         #region One-line Buttons
@@ -252,7 +259,24 @@ namespace Steam_Server_Creation_Tool_V2
         private void ManageServers_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         private void Settings_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         private void GSLT_Button_Click(object sender, EventArgs e) => Process.Start("https://steamcommunity.com/dev/managegameservers?l=english");
-        private void Close_Button_Click(object sender, EventArgs e) => Environment.Exit(0);
+        private void Close_Button_Click(object sender, EventArgs e) => CloseApplication();
+
+        /// <summary>
+        /// Attempt to shut down application
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void CloseApplication()
+        {
+            if(workInProgress)
+            {
+                if (MessageBox.Show($"The application is currently performing a task.{Environment.NewLine}I strongly suggest that you wait untill the application finish the task before shutting down.{Environment.NewLine}{Environment.NewLine}Do you wish to force the application to shut down?", "WARNING!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    Environment.Exit(0);
+                }
+            }
+            else Environment.Exit(0);
+        }
+
         private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
         #endregion One-line buttons
@@ -294,6 +318,7 @@ namespace Steam_Server_Creation_Tool_V2
         /// <returns></returns>
         public async Task RefreshAPIData()
         {
+            workInProgress = true;
             App_ProgressBar.Visible = true;
 
             NewInstall_Dropbox.Items.Clear();
@@ -336,6 +361,7 @@ namespace Steam_Server_Creation_Tool_V2
             NewInstall_Dropbox.SelectedIndex = 0;
 
             App_ProgressBar.Visible = false;
+            workInProgress = false;
         }
 
         /// <summary>
@@ -450,7 +476,6 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private async void InstallServer_Button_Click(object sender, EventArgs e)
         {
-            // TODO: Add boolean for when operation in progress and add function to stop user from closing down application while IO
             App app = GetSelectedApp();
 
             if (NewServerName_Textbox.Text == "" || NewServerInstallLocation_Textbox.Text == "" || app == null)
@@ -495,6 +520,7 @@ namespace Steam_Server_Creation_Tool_V2
                 }
             }
 
+            workInProgress = true;
             App_ProgressBar.Visible = true;
 
             await SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
@@ -502,6 +528,7 @@ namespace Steam_Server_Creation_Tool_V2
             UpdateInstalledServersInfo();
 
             App_ProgressBar.Visible = false;
+            workInProgress = false;
         }
 
         /// <summary>
@@ -544,7 +571,9 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private void SaveSettings_Button_Click(object sender, EventArgs e)
         {
-            if(UsernameField_Textbox.Text != "" && PasswordField_Textbox.Text != "") {
+            workInProgress = true;
+
+            if (UsernameField_Textbox.Text != "" && PasswordField_Textbox.Text != "") {
                 settings.userData = new UserData();
                 settings.userData.SetUsername(UsernameField_Textbox.Text);
                 settings.userData.SetPassword(PasswordField_Textbox.Text);
@@ -559,6 +588,7 @@ namespace Steam_Server_Creation_Tool_V2
             settings.steamCMD_installLocation = SteamCMD_SettingsInstallLocation_Textbox.Text;
 
             Core.SaveSettings(settings);
+            workInProgress = false;
         }
 
         /// <summary>
@@ -568,11 +598,13 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private async void CheckUpdates_Button_Click(object sender, EventArgs e)
         {
+            workInProgress = false;
             App_ProgressBar.Visible = true;
             await Core.CheckForUpdatesAsync(true);
             if (Core.updateAvailable) SetNewVersionStatus(true);
             else SetNewVersionStatus(false);
             App_ProgressBar.Visible = false;
+            workInProgress = true;
         }
 
         /// <summary>
@@ -655,6 +687,8 @@ namespace Steam_Server_Creation_Tool_V2
                         }
                     }
 
+                    workInProgress = true;
+
                     string startScript = Properties.Resources.StartServerScript_txt;
                     startScript = startScript.Replace("{steamcmd_dir}", "\"" + Path.GetDirectoryName(settings.steamCMD_installLocation) + "\"");
                     startScript = startScript.Replace("{server_dir}", settings.installedServer[server].installPath);
@@ -663,6 +697,8 @@ namespace Steam_Server_Creation_Tool_V2
                     startScript = startScript.Replace("{login_cred}", settings.GetLogin());
 
                     Core.SaveToFile(settings.installedServer[server].installPath + @"\StartServerScript.bat", startScript);
+
+                    workInProgress = false;
                 }
             }
         }
@@ -678,9 +714,11 @@ namespace Steam_Server_Creation_Tool_V2
 
             if (server != -1 && settings.installedServer[server].name != ManageServerName_Textbox.Text && ManageServerName_Textbox.Text != "")
             {
+                workInProgress = true;
                 settings.installedServer[server].name = ManageServerName_Textbox.Text;
                 UpdateInstalledServersInfo();
                 Core.SaveSettings(settings);
+                workInProgress = false;
             }
         }
 
@@ -691,9 +729,8 @@ namespace Steam_Server_Creation_Tool_V2
         /// <param name="e"></param>
         private async void ManageMoveServerLocation_Button_Click(object sender, EventArgs e)
         {
+            workInProgress = true;
             App_ProgressBar.Visible = true;
-
-            // TODO: Add check for empty directory
 
             int server = Manage_FindServer();
 
@@ -713,6 +750,7 @@ namespace Steam_Server_Creation_Tool_V2
             }
 
             App_ProgressBar.Visible = false;
+            workInProgress = false;
         }
 
         /// <summary>
@@ -775,7 +813,9 @@ namespace Steam_Server_Creation_Tool_V2
                     return;
                 }
 
+                workInProgress = true;
                 await SteamCMDHelper.StartNewDownload(this, settings.installedServer[server].app, settings.installedServer[server].name, settings.installedServer[server].installPath, InstallationType.Update);
+                workInProgress = false;
             }
         }
 
@@ -798,6 +838,7 @@ namespace Steam_Server_Creation_Tool_V2
                         //Start progressbar
                         Invoke(new Action(() => {
                             InstalledServerList.SelectedIndex = -1;
+                            workInProgress = true;
                         }));
 
                         try
@@ -828,6 +869,8 @@ namespace Steam_Server_Creation_Tool_V2
                             Core.SaveSettings(settings);
 
                             UpdateInstalledServersInfo();
+
+                            workInProgress = false;
                         }));
                     }).Start();
                 }
