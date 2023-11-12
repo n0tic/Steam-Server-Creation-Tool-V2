@@ -1,39 +1,34 @@
-<img src="https://socialify.git.ci/n0tic/Steam-Server-Creation-Tool-V2/image?description=1&font=Inter&forks=1&issues=1&language=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Light" alt="Banner" width="768"/>
-
-<p align="center">
+# Steam Server Creation Tool V2 #
+<p align="left">
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/n0tic/Steam-Server-Creation-Tool-V2?color=seagreen&include_prereleases">
   <img src="https://img.shields.io/badge/status-Alpha-blue" />
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
-  <img alt="Visitor Count" src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2">
+  <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fn0tic%2FSteam-Server-Creation-Tool-V2"><img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fn0tic%2FSteam-Server-Creation-Tool-V2&countColor=%23263759&style=flat-square" /></a>
   <!-- https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2 -->
 </p>
 
+<img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
 
-### WIP : NOTE : Work In Progress
+Steam Server Creation Tool V2 is an upgraded utility for effortless download of multiplayer game servers using the Steam platform. Unlike the traditional SteamCMD console commands, this version features a user-friendly interface, simplifying tasks like installation, updates and managment. The tool is built with the idea of staying up-to-date and functional, even if Steam makes additions or remove servers.
+
+The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer. It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
 
 ---------------------------------------------------------------------------------------------------------------------------------
-<!--*Images show version v0.2.2 Beta*
 
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_qSXUhdDBoe.png)
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_RiPqPqSR34.png)-->
+  
+# Requirements
+- Internet Connection
+- .NET Framework 4.8
+- Newtonsoft Json (Included)
 
-# Steam Server Creation Tool V2 #
-SteamCMD GUI / UI | The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
-
-<!--# How does it work?
-[![YoutubeImage](http://bytevaultstudio.se/ShareX/youtubeX.png)](https://youtu.be/54oPT-_8D4U) 
-
-The Image above will take you to a Youtube video.-->
-
-The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer.
-It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
-
-- Application fetch app list from:
+# How does it work?
+- Application fetch steam "apps":
   - API: https://api.steampowered.com/ISteamApps/GetAppList/v2
 - Application fetch steamcmd from:
-  - Website: https://developer.valvesoftware.com/wiki/SteamCMD
   - Direct: https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
+  - Website: https://developer.valvesoftware.com/wiki/SteamCMD
+
 
 # StartServerScript?
 WARNING: If you are using a username and password; the password will be in clear text format in the script! 
@@ -56,11 +51,7 @@ The server is set to launch the file "valheim_server.exe" with the launch option
 If this would be valid information, the script would then run the server and monitor that process. If this window is closed or the server has crashed, the server will automatically be restarted as the StartServerScript is protecting the process. In order to stop the server from restarting you need to close the StartServerScript first - Alternatively, select Y to terminate the process; When prompted. NOTE: Some servers require/want you to close the server with the CTRL+C command.
 
 Note: In the event of issues connecting to the server, server crashes, or misconfigurations, troubleshooting and configuration adjustments will be required. This aspect falls outside the scope of the script itself. Best of luck!
-  
-# Requirements
-- Internet Connection
-- .NET Framework 4.8
-- Newtonsoft Json (Included)
+
 
 # Bugs?
 
@@ -86,7 +77,6 @@ I am not affiliated, associated, endorsed by, or in any way officially connected
 There are inherent risks in the use of any software, and you are solely responsible for determining whether this software is compatible with your equipment and other software installed on it. You are also solely responsible for the protection of your equipment and backup of your data. The Steam Server Creation Tool V2 will not be liable for any damages you may suffer in connection with using, modifying, or distributing SSCT | Steam Server Creation Tool.
 
 # More Previews!
-<!--![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_qSXUhdDBoe.png)
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_RiPqPqSR34.png)
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_WEZZCA4Zsd.png)
-![Image Preview](http://bytevaultstudio.se/ShareX/SteamServerCreationTool_nhdkKNVqnc.png)-->
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/NewServer.png)
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/ManageServers.png)
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/Settings.png)
