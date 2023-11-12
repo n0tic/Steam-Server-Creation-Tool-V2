@@ -18,8 +18,11 @@ The application is requesting a full list of applications from the Steam's API s
 # Links
 [Discord Group](https://discord.gg/WypdXXJ34p)
 
-[Downloads](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases)
+[Steam Group](https://steamcommunity.com/groups/SSCTV2)
 
+
+
+[Downloads / Releases](https://github.com/n0tic/Seam-Server-Creation-Tool-V2/releases)
 
 # Requirements
 - Internet Connection
