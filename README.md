@@ -1,20 +1,21 @@
 # Steam Server Creation Tool V2 #
-SteamCMD GUI / UI | The Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes changes to its servers.
-
-The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer.
-It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
-
----------------------------------------------------------------------------------------------------------------------------------
-
-<img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
 <p align="left">
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/n0tic/Steam-Server-Creation-Tool-V2?color=seagreen&include_prereleases">
   <img src="https://img.shields.io/badge/status-Alpha-blue" />
   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/n0tic/Steam-Server-Creation-Tool-V2/total?color=orange&label=downloads">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/n0tic/Steam-Server-Creation-Tool-V2?color=crimson">
-  <img src="https://visitor-badge.glitch.me/badge?page_id=Steam-Server-Creation-Tool-V2" alt="visitor badge"/>
+  <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fn0tic%2FSteam-Server-Creation-Tool-V2"><img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fn0tic%2FSteam-Server-Creation-Tool-V2&countColor=%23263759&style=flat-square" /></a>
   <!-- https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2 -->
 </p>
+
+<img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
+
+Steam Server Creation Tool V2 is a user-friendly GUI tool designed for easy installation and management of servers. It simplifies the process by automating the use of SteamCMD to install servers based on Steam's API. The tool is built with the idea of staying up-to-date and functional, even if Steam makes additions or remove servers.
+
+The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer. It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
   
 # Requirements
 - Internet Connection
