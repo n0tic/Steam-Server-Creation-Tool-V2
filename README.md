@@ -22,7 +22,7 @@ The application is requesting a full list of applications from the Steam's API s
 
 
 
-[Downloads / Releases](https://github.com/n0tic/Seam-Server-Creation-Tool-V2/releases)
+[Downloads / Releases](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases)
 
 # Requirements
 - Internet Connection
