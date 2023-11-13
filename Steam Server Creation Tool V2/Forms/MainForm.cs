@@ -22,6 +22,10 @@ namespace Steam_Server_Creation_Tool_V2
         // Have we recieved Steam API data?
         public bool updateRecieved = false;
 
+        // Have we recieved IP data?
+        PortScanIP_Result ipData = null;
+        public bool hasIP = false;
+
         // Are we running a process/task?
         public bool workInProgress = false;
 
@@ -57,7 +61,14 @@ namespace Steam_Server_Creation_Tool_V2
             NewServerAppId_Label.Text = "";
             NewServerName_Textbox.Text = "";
             NewServerInstallLocation_Textbox.Text = "";
+            PortResult_Label.Text = "";
+            PortScanLoading_PictureBox.Enabled = false;
+            PortScanLoading_PictureBox.Visible = false;
             InstalledServerList_SelectedIndexChanged(null, null);
+
+            Port_Numeric.Minimum = 0;
+            Port_Numeric.Maximum = 65535;
+            Port_Numeric.Value = 27015;
         }
 
         /// <summary>
@@ -94,7 +105,7 @@ namespace Steam_Server_Creation_Tool_V2
             ApplyLoadedSettings();
 
             //Check for updates
-            if (settings.CheckUpdates) // TODO: Bug where it shows messagebox anyway?
+            if (settings.CheckUpdates)
             {
                 await Core.CheckForUpdatesAsync(this);
                 SetNewVersionStatus(Core.updateAvailable, Core.newUpdateVersion);
@@ -260,6 +271,9 @@ namespace Steam_Server_Creation_Tool_V2
         private void Close_Button_Click(object sender, EventArgs e) => CloseApplication();
         private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
+        private void PortScan_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.PortScan, this, sender);
+        private void PortScan_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+        private void PortScan_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         #endregion One-line buttons
 
         /// <summary>
@@ -906,6 +920,28 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 f.ShowDialog();
             }
+        }
+
+        public void SetIP(PortScanIP_Result result)
+        {
+            ipData = result;
+            PortScan_IP.Text = $"Your IP: {result.IP}";
+        }
+
+        private async void PortScanSend_Button_Click(object sender, EventArgs e)
+        {
+            PortScanSend_Button.Enabled = false;
+            PortScanSend_Button.Visible = false;
+            PortScanLoading_PictureBox.Enabled = true;
+            PortScanLoading_PictureBox.Visible = true;
+
+            ipData =  await PortScanHelper.GetPortScanAsync(ipData.IP, Port_Numeric.Value.ToString());
+            PortResult_Label.Text = $"{ipData.TCP}{Environment.NewLine}{ipData.UDP}";
+
+            PortScanLoading_PictureBox.Visible = false;
+            PortScanLoading_PictureBox.Enabled = false;
+            PortScanSend_Button.Enabled = true;
+            PortScanSend_Button.Visible = true;
         }
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.PortScan_Button = new System.Windows.Forms.Label();
             this.AppNameLabel = new System.Windows.Forms.Label();
             this.BigLogo = new System.Windows.Forms.PictureBox();
             this.MovePanel = new System.Windows.Forms.Panel();
@@ -138,6 +140,19 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.PortScanSend_Button = new System.Windows.Forms.Button();
+            this.Panel_PortScan = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.PortScan_IP = new System.Windows.Forms.Label();
+            this.Port_Numeric = new System.Windows.Forms.NumericUpDown();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.PortResult_Label = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.PortScanLoading_PictureBox = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
@@ -161,11 +176,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.InstallFound_Label2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.Panel_PortScan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).BeginInit();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.TopPanel.Controls.Add(this.label17);
+            this.TopPanel.Controls.Add(this.PortScan_Button);
             this.TopPanel.Controls.Add(this.AppNameLabel);
             this.TopPanel.Controls.Add(this.BigLogo);
             this.TopPanel.Controls.Add(this.MovePanel);
@@ -181,6 +204,34 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(642, 89);
             this.TopPanel.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label17.Location = new System.Drawing.Point(552, 58);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 20);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "|";
+            // 
+            // PortScan_Button
+            // 
+            this.PortScan_Button.AutoSize = true;
+            this.PortScan_Button.BackColor = System.Drawing.Color.Transparent;
+            this.PortScan_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PortScan_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortScan_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.PortScan_Button.Location = new System.Drawing.Point(466, 58);
+            this.PortScan_Button.Name = "PortScan_Button";
+            this.PortScan_Button.Size = new System.Drawing.Size(88, 20);
+            this.PortScan_Button.TabIndex = 11;
+            this.PortScan_Button.Text = "Port Scan";
+            this.PortScan_Button.Click += new System.EventHandler(this.PortScan_Button_Click);
+            this.PortScan_Button.MouseEnter += new System.EventHandler(this.PortScan_Button_MouseEnter);
+            this.PortScan_Button.MouseLeave += new System.EventHandler(this.PortScan_Button_MouseLeave);
             // 
             // AppNameLabel
             // 
@@ -246,7 +297,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.Location = new System.Drawing.Point(496, 58);
+            this.label7.Location = new System.Drawing.Point(453, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 20);
             this.label7.TabIndex = 8;
@@ -258,7 +309,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(330, 58);
+            this.label6.Location = new System.Drawing.Point(304, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 20);
             this.label6.TabIndex = 7;
@@ -270,7 +321,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(203, 58);
+            this.label5.Location = new System.Drawing.Point(194, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 20);
             this.label5.TabIndex = 6;
@@ -283,7 +334,7 @@
             this.Settings_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Settings_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Settings_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Settings_Button.Location = new System.Drawing.Point(517, 58);
+            this.Settings_Button.Location = new System.Drawing.Point(564, 58);
             this.Settings_Button.Name = "Settings_Button";
             this.Settings_Button.Size = new System.Drawing.Size(76, 20);
             this.Settings_Button.TabIndex = 5;
@@ -299,7 +350,7 @@
             this.ManageServers_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ManageServers_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManageServers_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ManageServers_Button.Location = new System.Drawing.Point(351, 58);
+            this.ManageServers_Button.Location = new System.Drawing.Point(316, 58);
             this.ManageServers_Button.Name = "ManageServers_Button";
             this.ManageServers_Button.Size = new System.Drawing.Size(139, 20);
             this.ManageServers_Button.TabIndex = 4;
@@ -315,7 +366,7 @@
             this.NewServer_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NewServer_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewServer_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.NewServer_Button.Location = new System.Drawing.Point(224, 58);
+            this.NewServer_Button.Location = new System.Drawing.Point(206, 58);
             this.NewServer_Button.Name = "NewServer_Button";
             this.NewServer_Button.Size = new System.Drawing.Size(100, 20);
             this.NewServer_Button.TabIndex = 3;
@@ -1671,11 +1722,180 @@
             this.panel7.Size = new System.Drawing.Size(618, 2);
             this.panel7.TabIndex = 13;
             // 
+            // PortScanSend_Button
+            // 
+            this.PortScanSend_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.PortScanSend_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PortScanSend_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PortScanSend_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PortScanSend_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortScanSend_Button.ForeColor = System.Drawing.Color.White;
+            this.PortScanSend_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._004_arrow_up;
+            this.PortScanSend_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PortScanSend_Button.Location = new System.Drawing.Point(15, 93);
+            this.PortScanSend_Button.Name = "PortScanSend_Button";
+            this.PortScanSend_Button.Size = new System.Drawing.Size(121, 24);
+            this.PortScanSend_Button.TabIndex = 30;
+            this.PortScanSend_Button.Text = "Port Scan    ";
+            this.PortScanSend_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.PortScanSend_Button, "Check for updates. You will see if an update is available to the right of this bu" +
+        "tton.");
+            this.PortScanSend_Button.UseVisualStyleBackColor = false;
+            this.PortScanSend_Button.Click += new System.EventHandler(this.PortScanSend_Button_Click);
+            // 
+            // Panel_PortScan
+            // 
+            this.Panel_PortScan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_PortScan.Controls.Add(this.PortScanLoading_PictureBox);
+            this.Panel_PortScan.Controls.Add(this.label25);
+            this.Panel_PortScan.Controls.Add(this.label13);
+            this.Panel_PortScan.Controls.Add(this.PortScan_IP);
+            this.Panel_PortScan.Controls.Add(this.Port_Numeric);
+            this.Panel_PortScan.Controls.Add(this.panel13);
+            this.Panel_PortScan.Controls.Add(this.PortScanSend_Button);
+            this.Panel_PortScan.Controls.Add(this.label29);
+            this.Panel_PortScan.Controls.Add(this.panel17);
+            this.Panel_PortScan.Location = new System.Drawing.Point(0, 95);
+            this.Panel_PortScan.Name = "Panel_PortScan";
+            this.Panel_PortScan.Size = new System.Drawing.Size(642, 494);
+            this.Panel_PortScan.TabIndex = 43;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label25.Location = new System.Drawing.Point(192, 39);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(63, 16);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "Results:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label13.Location = new System.Drawing.Point(12, 41);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 16);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "Port to scan:";
+            // 
+            // PortScan_IP
+            // 
+            this.PortScan_IP.AutoEllipsis = true;
+            this.PortScan_IP.BackColor = System.Drawing.Color.Transparent;
+            this.PortScan_IP.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PortScan_IP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortScan_IP.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.PortScan_IP.Location = new System.Drawing.Point(92, 12);
+            this.PortScan_IP.Name = "PortScan_IP";
+            this.PortScan_IP.Size = new System.Drawing.Size(243, 16);
+            this.PortScan_IP.TabIndex = 40;
+            this.PortScan_IP.Text = "Your IP: 127.0.0.1";
+            this.PortScan_IP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Port_Numeric
+            // 
+            this.Port_Numeric.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.Port_Numeric.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Port_Numeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Port_Numeric.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Port_Numeric.Location = new System.Drawing.Point(15, 63);
+            this.Port_Numeric.Name = "Port_Numeric";
+            this.Port_Numeric.Size = new System.Drawing.Size(121, 20);
+            this.Port_Numeric.TabIndex = 41;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel13.Controls.Add(this.pictureBox7);
+            this.panel13.Controls.Add(this.PortResult_Label);
+            this.panel13.Controls.Add(this.pictureBox8);
+            this.panel13.Location = new System.Drawing.Point(190, 62);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(129, 35);
+            this.panel13.TabIndex = 40;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.minimize;
+            this.pictureBox7.Location = new System.Drawing.Point(597, 3);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 4;
+            this.pictureBox7.TabStop = false;
+            // 
+            // PortResult_Label
+            // 
+            this.PortResult_Label.AutoEllipsis = true;
+            this.PortResult_Label.BackColor = System.Drawing.Color.Transparent;
+            this.PortResult_Label.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PortResult_Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PortResult_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortResult_Label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.PortResult_Label.Location = new System.Drawing.Point(0, 0);
+            this.PortResult_Label.Name = "PortResult_Label";
+            this.PortResult_Label.Size = new System.Drawing.Size(129, 35);
+            this.PortResult_Label.TabIndex = 39;
+            this.PortResult_Label.Text = "$protocol is open\r\n$protocol is closed\r\n";
+            this.PortResult_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.close;
+            this.pictureBox8.Location = new System.Drawing.Point(621, 3);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 2;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label29.Location = new System.Drawing.Point(12, 12);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(74, 16);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "Port Scan";
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Gray;
+            this.panel17.Location = new System.Drawing.Point(9, 31);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(618, 2);
+            this.panel17.TabIndex = 13;
+            // 
+            // PortScanLoading_PictureBox
+            // 
+            this.PortScanLoading_PictureBox.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.LoadingRequest;
+            this.PortScanLoading_PictureBox.Location = new System.Drawing.Point(190, 62);
+            this.PortScanLoading_PictureBox.Name = "PortScanLoading_PictureBox";
+            this.PortScanLoading_PictureBox.Size = new System.Drawing.Size(129, 82);
+            this.PortScanLoading_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PortScanLoading_PictureBox.TabIndex = 44;
+            this.PortScanLoading_PictureBox.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(642, 589);
+            this.Controls.Add(this.Panel_PortScan);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.Panel_Settings);
@@ -1723,6 +1943,13 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.Panel_PortScan.ResumeLayout(false);
+            this.Panel_PortScan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).EndInit();
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1837,6 +2064,21 @@
         private System.Windows.Forms.Button Information_Button;
         public System.Windows.Forms.ProgressBar App_ProgressBar;
         private System.Windows.Forms.CheckBox AllowUpdater_Checkbox;
+        public System.Windows.Forms.Panel Panel_PortScan;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label PortResult_Label;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Button PortScanSend_Button;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label PortScan_Button;
+        private System.Windows.Forms.NumericUpDown Port_Numeric;
+        private System.Windows.Forms.Label PortScan_IP;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox PortScanLoading_PictureBox;
     }
 }
 

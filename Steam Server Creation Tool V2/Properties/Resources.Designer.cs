@@ -63,6 +63,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _004_arrow_up {
+            get {
+                object obj = ResourceManager.GetObject("004-arrow up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _010_check {
             get {
                 object obj = ResourceManager.GetObject("010-check", resourceCulture);
@@ -206,6 +216,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         internal static System.Drawing.Bitmap Donate {
             get {
                 object obj = ResourceManager.GetObject("Donate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoadingRequest {
+            get {
+                object obj = ResourceManager.GetObject("LoadingRequest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

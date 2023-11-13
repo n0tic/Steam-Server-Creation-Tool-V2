@@ -60,6 +60,7 @@
     <Compile Include="DataContainers\Github\Converter.cs" />
     <Compile Include="DataContainers\Github\GithubReleasesData.cs" />
     <Compile Include="DataContainers\Github\Serialize.cs" />
+    <Compile Include="DataContainers\Network\PortScanIP_Result.cs" />
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
     <Compile Include="Forms\AboutForm.cs">
@@ -74,7 +75,8 @@
     <Compile Include="Forms\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\IO.cs" />
+    <Compile Include="Handlers\IO\IO.cs" />
+    <Compile Include="Handlers\Network\PortScanHelper.cs" />
     <Compile Include="Handlers\SteamAPI\FileDownloader.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +113,7 @@
     <None Include="Build.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="DataContainers\Network\portscan.php" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -178,6 +181,8 @@
     <None Include="Comments.txt" />
     <None Include="Resources\073-question.png" />
     <None Include="Resources\Donate.png" />
+    <None Include="Resources\004-arrow up.png" />
+    <None Include="Resources\LoadingRequest.gif" />
     <Content Include="Resources\LogoSSCT.ico" />
     <None Include="Resources\016-folder-24.png" />
     <None Include="Resources\refresh-1.png" />
