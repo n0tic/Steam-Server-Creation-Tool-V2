@@ -142,6 +142,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PortScanSend_Button = new System.Windows.Forms.Button();
             this.Panel_PortScan = new System.Windows.Forms.Panel();
+            this.PortScanLoading_PictureBox = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.PortScan_IP = new System.Windows.Forms.Label();
@@ -152,7 +153,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label29 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.PortScanLoading_PictureBox = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
@@ -177,11 +177,11 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.Panel_PortScan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -1738,8 +1738,8 @@
             this.PortScanSend_Button.TabIndex = 30;
             this.PortScanSend_Button.Text = "Port Scan    ";
             this.PortScanSend_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.PortScanSend_Button, "Check for updates. You will see if an update is available to the right of this bu" +
-        "tton.");
+            this.toolTip1.SetToolTip(this.PortScanSend_Button, "Scan to see if your port is open to the public. This doesnt work with every servi" +
+        "ce!");
             this.PortScanSend_Button.UseVisualStyleBackColor = false;
             this.PortScanSend_Button.Click += new System.EventHandler(this.PortScanSend_Button_Click);
             // 
@@ -1759,6 +1759,16 @@
             this.Panel_PortScan.Name = "Panel_PortScan";
             this.Panel_PortScan.Size = new System.Drawing.Size(642, 494);
             this.Panel_PortScan.TabIndex = 43;
+            // 
+            // PortScanLoading_PictureBox
+            // 
+            this.PortScanLoading_PictureBox.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.LoadingRequest;
+            this.PortScanLoading_PictureBox.Location = new System.Drawing.Point(190, 62);
+            this.PortScanLoading_PictureBox.Name = "PortScanLoading_PictureBox";
+            this.PortScanLoading_PictureBox.Size = new System.Drawing.Size(129, 82);
+            this.PortScanLoading_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PortScanLoading_PictureBox.TabIndex = 44;
+            this.PortScanLoading_PictureBox.TabStop = false;
             // 
             // label25
             // 
@@ -1810,6 +1820,7 @@
             this.Port_Numeric.Name = "Port_Numeric";
             this.Port_Numeric.Size = new System.Drawing.Size(121, 20);
             this.Port_Numeric.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.Port_Numeric, "Port selection is 0-65535");
             // 
             // panel13
             // 
@@ -1880,16 +1891,6 @@
             this.panel17.Size = new System.Drawing.Size(618, 2);
             this.panel17.TabIndex = 13;
             // 
-            // PortScanLoading_PictureBox
-            // 
-            this.PortScanLoading_PictureBox.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.LoadingRequest;
-            this.PortScanLoading_PictureBox.Location = new System.Drawing.Point(190, 62);
-            this.PortScanLoading_PictureBox.Name = "PortScanLoading_PictureBox";
-            this.PortScanLoading_PictureBox.Size = new System.Drawing.Size(129, 82);
-            this.PortScanLoading_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PortScanLoading_PictureBox.TabIndex = 44;
-            this.PortScanLoading_PictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1945,11 +1946,11 @@
             this.groupBox5.PerformLayout();
             this.Panel_PortScan.ResumeLayout(false);
             this.Panel_PortScan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).EndInit();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
