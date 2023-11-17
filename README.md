@@ -87,3 +87,8 @@ There are inherent risks in the use of any software, and you are solely responsi
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/NewServer.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/ManageServers.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/Settings.png)
+
+
+
+
+This project is not affiliated with, endorsed by, or associated in any way with Steam or Valve Corporation.
