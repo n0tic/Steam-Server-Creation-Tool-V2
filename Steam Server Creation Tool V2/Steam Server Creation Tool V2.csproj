@@ -183,6 +183,7 @@
     <None Include="Resources\Donate.png" />
     <None Include="Resources\004-arrow up.png" />
     <None Include="Resources\LoadingRequest.gif" />
+    <None Include="Resources\014-cogwheel.png" />
     <Content Include="Resources\LogoSSCT.ico" />
     <None Include="Resources\016-folder-24.png" />
     <None Include="Resources\refresh-1.png" />

@@ -83,6 +83,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _014_cogwheel {
+            get {
+                object obj = ResourceManager.GetObject("014-cogwheel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _016_double_chevron {
             get {
                 object obj = ResourceManager.GetObject("016-double chevron", resourceCulture);

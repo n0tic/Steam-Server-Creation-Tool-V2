@@ -349,7 +349,7 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button.Enabled = false;
             NewServer_Button.Enabled = false;
             ManageServers_Button.Enabled = false;
-            Settings_Button.Enabled = false;
+            SettingsButton.Enabled = false;
 
             //RefreshAPI_Button
             await RefreshAppList();
@@ -367,7 +367,7 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button.Enabled = true;
             NewServer_Button.Enabled = true;
             ManageServers_Button.Enabled = true;
-            Settings_Button.Enabled = true;
+            SettingsButton.Enabled = true;
 
             NewInstall_Dropbox.SelectedIndex = 0;
 
