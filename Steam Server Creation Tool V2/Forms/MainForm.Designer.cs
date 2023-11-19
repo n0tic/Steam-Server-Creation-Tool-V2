@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.PanelConsole_button = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.PortScan_Button = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Panel_Settings = new System.Windows.Forms.Panel();
+            this.ResetSettings_Button = new System.Windows.Forms.Button();
             this.Information_Button = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -124,6 +126,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.SaveSettings_Button = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.WrapSteamCMD_Checkbox = new System.Windows.Forms.CheckBox();
             this.AllowUpdater_Checkbox = new System.Windows.Forms.CheckBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.CheckForUpdates_Checkbox = new System.Windows.Forms.CheckBox();
@@ -142,8 +146,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PortScanSend_Button = new System.Windows.Forms.Button();
             this.Port_Numeric = new System.Windows.Forms.NumericUpDown();
+            this.button4 = new System.Windows.Forms.Button();
             this.Panel_PortScan = new System.Windows.Forms.Panel();
-            this.SettingsButton = new System.Windows.Forms.PictureBox();
             this.PortScanLoading_PictureBox = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -154,9 +158,13 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label29 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.WrapSteamCMD_Checkbox = new System.Windows.Forms.CheckBox();
+            this.Panel_Console = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.Console = new System.Windows.Forms.RichTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize_Button)).BeginInit();
@@ -181,11 +189,11 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).BeginInit();
             this.Panel_PortScan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.Panel_Console.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -210,6 +218,17 @@
             this.TopPanel.Size = new System.Drawing.Size(642, 89);
             this.TopPanel.TabIndex = 0;
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsButton.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._014_cogwheel;
+            this.SettingsButton.Location = new System.Drawing.Point(617, 58);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(20, 20);
+            this.SettingsButton.TabIndex = 45;
+            this.SettingsButton.TabStop = false;
+            this.SettingsButton.Click += new System.EventHandler(this.Settings_Button_Click);
+            // 
             // PanelConsole_button
             // 
             this.PanelConsole_button.AutoSize = true;
@@ -222,6 +241,9 @@
             this.PanelConsole_button.Size = new System.Drawing.Size(74, 20);
             this.PanelConsole_button.TabIndex = 13;
             this.PanelConsole_button.Text = "Console";
+            this.PanelConsole_button.Click += new System.EventHandler(this.PanelConsole_button_Click);
+            this.PanelConsole_button.MouseEnter += new System.EventHandler(this.PanelConsole_button_MouseEnter);
+            this.PanelConsole_button.MouseLeave += new System.EventHandler(this.PanelConsole_button_MouseLeave);
             // 
             // label17
             // 
@@ -1252,6 +1274,7 @@
             // Panel_Settings
             // 
             this.Panel_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_Settings.Controls.Add(this.ResetSettings_Button);
             this.Panel_Settings.Controls.Add(this.Information_Button);
             this.Panel_Settings.Controls.Add(this.panel11);
             this.Panel_Settings.Controls.Add(this.NewVersion_Panel);
@@ -1273,6 +1296,25 @@
             this.Panel_Settings.Name = "Panel_Settings";
             this.Panel_Settings.Size = new System.Drawing.Size(642, 494);
             this.Panel_Settings.TabIndex = 27;
+            // 
+            // ResetSettings_Button
+            // 
+            this.ResetSettings_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.ResetSettings_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ResetSettings_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ResetSettings_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetSettings_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetSettings_Button.ForeColor = System.Drawing.Color.White;
+            this.ResetSettings_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._075_reload_EDIT;
+            this.ResetSettings_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ResetSettings_Button.Location = new System.Drawing.Point(387, 360);
+            this.ResetSettings_Button.Name = "ResetSettings_Button";
+            this.ResetSettings_Button.Size = new System.Drawing.Size(122, 29);
+            this.ResetSettings_Button.TabIndex = 43;
+            this.ResetSettings_Button.Text = "Reset Settings";
+            this.ResetSettings_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ResetSettings_Button.UseVisualStyleBackColor = false;
+            this.ResetSettings_Button.Click += new System.EventHandler(this.ResetSettings_Button_Click);
             // 
             // Information_Button
             // 
@@ -1511,9 +1553,9 @@
             this.SaveSettings_Button.ForeColor = System.Drawing.Color.White;
             this.SaveSettings_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
             this.SaveSettings_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveSettings_Button.Location = new System.Drawing.Point(515, 357);
+            this.SaveSettings_Button.Location = new System.Drawing.Point(515, 360);
             this.SaveSettings_Button.Name = "SaveSettings_Button";
-            this.SaveSettings_Button.Size = new System.Drawing.Size(115, 32);
+            this.SaveSettings_Button.Size = new System.Drawing.Size(115, 29);
             this.SaveSettings_Button.TabIndex = 30;
             this.SaveSettings_Button.Text = "Save Settings";
             this.SaveSettings_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1537,6 +1579,28 @@
             this.groupBox6.TabIndex = 29;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SteamCMD Settings";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Gray;
+            this.panel10.Location = new System.Drawing.Point(378, 17);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(2, 30);
+            this.panel10.TabIndex = 34;
+            // 
+            // WrapSteamCMD_Checkbox
+            // 
+            this.WrapSteamCMD_Checkbox.AutoSize = true;
+            this.WrapSteamCMD_Checkbox.Checked = true;
+            this.WrapSteamCMD_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.WrapSteamCMD_Checkbox.Location = new System.Drawing.Point(387, 18);
+            this.WrapSteamCMD_Checkbox.Name = "WrapSteamCMD_Checkbox";
+            this.WrapSteamCMD_Checkbox.Size = new System.Drawing.Size(170, 17);
+            this.WrapSteamCMD_Checkbox.TabIndex = 35;
+            this.WrapSteamCMD_Checkbox.Text = "Wrap SteamCMD process";
+            this.toolTip1.SetToolTip(this.WrapSteamCMD_Checkbox, resources.GetString("WrapSteamCMD_Checkbox.ToolTip"));
+            this.WrapSteamCMD_Checkbox.UseVisualStyleBackColor = true;
+            this.WrapSteamCMD_Checkbox.CheckedChanged += new System.EventHandler(this.WrapSteamCMD_Checkbox_CheckedChanged);
             // 
             // AllowUpdater_Checkbox
             // 
@@ -1759,6 +1823,26 @@
             this.Port_Numeric.TabIndex = 41;
             this.toolTip1.SetToolTip(this.Port_Numeric, "Port selection is 0-65535");
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.refresh_1;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(510, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 24);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Clean Console";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button4, "Check for updates. You will see if an update is available to the right of this bu" +
+        "tton.");
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // Panel_PortScan
             // 
             this.Panel_PortScan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
@@ -1775,17 +1859,6 @@
             this.Panel_PortScan.Name = "Panel_PortScan";
             this.Panel_PortScan.Size = new System.Drawing.Size(642, 494);
             this.Panel_PortScan.TabIndex = 43;
-            // 
-            // SettingsButton
-            // 
-            this.SettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SettingsButton.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._014_cogwheel;
-            this.SettingsButton.Location = new System.Drawing.Point(617, 58);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(20, 20);
-            this.SettingsButton.TabIndex = 45;
-            this.SettingsButton.TabStop = false;
-            this.SettingsButton.Click += new System.EventHandler(this.Settings_Button_Click);
             // 
             // PortScanLoading_PictureBox
             // 
@@ -1906,26 +1979,67 @@
             this.panel17.Size = new System.Drawing.Size(618, 2);
             this.panel17.TabIndex = 13;
             // 
-            // panel10
+            // Panel_Console
             // 
-            this.panel10.BackColor = System.Drawing.Color.Gray;
-            this.panel10.Location = new System.Drawing.Point(378, 17);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(2, 30);
-            this.panel10.TabIndex = 34;
+            this.Panel_Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_Console.Controls.Add(this.checkBox1);
+            this.Panel_Console.Controls.Add(this.Console);
+            this.Panel_Console.Controls.Add(this.button4);
+            this.Panel_Console.Controls.Add(this.label33);
+            this.Panel_Console.Controls.Add(this.panel21);
+            this.Panel_Console.Location = new System.Drawing.Point(0, 95);
+            this.Panel_Console.Name = "Panel_Console";
+            this.Panel_Console.Size = new System.Drawing.Size(642, 494);
+            this.Panel_Console.TabIndex = 44;
             // 
-            // WrapSteamCMD_Checkbox
+            // label33
             // 
-            this.WrapSteamCMD_Checkbox.AutoSize = true;
-            this.WrapSteamCMD_Checkbox.Checked = true;
-            this.WrapSteamCMD_Checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.WrapSteamCMD_Checkbox.Location = new System.Drawing.Point(387, 18);
-            this.WrapSteamCMD_Checkbox.Name = "WrapSteamCMD_Checkbox";
-            this.WrapSteamCMD_Checkbox.Size = new System.Drawing.Size(170, 17);
-            this.WrapSteamCMD_Checkbox.TabIndex = 35;
-            this.WrapSteamCMD_Checkbox.Text = "Wrap SteamCMD process";
-            this.toolTip1.SetToolTip(this.WrapSteamCMD_Checkbox, resources.GetString("WrapSteamCMD_Checkbox.ToolTip"));
-            this.WrapSteamCMD_Checkbox.UseVisualStyleBackColor = true;
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.Transparent;
+            this.label33.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label33.Location = new System.Drawing.Point(12, 12);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(145, 16);
+            this.label33.TabIndex = 14;
+            this.label33.Text = "SteamCMD Console";
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.Gray;
+            this.panel21.Location = new System.Drawing.Point(9, 31);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(618, 2);
+            this.panel21.TabIndex = 13;
+            // 
+            // Console
+            // 
+            this.Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Console.DetectUrls = false;
+            this.Console.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Console.Location = new System.Drawing.Point(15, 38);
+            this.Console.Name = "Console";
+            this.Console.ReadOnly = true;
+            this.Console.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Console.Size = new System.Drawing.Size(612, 312);
+            this.Console.TabIndex = 44;
+            this.Console.Text = "";
+            this.Console.TextChanged += new System.EventHandler(this.Console_TextChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.checkBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.checkBox1.Location = new System.Drawing.Point(405, 11);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(88, 17);
+            this.checkBox1.TabIndex = 45;
+            this.checkBox1.Text = "Auto-Scroll";
+            this.toolTip1.SetToolTip(this.checkBox1, "Automatic validation of file integrity of server files after installation");
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1934,6 +2048,7 @@
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
+            this.Controls.Add(this.Panel_Console);
             this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
@@ -1948,6 +2063,7 @@
             this.Text = "Form1";
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).EndInit();
             this.MovePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Minimize_Button)).EndInit();
@@ -1983,11 +2099,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Port_Numeric)).EndInit();
             this.Panel_PortScan.ResumeLayout(false);
             this.Panel_PortScan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PortScanLoading_PictureBox)).EndInit();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.Panel_Console.ResumeLayout(false);
+            this.Panel_Console.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2120,6 +2237,13 @@
         private System.Windows.Forms.PictureBox SettingsButton;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.CheckBox WrapSteamCMD_Checkbox;
+        private System.Windows.Forms.Button ResetSettings_Button;
+        public System.Windows.Forms.Panel Panel_Console;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.RichTextBox Console;
     }
 }
 

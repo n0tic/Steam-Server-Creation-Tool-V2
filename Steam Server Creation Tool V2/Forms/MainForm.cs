@@ -9,12 +9,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// TODO: Check possible servers to exclude
+
 namespace Steam_Server_Creation_Tool_V2
 {
     public partial class MainForm : Form
     {
         // Settings data - Servers, User auth etc
         public Settings settings = null;
+
+        // Console feature
+        public ConsoleHandler console = null;
 
         // Steam API data
         public SteamAppListResponse SteamList = null;
@@ -44,8 +49,6 @@ namespace Steam_Server_Creation_Tool_V2
 
             //We do not await this async command
             InitializeAsyncStart();
-
-            
         }
 
         /// <summary>
@@ -104,6 +107,8 @@ namespace Steam_Server_Creation_Tool_V2
             
             ApplyLoadedSettings();
 
+            console = new ConsoleHandler(this);
+
             //Check for updates
             if (settings.CheckUpdates)
             {
@@ -127,6 +132,7 @@ namespace Steam_Server_Creation_Tool_V2
             AutoClose_Checkbox.Checked = settings.autoClose;
             CheckForUpdates_Checkbox.Checked = settings.CheckUpdates;
             AllowUpdater_Checkbox.Checked = settings.allowAutoUpdate;
+            WrapSteamCMD_Checkbox.Checked = settings.wrapSteamCMD;
 
             if (settings.useAnonymousAuth)
             {
@@ -349,6 +355,8 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button.Enabled = false;
             NewServer_Button.Enabled = false;
             ManageServers_Button.Enabled = false;
+            PortScan_Button.Enabled = false;
+            PanelConsole_button.Enabled = false;
             SettingsButton.Enabled = false;
 
             //RefreshAPI_Button
@@ -367,6 +375,8 @@ namespace Steam_Server_Creation_Tool_V2
             SteamCMD_Button.Enabled = true;
             NewServer_Button.Enabled = true;
             ManageServers_Button.Enabled = true;
+            PortScan_Button.Enabled = true;
+            PanelConsole_button.Enabled = true;
             SettingsButton.Enabled = true;
 
             NewInstall_Dropbox.SelectedIndex = 0;
@@ -596,6 +606,7 @@ namespace Steam_Server_Creation_Tool_V2
             settings.autoClose = AutoClose_Checkbox.Checked;
             settings.CheckUpdates = CheckForUpdates_Checkbox.Checked;
             settings.allowAutoUpdate = AllowUpdater_Checkbox.Checked;
+            settings.wrapSteamCMD = WrapSteamCMD_Checkbox.Checked;
 
             settings.steamCMD_installLocation = SteamCMD_SettingsInstallLocation_Textbox.Text;
 
@@ -942,6 +953,37 @@ namespace Steam_Server_Creation_Tool_V2
             PortScanLoading_PictureBox.Enabled = false;
             PortScanSend_Button.Enabled = true;
             PortScanSend_Button.Visible = true;
+        }
+
+        private void WrapSteamCMD_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.wrapSteamCMD = WrapSteamCMD_Checkbox.Checked;
+
+        private void PanelConsole_button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
+
+        private void PanelConsole_button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
+
+        public void PanelConsole_button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Console, this, sender);
+
+        private async void ResetSettings_Button_Click(object sender, EventArgs e)
+        {
+            settings = null;
+            GC.Collect();
+
+            settings = new Settings();
+            Core.SaveSettings(settings);
+
+            MessageBox.Show("Settings reset was successful.","Reset result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Set default values to labels and fields
+            ClearDefaultNSetup();
+
+            Console.Clear();
+            await InitializeAsyncStart();
+        }
+
+        private void Console_TextChanged(object sender, EventArgs e)
+        {
+            Console.SelectionStart = Console.Text.Length;
+            Console.ScrollToCaret();
         }
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="DataContainers\Github\Serialize.cs" />
     <Compile Include="DataContainers\Network\PortScanIP_Result.cs" />
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
+    <Compile Include="DataContainers\Settings\Settings.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
@@ -75,6 +76,7 @@
     <Compile Include="Forms\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\ConsoleHandler.cs" />
     <Compile Include="Handlers\IO\IO.cs" />
     <Compile Include="Handlers\Network\PortScanHelper.cs" />
     <Compile Include="Handlers\SteamAPI\FileDownloader.cs" />
@@ -89,7 +91,6 @@
     <Compile Include="DataContainers\SteamAppListClient.cs" />
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
-    <Compile Include="DataContainers\Settings.cs" />
     <Compile Include="Handlers\SteamAPI\SteamCMDHelper.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

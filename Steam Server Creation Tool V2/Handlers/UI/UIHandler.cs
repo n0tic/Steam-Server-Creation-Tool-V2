@@ -17,7 +17,8 @@ namespace Steam_Server_Creation_Tool_V2
             NewServer = 1,
             ManageServers = 2,
             PortScan = 3,
-            Settings = 4
+            Console = 4,
+            Settings = 5
         }
 
         public static void Setup(MainForm f)
@@ -27,6 +28,7 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_NewServer);
             panels.Add(form.Panel_ManageServers);
             panels.Add(form.Panel_PortScan);
+            panels.Add(form.Panel_Console);
             panels.Add(form.Panel_Settings);
         }
 
@@ -53,6 +55,9 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
                 case (int)Panel.ManageServers:
                     form.Size = new Size(642, 589);
+                    break;
+                case (int)Panel.Console:
+                    form.Size = new Size(642, 460);
                     break;
                 case (int)Panel.PortScan:
                     form.Size = new Size(642, 225);

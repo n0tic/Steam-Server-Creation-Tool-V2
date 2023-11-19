@@ -120,6 +120,9 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="WrapSteamCMD_Checkbox.ToolTip" xml:space="preserve">
     <value>This will start the SteamCMD process invisible to the user but it allows SSCTV2 to read information. 
 Example: success or errors. This will result in better managment and overall, system possibilities of SSCTV2</value>
