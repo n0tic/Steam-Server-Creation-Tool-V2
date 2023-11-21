@@ -18,8 +18,9 @@ namespace Steam_Server_Creation_Tool_V2
         public bool autoClose = true;
         public bool validate = true;
         public bool allowAutoUpdate = false; // False positive as of right now. Disabled.
-        public bool wrapSteamCMD = true; // False positive as of right now. Disabled.
-        public bool SupressNoneError = false; // False positive as of right now. Disabled.
+        public bool wrapSteamCMD = true; 
+        public bool SupressNoneError = false; 
+        public bool AutoScroll = true;
 
         // SteamCMD install directory
         public string steamCMD_installLocation = "";

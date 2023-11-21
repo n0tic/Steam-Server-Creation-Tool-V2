@@ -49,7 +49,7 @@ public class SteamAppListClient
             .Select((app, index) => new { app, index })
             .Where(x => (x.app.AppId != 570 && x.app.AppId != 730) && (x.app.Name.Equals("Dedicated Server") || !x.app.Name.Contains("Server") || x.app.Name.Contains("linux")))
             .Select(x => x.index)
-            .ToList(); // 730
+            .ToList();
 
         foreach (var item in apps.AppList.Apps)
         {

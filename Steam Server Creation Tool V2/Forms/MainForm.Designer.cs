@@ -162,7 +162,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.Console = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ConsoleAutoScroll_checkbox = new System.Windows.Forms.CheckBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
@@ -1982,7 +1982,7 @@
             // Panel_Console
             // 
             this.Panel_Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.Panel_Console.Controls.Add(this.checkBox1);
+            this.Panel_Console.Controls.Add(this.ConsoleAutoScroll_checkbox);
             this.Panel_Console.Controls.Add(this.Console);
             this.Panel_Console.Controls.Add(this.button4);
             this.Panel_Console.Controls.Add(this.label33);
@@ -2028,18 +2028,21 @@
             this.Console.Text = "";
             this.Console.TextChanged += new System.EventHandler(this.Console_TextChanged);
             // 
-            // checkBox1
+            // ConsoleAutoScroll_checkbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.checkBox1.Location = new System.Drawing.Point(405, 11);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
-            this.checkBox1.TabIndex = 45;
-            this.checkBox1.Text = "Auto-Scroll";
-            this.toolTip1.SetToolTip(this.checkBox1, "Automatic validation of file integrity of server files after installation");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ConsoleAutoScroll_checkbox.AutoSize = true;
+            this.ConsoleAutoScroll_checkbox.Checked = true;
+            this.ConsoleAutoScroll_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ConsoleAutoScroll_checkbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ConsoleAutoScroll_checkbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ConsoleAutoScroll_checkbox.Location = new System.Drawing.Point(405, 11);
+            this.ConsoleAutoScroll_checkbox.Name = "ConsoleAutoScroll_checkbox";
+            this.ConsoleAutoScroll_checkbox.Size = new System.Drawing.Size(88, 17);
+            this.ConsoleAutoScroll_checkbox.TabIndex = 45;
+            this.ConsoleAutoScroll_checkbox.Text = "Auto-Scroll";
+            this.toolTip1.SetToolTip(this.ConsoleAutoScroll_checkbox, "Automatic validation of file integrity of server files after installation");
+            this.ConsoleAutoScroll_checkbox.UseVisualStyleBackColor = true;
+            this.ConsoleAutoScroll_checkbox.CheckedChanged += new System.EventHandler(this.ConsoleAutoScroll_checkbox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -2242,7 +2245,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ConsoleAutoScroll_checkbox;
         public System.Windows.Forms.RichTextBox Console;
     }
 }

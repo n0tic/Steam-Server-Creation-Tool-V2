@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoSSCT.ico" />
+    <Content Include="README.TXT" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

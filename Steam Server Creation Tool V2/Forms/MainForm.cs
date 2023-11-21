@@ -9,8 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// TODO: Check possible servers to exclude
-
 namespace Steam_Server_Creation_Tool_V2
 {
     public partial class MainForm : Form
@@ -543,11 +541,13 @@ namespace Steam_Server_Creation_Tool_V2
 
             workInProgress = true;
             App_ProgressBar.Visible = true;
+            InstallServer_Button.Enabled = false;
 
             await SteamCMDHelper.StartNewDownload(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
 
             UpdateInstalledServersInfo();
 
+            InstallServer_Button.Enabled = true;
             App_ProgressBar.Visible = false;
             workInProgress = false;
         }
@@ -982,8 +982,18 @@ namespace Steam_Server_Creation_Tool_V2
 
         private void Console_TextChanged(object sender, EventArgs e)
         {
-            Console.SelectionStart = Console.Text.Length;
-            Console.ScrollToCaret();
+            if(ConsoleAutoScroll_checkbox.Checked)
+            {
+                Console.SelectionStart = Console.Text.Length;
+                Console.ScrollToCaret();
+            }
+        }
+
+        private void ConsoleAutoScroll_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            settings.AutoScroll = ConsoleAutoScroll_checkbox.Checked;
+
+            Core.SaveSettings(settings);
         }
     }
 }

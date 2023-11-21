@@ -20,6 +20,8 @@ namespace Steam_Server_Creation_Tool_V2
 
     internal class SteamCMDHelper
     {
+        private static bool failed = false;
+
         internal static async Task StartNewDownload(MainForm form, App app, string installName, string installDir, InstallationType steamCMD_type = InstallationType.NewInstall)
         {
             if (form.settings.wrapSteamCMD) form.PanelConsole_button_Click(null, null);
@@ -50,35 +52,38 @@ namespace Steam_Server_Creation_Tool_V2
                 using (process)
                 {
 
-                    process.OutputDataReceived += (sender, e) =>
+                    if(form.settings.wrapSteamCMD)
                     {
-                        if (e.Data != null)
+                        process.OutputDataReceived += (sender, e) =>
                         {
-                            // Update the RichTextBox in the UI thread
-                            form.Invoke((MethodInvoker)delegate
+                            if (e.Data != null)
                             {
-                                form.console.AddMessage(e.Data + Environment.NewLine);
+                                // Update the RichTextBox in the UI thread
+                                form.Invoke((MethodInvoker)delegate
+                                {
+                                    form.console.AddMessage(e.Data + Environment.NewLine);
 
-                                // Check for specific lines using Regex
-                                CheckForSpecificLines(e.Data, form);
-                            });
-                        }
-                    };
+                                    // Check for specific lines using Regex
+                                    install = CheckForSpecificLines(e.Data, form);
+                                });
+                            }
+                        };
 
-                    process.ErrorDataReceived += (sender, e) =>
-                    {
-                        if (e.Data != null)
+                        process.ErrorDataReceived += (sender, e) =>
                         {
-                            // Update the RichTextBox in the UI thread
-                            form.Invoke((MethodInvoker)delegate
+                            if (e.Data != null)
                             {
-                                form.console.AddMessage($"Error: {e.Data}" + Environment.NewLine);
+                                // Update the RichTextBox in the UI thread
+                                form.Invoke((MethodInvoker)delegate
+                                {
+                                    form.console.AddMessage($"Error: {e.Data}" + Environment.NewLine);
 
-                                // Check for specific lines using Regex
-                                CheckForSpecificLines(e.Data, form);
-                            });
-                        }
-                    };
+                                    // Check for specific lines using Regex
+                                    install = CheckForSpecificLines(e.Data, form);
+                                });
+                            }
+                        };
+                    }
 
                     // Try starting the process
                     try
@@ -108,7 +113,7 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                     
                     // Register installation if new and save settings.
-                    if (install && steamCMD_type == InstallationType.NewInstall)
+                    if (!failed && install && steamCMD_type == InstallationType.NewInstall)
                     {
                         string startScript = Properties.Resources.StartServerScript_txt;
                         startScript = startScript
@@ -166,26 +171,37 @@ namespace Steam_Server_Creation_Tool_V2
             return process;
         }
 
-        private static void CheckForSpecificLines(string line, MainForm form = null)
+        private static bool CheckForSpecificLines(string line, MainForm form = null)
         {
             // Use Regex to match the patterns of the success and error messages
             Regex message = new Regex(@"Waiting for client config...OK");
             Regex successRegex = new Regex(@"Success! App '\d+' fully installed.");
             Regex errorRegex = new Regex(@"Error! App '\d+' state is 0x[0-9A-Fa-f]+ after update job.");
+            Regex errorOwnCopy = new Regex(@"ERROR! Failed to install app '(\d+)' \(No subscription\)");
 
             if (successRegex.IsMatch(line))
             {
                 // Take action based on the specific line
                 // For example, update UI or log the information
-                
+
                 //Console.WriteLine($"Found success line: {line}");
+
+                return true;
+            }
+            else if (errorOwnCopy.IsMatch(line))
+            {
+                MessageBox.Show($"'No subscription' error occured!{Environment.NewLine}{Environment.NewLine}The server you are trying to install either requires a login or that you have purchased the game. You will therefore have to log in with a Steam username and password. You can do this in the application settings panel.", "Subscription required!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                failed = true;
+                return false;
             }
             else if (errorRegex.IsMatch(line))
             {
                 // Take action based on the specific line
                 // For example, update UI or log the information
-                
-                //Console.WriteLine($"Found error line: {line}");
+
+                MessageBox.Show($"Something went wrong during installation. Please read console content for more information.", "Error during installation!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                failed = true;
+                return false;
             }
             else if (message.IsMatch(line))
             {
@@ -193,6 +209,11 @@ namespace Steam_Server_Creation_Tool_V2
                 // For example, update UI or log the information
                 
                 form.console.AddMessage($"Please wait while SteamCMD is installing the server...{Environment.NewLine}");
+                return true;
+            }
+            else
+            {
+                return true;
             }
         }
     }
