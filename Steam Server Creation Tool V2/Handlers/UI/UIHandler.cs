@@ -9,6 +9,7 @@ namespace Steam_Server_Creation_Tool_V2
     public static class UIHandler
     {
         public static MainForm form;
+        private static Label activeLabel = null;
         static List<System.Windows.Forms.Panel> panels = new List<System.Windows.Forms.Panel>();
 
         public enum Panel
@@ -32,12 +33,22 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_Settings);
         }
 
-        public static async void ChangePanel(Panel panel, MainForm form, object label = null)
+        public static async void ChangePanel(object sender, Panel panel, MainForm form)
         {
             for (int i = 0; i < panels.Count; i++)
             {
                 if (i == (int)panel) panels[i].Visible = true;
                 else panels[i].Visible = false;
+            }
+
+            if(sender != null) // If a menu item was clicked (label)
+            {
+                if (activeLabel != null) Label_MouseLeave((object)activeLabel, null, true);
+                SetActiveLabel((Label)sender, null);
+            }
+            else // If the picturebox was clicked
+            {
+                if (activeLabel != null) activeLabel.Font = new Font(activeLabel.Font, activeLabel.Font.Style & ~FontStyle.Underline);
             }
 
             switch ((int)panel)
@@ -82,15 +93,24 @@ namespace Steam_Server_Creation_Tool_V2
             if (sender is Label label) { label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline); }
         }
 
-        public static void Label_MouseLeave(object sender, EventArgs e)
+        public static void Label_MouseLeave(object sender, EventArgs e, bool _override = false)
         {
             if (sender is Label label) 
-            { 
-                // TODO: Add visible selection on menu
-                //if(!IsActive(label.Text))
+            {
+                if(!_override) if (activeLabel.Name == label.Name) return;
                 label.Font = new Font(label.Font, label.Font.Style & ~FontStyle.Underline); 
             }
         }
+
+        public static void SetActiveLabel(object sender, EventArgs e)
+        {
+            if (sender is Label label) 
+            {
+                activeLabel = label;
+                label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline); 
+            }
+        }
+
         /*
         private static bool IsActive(string labelText)
         {

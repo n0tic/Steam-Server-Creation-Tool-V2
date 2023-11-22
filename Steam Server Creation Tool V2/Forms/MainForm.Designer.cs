@@ -147,6 +147,7 @@
             this.PortScanSend_Button = new System.Windows.Forms.Button();
             this.Port_Numeric = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
+            this.ConsoleAutoScroll_checkbox = new System.Windows.Forms.CheckBox();
             this.Panel_PortScan = new System.Windows.Forms.Panel();
             this.PortScanLoading_PictureBox = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -159,10 +160,9 @@
             this.label29 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.Panel_Console = new System.Windows.Forms.Panel();
+            this.Console = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.Console = new System.Windows.Forms.RichTextBox();
-            this.ConsoleAutoScroll_checkbox = new System.Windows.Forms.CheckBox();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
@@ -1843,6 +1843,22 @@
         "tton.");
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // ConsoleAutoScroll_checkbox
+            // 
+            this.ConsoleAutoScroll_checkbox.AutoSize = true;
+            this.ConsoleAutoScroll_checkbox.Checked = true;
+            this.ConsoleAutoScroll_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ConsoleAutoScroll_checkbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ConsoleAutoScroll_checkbox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ConsoleAutoScroll_checkbox.Location = new System.Drawing.Point(405, 11);
+            this.ConsoleAutoScroll_checkbox.Name = "ConsoleAutoScroll_checkbox";
+            this.ConsoleAutoScroll_checkbox.Size = new System.Drawing.Size(88, 17);
+            this.ConsoleAutoScroll_checkbox.TabIndex = 45;
+            this.ConsoleAutoScroll_checkbox.Text = "Auto-Scroll";
+            this.toolTip1.SetToolTip(this.ConsoleAutoScroll_checkbox, "Automatic validation of file integrity of server files after installation");
+            this.ConsoleAutoScroll_checkbox.UseVisualStyleBackColor = true;
+            this.ConsoleAutoScroll_checkbox.CheckedChanged += new System.EventHandler(this.ConsoleAutoScroll_checkbox_CheckedChanged);
+            // 
             // Panel_PortScan
             // 
             this.Panel_PortScan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
@@ -1992,6 +2008,21 @@
             this.Panel_Console.Size = new System.Drawing.Size(642, 494);
             this.Panel_Console.TabIndex = 44;
             // 
+            // Console
+            // 
+            this.Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Console.DetectUrls = false;
+            this.Console.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Console.Location = new System.Drawing.Point(15, 38);
+            this.Console.Name = "Console";
+            this.Console.ReadOnly = true;
+            this.Console.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Console.Size = new System.Drawing.Size(612, 312);
+            this.Console.TabIndex = 44;
+            this.Console.Text = "";
+            this.Console.TextChanged += new System.EventHandler(this.Console_TextChanged);
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -2012,37 +2043,6 @@
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(618, 2);
             this.panel21.TabIndex = 13;
-            // 
-            // Console
-            // 
-            this.Console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.Console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Console.DetectUrls = false;
-            this.Console.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Console.Location = new System.Drawing.Point(15, 38);
-            this.Console.Name = "Console";
-            this.Console.ReadOnly = true;
-            this.Console.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.Console.Size = new System.Drawing.Size(612, 312);
-            this.Console.TabIndex = 44;
-            this.Console.Text = "";
-            this.Console.TextChanged += new System.EventHandler(this.Console_TextChanged);
-            // 
-            // ConsoleAutoScroll_checkbox
-            // 
-            this.ConsoleAutoScroll_checkbox.AutoSize = true;
-            this.ConsoleAutoScroll_checkbox.Checked = true;
-            this.ConsoleAutoScroll_checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ConsoleAutoScroll_checkbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.ConsoleAutoScroll_checkbox.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ConsoleAutoScroll_checkbox.Location = new System.Drawing.Point(405, 11);
-            this.ConsoleAutoScroll_checkbox.Name = "ConsoleAutoScroll_checkbox";
-            this.ConsoleAutoScroll_checkbox.Size = new System.Drawing.Size(88, 17);
-            this.ConsoleAutoScroll_checkbox.TabIndex = 45;
-            this.ConsoleAutoScroll_checkbox.Text = "Auto-Scroll";
-            this.toolTip1.SetToolTip(this.ConsoleAutoScroll_checkbox, "Automatic validation of file integrity of server files after installation");
-            this.ConsoleAutoScroll_checkbox.UseVisualStyleBackColor = true;
-            this.ConsoleAutoScroll_checkbox.CheckedChanged += new System.EventHandler(this.ConsoleAutoScroll_checkbox_CheckedChanged);
             // 
             // MainForm
             // 

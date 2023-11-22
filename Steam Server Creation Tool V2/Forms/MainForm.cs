@@ -40,7 +40,7 @@ namespace Steam_Server_Creation_Tool_V2
             UIHandler.Setup(this);
 
             //Activate default panel
-            SteamCMD_Button_Click(null, null);
+            SteamCMD_Button_Click(SteamCMD_Button, null);
 
             //Set default values to labels and fields
             ClearDefaultNSetup();
@@ -258,10 +258,10 @@ namespace Steam_Server_Creation_Tool_V2
         private void AutoClose_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.autoClose = AutoClose_Checkbox.Checked;
         private void NewServerInstallLocation_Button_Click(object sender, EventArgs e) => NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
         private async void RefreshAPI_Button_Click(object sender, EventArgs e) => await RefreshAPIData();
-        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.ManageServers, this, sender);
-        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Settings, this, sender);
-        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.SteamCMD, this, sender);
-        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.NewServer, this, sender);
+        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.ManageServers, this);
+        private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(null, UIHandler.Panel.Settings, this);
+        private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.SteamCMD, this);
+        private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.NewServer, this);
         private void SteamCMD_DownloadWebsite_Buttons_Click(object sender, EventArgs e) => Process.Start(Core.steamCMDURL);
         private void SteamCMD_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
         private void NewServer_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
@@ -275,7 +275,7 @@ namespace Steam_Server_Creation_Tool_V2
         private void Close_Button_Click(object sender, EventArgs e) => CloseApplication();
         private void Minimize_Button_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
-        private void PortScan_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.PortScan, this, sender);
+        private void PortScan_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.PortScan, this);
         private void PortScan_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
         private void PortScan_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         #endregion One-line buttons
@@ -961,7 +961,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         private void PanelConsole_button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
 
-        public void PanelConsole_button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(UIHandler.Panel.Console, this, sender);
+        public void PanelConsole_button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.Console, this);
 
         private async void ResetSettings_Button_Click(object sender, EventArgs e)
         {
