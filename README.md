@@ -84,8 +84,11 @@ I am not affiliated, associated, endorsed by, or in any way officially connected
 There are inherent risks in the use of any software, and you are solely responsible for determining whether this software is compatible with your equipment and other software installed on it. You are also solely responsible for the protection of your equipment and backup of your data. The Steam Server Creation Tool V2 will not be liable for any damages you may suffer in connection with using, modifying, or distributing SSCT | Steam Server Creation Tool.
 
 # More Previews!
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/NewServer.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/ManageServers.png)
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/PortScan.png)
+![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/ConsoleWindow.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/Settings.png)
 
 
