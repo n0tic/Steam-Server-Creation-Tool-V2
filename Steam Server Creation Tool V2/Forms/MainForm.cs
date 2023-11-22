@@ -767,7 +767,7 @@ namespace Steam_Server_Creation_Tool_V2
                 }
 
                 workInProgress = true;
-                await SteamCMDHelper.StartNewDownload(this, settings.installedServer[server].app, settings.installedServer[server].name, settings.installedServer[server].installPath, InstallationType.Update);
+                await SteamCMDHelper.RunSteamCMD(this, settings.installedServer[server].app, settings.installedServer[server].name, settings.installedServer[server].installPath, SteamCMDHelper.InstallationType.Update);
                 workInProgress = false;
             }
         }

@@ -1,3 +1,8 @@
+REM
+REM This file helps me to copy files into a folder for me to package production builds for new versions
+REM
+
+
 @echo off
 setlocal enabledelayedexpansion
 
@@ -16,7 +21,8 @@ mkdir "%newDirPath%"
 echo Directory created at: %newDirPath%
 
 REM Specify the files to copy
-set "filesToCopy="AutoUpdater.exe" "Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
+REM set "filesToCopy="AutoUpdater.exe" "Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
+set "filesToCopy="Newtonsoft.Json.dll" "Steam Server Creation Tool V2.exe""
 
 REM Loop through the array and copy each file
 for %%f in (%filesToCopy%) do (

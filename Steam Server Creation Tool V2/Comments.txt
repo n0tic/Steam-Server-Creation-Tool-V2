@@ -1,11 +1,2 @@
-steamcmd +login anonymous +force_install_dir D:\Forest +app_update 556450 validate +quit
 
-start "" D:\Forest\steamapps\common\TheForestDedicatedServer\TheForestDedicatedServer.exe
-
-exit
-
-Improvements to StartServerScript eventually
-
-// These seems to require login and that you own the game.
-[19-11-2023 21:59] ERROR! Failed to install app '2218990' (No subscription)
-[19-11-2023 22:00] ERROR! Failed to install app '1769020' (No subscription)
+Next I will start working on the updater again, to see if this works.
