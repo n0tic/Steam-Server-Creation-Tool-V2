@@ -1,14 +1,12 @@
-﻿using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    /// <summary>
+    /// Convert data for github release
+    /// </summary>
     public static class Converter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings

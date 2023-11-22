@@ -77,7 +77,6 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Handlers\ConsoleHandler.cs" />
-    <Compile Include="Handlers\IO\IO.cs" />
     <Compile Include="Handlers\Network\PortScanHelper.cs" />
     <Compile Include="Handlers\SteamAPI\FileDownloader.cs" />
     <Compile Include="Forms\MainForm.cs">
@@ -191,5 +190,6 @@
     <None Include="Resources\016-folder-24.png" />
     <None Include="Resources\refresh-1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

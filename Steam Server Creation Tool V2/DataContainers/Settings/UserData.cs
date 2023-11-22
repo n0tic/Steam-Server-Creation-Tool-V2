@@ -2,6 +2,9 @@
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    /// <summary>
+    /// Holds userdata and settings
+    /// </summary>
     [Serializable]
     public class UserData
     {

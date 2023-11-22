@@ -5,8 +5,18 @@ using System.Threading.Tasks;
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    /// <summary>
+    ///  Class to handle downloading and unpacking .zip files
+    /// </summary>
     public class FileDownloader
     {
+        /// <summary>
+        /// Download the file into distination folder
+        /// </summary>
+        /// <param name="fileUrl"></param>
+        /// <param name="destinationPath"></param>
+        /// <returns></returns>
+        /// <exception cref="HttpRequestException"></exception>
         public async Task DownloadFileAsync(string fileUrl, string destinationPath)
         {
             using (HttpClient client = new HttpClient())
@@ -55,6 +65,12 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Unpacking zip-file data into target directory
+        /// </summary>
+        /// <param name="zipFilePath"></param>
+        /// <param name="extractPath"></param>
+        /// <returns></returns>
         public async Task UnpackZipFileAsync(string zipFilePath, string extractPath)
         {
             await Task.Run(() =>

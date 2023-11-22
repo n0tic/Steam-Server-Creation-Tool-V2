@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    /// <summary>
+    /// UI Handler and helping tool
+    /// </summary>
     public static class UIHandler
     {
         public static MainForm form;
@@ -33,6 +35,12 @@ namespace Steam_Server_Creation_Tool_V2
             panels.Add(form.Panel_Settings);
         }
 
+        /// <summary>
+        /// Change panel based on object clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="panel"></param>
+        /// <param name="form"></param>
         public static async void ChangePanel(object sender, Panel panel, MainForm form)
         {
             for (int i = 0; i < panels.Count; i++)
@@ -41,7 +49,7 @@ namespace Steam_Server_Creation_Tool_V2
                 else panels[i].Visible = false;
             }
 
-            if(sender != null) // If a menu item was clicked (label)
+            if (sender != null) // If a menu item was clicked (label)
             {
                 if (activeLabel != null) Label_MouseLeave((object)activeLabel, null, true);
                 SetActiveLabel((Label)sender, null);
@@ -58,7 +66,7 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
                 case (int)Panel.NewServer:
                     form.Size = new Size(642, 436);
-                    if(!form.updateRecieved)
+                    if (!form.updateRecieved)
                     {
                         await form.RefreshAPIData();
                         form.updateRecieved = true;
@@ -87,52 +95,43 @@ namespace Steam_Server_Creation_Tool_V2
             form.InstalledServerList.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Add underline to menu item which we hoover over
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public static void Label_MouseHover(object sender, EventArgs e)
         {
-            // TODO: Fix logic for this to stay upon selection
             if (sender is Label label) { label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline); }
         }
 
+        /// <summary>
+        /// Remove underline from menu item which we hoover over
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="_override"></param>
         public static void Label_MouseLeave(object sender, EventArgs e, bool _override = false)
         {
-            if (sender is Label label) 
+            if (sender is Label label)
             {
-                if(!_override) if (activeLabel.Name == label.Name) return;
-                label.Font = new Font(label.Font, label.Font.Style & ~FontStyle.Underline); 
+                if (!_override) if (activeLabel.Name == label.Name) return;
+                label.Font = new Font(label.Font, label.Font.Style & ~FontStyle.Underline);
             }
         }
 
+        /// <summary>
+        /// Switch to always underline to indicate active selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public static void SetActiveLabel(object sender, EventArgs e)
         {
-            if (sender is Label label) 
+            if (sender is Label label)
             {
                 activeLabel = label;
-                label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline); 
+                label.Font = new Font(label.Font, label.Font.Style | FontStyle.Underline);
             }
         }
-
-        /*
-        private static bool IsActive(string labelText)
-        {
-            switch(labelText)
-            {
-                case "SteamCMD":
-                    if (panels[(int)Panel.SteamCMD].Visible) return true;
-                    break;
-                case "New Server":
-                    if (panels[(int)Panel.NewServer].Visible) return true;
-                    break;
-                case "Manage Servers":
-                    if (panels[(int)Panel.ManageServers].Visible) return true;
-                    break;
-                case "Settings":
-                    if (panels[(int)Panel.Settings].Visible) return true;
-                    break;
-                default: return false;
-            }
-
-            return false;
-        }
-        */
     }
 }

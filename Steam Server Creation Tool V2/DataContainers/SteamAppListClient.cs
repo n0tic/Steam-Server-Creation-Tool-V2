@@ -6,21 +6,25 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// Class to control data gathering from Steam API regarding their database with games, servers and applications
+/// </summary>
 [Serializable]
 public class SteamAppListClient
 {
     private readonly HttpClient _httpClient;
 
-    public SteamAppListClient(HttpClient httpClient)
-    {
-        _httpClient = httpClient;
-    }
+    public SteamAppListClient(HttpClient httpClient) => _httpClient = httpClient;
 
+    /// <summary>
+    /// Get results from Steam API, filter the data and return the results
+    /// </summary>
+    /// <returns></returns>
     public async Task<SteamAppListResponse> GetAppListAsync()
     {
         try
         {
-            string requestUri = Core.serversURL + Core.GetUTCTime();      
+            string requestUri = Core.serversURL + Core.GetUTCTime();
             var responseString = await _httpClient.GetStringAsync(requestUri);
             var appListResponse = JsonConvert.DeserializeObject<SteamAppListResponse>(responseString);
 
@@ -42,6 +46,11 @@ public class SteamAppListClient
         }
     }
 
+    /// <summary>
+    /// Filters and order the data from Steam API
+    /// </summary>
+    /// <param name="apps"></param>
+    /// <returns></returns>
     public SteamAppListResponse FilterAndSortAppList(SteamAppListResponse apps)
     {
         // Identifying indexes to remove

@@ -1,22 +1,23 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Security.Policy;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Steam_Server_Creation_Tool_V2
 {
+    /// <summary>
+    /// Class to help with portscan
+    /// </summary>
     public static class PortScanHelper
     {
         static string ipURL = "https://bytevaultstudio.se/PortScan/portscan.php";
         static string portURL = "https://bytevaultstudio.se/PortScan/portscan.php?ip=X&port=Y";
 
+        /// <summary>
+        /// Get IP from the user
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static async Task<PortScanIP_Result> GetIpAddressAsync()
         {
             using (HttpClient client = new HttpClient())
@@ -38,6 +39,13 @@ namespace Steam_Server_Creation_Tool_V2
             }
         }
 
+        /// <summary>
+        /// Get portscan results
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <param name="port"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static async Task<PortScanIP_Result> GetPortScanAsync(string ip, string port)
         {
             using (HttpClient client = new HttpClient())

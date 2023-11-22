@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,8 +10,10 @@ namespace Steam_Server_Creation_Tool_V2
 {
     public static class Core
     {
+        //Debug feature
         public static bool debug = false;
 
+        //System settings
         public static string softwareName = "Steam Server Creation Tool V2";
         public static string softwareNameShort = "SSCTV2";
 
@@ -99,13 +98,13 @@ namespace Steam_Server_Creation_Tool_V2
 
                         if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
-                            if(form.settings.allowAutoUpdate)
+                            if (form.settings.allowAutoUpdate)
                             {
                                 form.App_ProgressBar.Visible = true;
 
                                 string updater = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe");
 
-                                if(File.Exists(updater))
+                                if (File.Exists(updater))
                                 {
                                     // Start the process and exit the application
                                     Process.Start(new ProcessStartInfo
@@ -185,6 +184,11 @@ namespace Steam_Server_Creation_Tool_V2
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        /// <summary>
+        /// Move the window by holding down mouse 1 (left click, mouse down) on the object
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="e"></param>
         public static void MoveWindow(Form form, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -197,6 +201,43 @@ namespace Steam_Server_Creation_Tool_V2
         #endregion Move Window
 
         #region IO
+
+        public static async Task MoveFolderAsync(string sourceDirectoryName, string targetDirectoryName)
+        {
+            await Task.Run(() =>
+            {
+                Directory.CreateDirectory(targetDirectoryName);
+
+                DirectoryInfo source = new DirectoryInfo(sourceDirectoryName);
+                DirectoryInfo target = new DirectoryInfo(targetDirectoryName);
+
+                MoveWork(source, target);
+
+                foreach (var item in source.GetDirectories("*", SearchOption.AllDirectories))
+                {
+                    try
+                    {
+                        item.Delete(true);
+                    }
+                    catch { }
+                }
+            });
+        }
+
+        private static void MoveWork(DirectoryInfo source, DirectoryInfo target)
+        {
+            foreach (DirectoryInfo dir in source.GetDirectories())
+            {
+                MoveWork(dir, target.CreateSubdirectory(dir.Name));
+            }
+
+            foreach (FileInfo file in source.GetFiles())
+            {
+                file.MoveTo(Path.Combine(target.FullName, file.Name));
+            }
+        }
+
+        public static bool Contains(this string source, string toCheck, StringComparison comp) => source?.IndexOf(toCheck, comp) >= 0;
 
         public static string SelectFolder(string previousPath = "")
         {
@@ -272,16 +313,24 @@ namespace Steam_Server_Creation_Tool_V2
 
         #endregion IO
 
-        public static bool Contains(this string source, string toCheck, StringComparison comp) => source?.IndexOf(toCheck, comp) >= 0;
-
         #region Encode
 
+        /// <summary>
+        /// Decode password
+        /// </summary>
+        /// <param name="base64EncodedData"></param>
+        /// <returns></returns>
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
+        /// <summary>
+        /// Encode password
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
         public static string Base64Encode(string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);

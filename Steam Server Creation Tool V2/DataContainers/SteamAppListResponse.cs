@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Response-container for Steam API data
+/// </summary>
 [Serializable]
 public class SteamAppListResponse
 {

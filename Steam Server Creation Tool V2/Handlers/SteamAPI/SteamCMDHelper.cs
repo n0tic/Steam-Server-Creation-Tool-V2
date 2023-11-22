@@ -1,28 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2
 {
-    public enum InstallationType
-    {
-        NewInstall,
-        Update
-    }
-
+    /// <summary>
+    /// Helper class to run SteamCMD and control the system integration
+    /// </summary>
     internal class SteamCMDHelper
     {
         private static bool failed = false;
 
-        internal static async Task StartNewDownload(MainForm form, App app, string installName, string installDir, InstallationType steamCMD_type = InstallationType.NewInstall)
+        public enum InstallationType
+        {
+            NewInstall,
+            Update
+        }
+
+        /// <summary>
+        /// Controls the SteamCMD process with arguments and system integration features
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="app"></param>
+        /// <param name="installName"></param>
+        /// <param name="installDir"></param>
+        /// <param name="steamCMD_type"></param>
+        /// <returns></returns>
+        internal static async Task RunSteamCMD(MainForm form, App app, string installName, string installDir, InstallationType steamCMD_type = InstallationType.NewInstall)
         {
             if (form.settings.wrapSteamCMD) form.PanelConsole_button_Click(null, null);
 
@@ -52,7 +59,7 @@ namespace Steam_Server_Creation_Tool_V2
                 using (process)
                 {
 
-                    if(form.settings.wrapSteamCMD)
+                    if (form.settings.wrapSteamCMD)
                     {
                         process.OutputDataReceived += (sender, e) =>
                         {
@@ -89,7 +96,7 @@ namespace Steam_Server_Creation_Tool_V2
                     try
                     {
                         process.Start();
-                        if(form.settings.wrapSteamCMD)
+                        if (form.settings.wrapSteamCMD)
                         {
                             process.BeginOutputReadLine();
                             process.BeginErrorReadLine();
@@ -111,7 +118,7 @@ namespace Steam_Server_Creation_Tool_V2
                         MessageBox.Show(ex.Message);
                         install = false;
                     }
-                    
+
                     // Register installation if new and save settings.
                     if (!failed && install && steamCMD_type == InstallationType.NewInstall)
                     {
@@ -140,12 +147,25 @@ namespace Steam_Server_Creation_Tool_V2
             });
         }
 
+        /// <summary>
+        /// Create process for SteamCMD based on user settings
+        /// </summary>
+        /// <param name="wrapSteamCMD"></param>
+        /// <param name="form"></param>
+        /// <param name="installDir"></param>
+        /// <param name="login"></param>
+        /// <param name="appID"></param>
+        /// <param name="validated"></param>
+        /// <param name="quit"></param>
+        /// <returns></returns>
         private static Process CreateProcess(bool wrapSteamCMD, MainForm form, string installDir, string login, string appID, string validated, string quit)
         {
             Process process = null;
 
-            if(wrapSteamCMD) {
-                process = new Process() {
+            if (wrapSteamCMD)
+            {
+                process = new Process()
+                {
                     StartInfo = {
                         FileName = form.settings.steamCMD_installLocation,
                         Arguments = $"+force_install_dir \"{installDir}\" +login " + login + " +app_update " + appID + " " + validated + quit,
@@ -157,20 +177,28 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                 };
             }
-            else {
-                process = new Process() {
+            else
+            {
+                process = new Process()
+                {
                     StartInfo = {
                         UseShellExecute = false,
                         FileName = form.settings.steamCMD_installLocation,
                         Arguments = $"+force_install_dir \"{installDir}\" +login " + login + " +app_update " + appID + " " + validated + quit // Building argument string
                     }
                 };
-                
+
             }
 
             return process;
         }
 
+        /// <summary>
+        /// SteamCMD integration/Wrap controlling the software and its response to SteamCMD output/behaviour
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="form"></param>
+        /// <returns></returns>
         private static bool CheckForSpecificLines(string line, MainForm form = null)
         {
             // Use Regex to match the patterns of the success and error messages
@@ -207,7 +235,7 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 // Take action based on the specific line
                 // For example, update UI or log the information
-                
+
                 form.console.AddMessage($"Please wait while SteamCMD is installing the server...{Environment.NewLine}");
                 return true;
             }
