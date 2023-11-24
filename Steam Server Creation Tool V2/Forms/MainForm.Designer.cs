@@ -163,6 +163,9 @@
             this.Console = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.bottom_border_panel = new System.Windows.Forms.Panel();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
@@ -2044,11 +2047,38 @@
             this.panel21.Size = new System.Drawing.Size(618, 2);
             this.panel21.TabIndex = 13;
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel12.Location = new System.Drawing.Point(640, 7);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(10, 601);
+            this.panel12.TabIndex = 45;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.panel14.Location = new System.Drawing.Point(-8, 7);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(10, 601);
+            this.panel14.TabIndex = 46;
+            // 
+            // bottom_border_panel
+            // 
+            this.bottom_border_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
+            this.bottom_border_panel.Location = new System.Drawing.Point(-27, 446);
+            this.bottom_border_panel.Name = "bottom_border_panel";
+            this.bottom_border_panel.Size = new System.Drawing.Size(695, 10);
+            this.bottom_border_panel.TabIndex = 32;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(642, 589);
+            this.Controls.Add(this.bottom_border_panel);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panel12);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.Panel_Console);
@@ -2247,6 +2277,9 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.CheckBox ConsoleAutoScroll_checkbox;
         public System.Windows.Forms.RichTextBox Console;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel14;
+        public System.Windows.Forms.Panel bottom_border_panel;
     }
 }
 

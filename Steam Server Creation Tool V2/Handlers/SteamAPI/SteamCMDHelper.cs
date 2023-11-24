@@ -35,6 +35,7 @@ namespace Steam_Server_Creation_Tool_V2
 
             //Keep track of success
             bool install = true;
+            failed = false; // Reset bug fix
 
             //This needs no explanation, no? It simply updates data with provided defaults if new install
             string validated = "";

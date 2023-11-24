@@ -64,6 +64,12 @@
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
     <Compile Include="DataContainers\Settings\Settings.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
+    <Compile Include="Forms\CS16_Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CS16_Config.Designer.cs">
+      <DependentUpon>CS16_Config.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
     <Compile Include="Handlers\SteamAPI\SteamCMDHelper.cs" />
+    <EmbeddedResource Include="Forms\CS16_Config.resx">
+      <DependentUpon>CS16_Config.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

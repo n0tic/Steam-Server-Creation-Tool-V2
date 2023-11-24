@@ -5,7 +5,7 @@ using System.Net.Http;
 
 namespace AutoUpdater
 {
-    public class FileDownloader
+    public class UpdateHelper
     {
         public bool IsValidUrl(string url)
         {

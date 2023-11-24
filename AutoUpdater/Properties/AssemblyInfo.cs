@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AutoUpdater")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Auto-updater for Steam Server Creation Tool V2. It downloads the newest release from github, unpack and restart Steam Server Creation Tool V2")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ByteVault Studio")]
 [assembly: AssemblyProduct("AutoUpdater")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]

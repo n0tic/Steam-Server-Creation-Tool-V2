@@ -63,9 +63,11 @@ namespace Steam_Server_Creation_Tool_V2
             {
                 case (int)Panel.SteamCMD:
                     form.Size = new Size(642, 327);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     break;
                 case (int)Panel.NewServer:
                     form.Size = new Size(642, 436);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     if (!form.updateRecieved)
                     {
                         await form.RefreshAPIData();
@@ -74,12 +76,15 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
                 case (int)Panel.ManageServers:
                     form.Size = new Size(642, 589);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     break;
                 case (int)Panel.Console:
                     form.Size = new Size(642, 460);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     break;
                 case (int)Panel.PortScan:
                     form.Size = new Size(642, 225);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     if (!form.hasIP)
                     {
                         PortScanIP_Result data = await PortScanHelper.GetIpAddressAsync();
@@ -89,6 +94,7 @@ namespace Steam_Server_Creation_Tool_V2
                     break;
                 case (int)Panel.Settings:
                     form.Size = new Size(642, 497);
+                    form.bottom_border_panel.Location = new Point(form.bottom_border_panel.Location.X, form.Size.Height - 2);
                     break;
             }
 

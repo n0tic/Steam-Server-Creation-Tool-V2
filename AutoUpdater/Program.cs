@@ -9,7 +9,7 @@ namespace AutoUpdater
     {
         static void Main(string[] args)
         {
-            FileDownloader downloader = new FileDownloader();
+            UpdateHelper downloader = new UpdateHelper();
 
             if (args.Length < 1 || !downloader.IsValidUrl(args[0]))
             {

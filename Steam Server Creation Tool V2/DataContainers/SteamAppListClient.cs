@@ -62,7 +62,9 @@ public class SteamAppListClient
 
         foreach (var item in apps.AppList.Apps)
         {
-            item.IdAppName = $"[{item.AppId}] {item.Name}";
+            if(item.AppId == 90) item.IdAppName = $"[{item.AppId}] Counter-strike 1.6 and {item.Name}";
+            else item.IdAppName = $"[{item.AppId}] {item.Name}";
+
         }
 
         // Sort in descending order to avoid index shifting issues during removal

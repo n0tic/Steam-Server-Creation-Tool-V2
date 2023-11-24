@@ -2,6 +2,7 @@
 using Steam_Server_Creation_Tool_V2.Forms;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
@@ -46,6 +47,8 @@ namespace Steam_Server_Creation_Tool_V2
 
             //We do not await this async command
             InitializeAsyncStart();
+
+            new CS16_Config().ShowDialog();
         }
 
         #region System
@@ -118,6 +121,8 @@ namespace Steam_Server_Creation_Tool_V2
                 await Core.CheckForUpdatesAsync(this);
                 SetNewVersionStatus(Core.updateAvailable, Core.newUpdateVersion);
             }
+
+            bottom_border_panel.BringToFront();
 
             // Disable progressbar
             App_ProgressBar.Visible = false;
