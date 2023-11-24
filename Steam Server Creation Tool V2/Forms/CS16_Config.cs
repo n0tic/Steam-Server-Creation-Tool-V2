@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Steam_Server_Creation_Tool_V2.Forms
@@ -22,11 +21,11 @@ namespace Steam_Server_Creation_Tool_V2.Forms
 
         private void ConfigBase_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ConfigBase_combobox.SelectedIndex == 0)
+            if (ConfigBase_combobox.SelectedIndex == 0)
             {
 
             }
-            else if(ConfigBase_combobox.SelectedIndex == 0)
+            else if (ConfigBase_combobox.SelectedIndex == 0)
             {
 
             }
