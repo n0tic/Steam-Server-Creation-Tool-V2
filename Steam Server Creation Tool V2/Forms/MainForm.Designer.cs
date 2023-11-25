@@ -166,6 +166,7 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.bottom_border_panel = new System.Windows.Forms.Panel();
+            this.Setup_Button = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BigLogo)).BeginInit();
@@ -923,6 +924,7 @@
             // Panel_ManageServers
             // 
             this.Panel_ManageServers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.Panel_ManageServers.Controls.Add(this.Setup_Button);
             this.Panel_ManageServers.Controls.Add(this.ManageOpenDirectory_Button);
             this.Panel_ManageServers.Controls.Add(this.groupBox4);
             this.Panel_ManageServers.Controls.Add(this.groupBox3);
@@ -1166,7 +1168,7 @@
             this.ManageGuide_Button.ForeColor = System.Drawing.Color.White;
             this.ManageGuide_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._092_warning;
             this.ManageGuide_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManageGuide_Button.Location = new System.Drawing.Point(550, 40);
+            this.ManageGuide_Button.Location = new System.Drawing.Point(550, 0);
             this.ManageGuide_Button.Name = "ManageGuide_Button";
             this.ManageGuide_Button.Size = new System.Drawing.Size(77, 29);
             this.ManageGuide_Button.TabIndex = 24;
@@ -2071,6 +2073,26 @@
             this.bottom_border_panel.Size = new System.Drawing.Size(695, 10);
             this.bottom_border_panel.TabIndex = 32;
             // 
+            // Setup_Button
+            // 
+            this.Setup_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.Setup_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Setup_Button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Setup_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Setup_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Setup_Button.ForeColor = System.Drawing.Color.White;
+            this.Setup_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._014_cogwheel;
+            this.Setup_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Setup_Button.Location = new System.Drawing.Point(550, 37);
+            this.Setup_Button.Name = "Setup_Button";
+            this.Setup_Button.Size = new System.Drawing.Size(77, 32);
+            this.Setup_Button.TabIndex = 29;
+            this.Setup_Button.Text = "Setup";
+            this.Setup_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.Setup_Button, "Find guides on google to setup server");
+            this.Setup_Button.UseVisualStyleBackColor = false;
+            this.Setup_Button.Click += new System.EventHandler(this.Setup_Button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2081,12 +2103,12 @@
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.App_ProgressBar);
             this.Controls.Add(this.TopPanel);
-            this.Controls.Add(this.Panel_Console);
-            this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
             this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_PortScan);
+            this.Controls.Add(this.Panel_Console);
+            this.Controls.Add(this.Panel_Settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -2280,6 +2302,7 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel14;
         public System.Windows.Forms.Panel bottom_border_panel;
+        private System.Windows.Forms.Button Setup_Button;
     }
 }
 

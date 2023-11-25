@@ -203,6 +203,16 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _090_upload {
+            get {
+                object obj = ResourceManager.GetObject("090-upload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _092_warning {
             get {
                 object obj = ResourceManager.GetObject("092-warning", resourceCulture);
@@ -321,6 +331,36 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///// --- Server base settings ---
+        ///hostname &quot;{hostname}&quot;
+        ///sv_lan {sv_lan}
+        ///sv_region {sv_region}
+        ///
+        ///// Server passwords
+        ///sv_password &quot;{sv_password}&quot;
+        ///rcon_password &quot;{rcon_password}&quot;
+        ///
+        ///// --- Logging settings ---
+        ///log {log}
+        ///sv_logbans {sv_logbans}
+        ///sv_logecho {sv_logecho}
+        ///sv_logfile {sv_logfile}
+        ///sv_log_onefile {sv_log_onefile}
+        ///
+        ///// --- Advanced RCON ---
+        ///sv_rcon_banpenalty {sv_rcon_banpenalty}
+        ///sv_rcon_maxfailures {sv_rcon_maxfailures}
+        ///sv_rcon_minfailures {sv_rcon_minfailures}
+        ///sv_rcon_minfailuretime { [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string server_cfg {
+            get {
+                return ResourceManager.GetString("server.cfg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Settings {
@@ -342,9 +382,9 @@ namespace Steam_Server_Creation_Tool_V2.Properties {
         ///:: 
         ///:: !DO NOT ADD SPACES UNLESS THERE ARE SPACES IN THE ARGUMENT OR DIR [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string StartServerScript_txt {
+        internal static string StartServerScript_bat {
             get {
-                return ResourceManager.GetString("StartServerScript.txt", resourceCulture);
+                return ResourceManager.GetString("StartServerScript.bat", resourceCulture);
             }
         }
         

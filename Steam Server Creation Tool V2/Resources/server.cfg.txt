@@ -1,0 +1,90 @@
+
+// --- Server base settings ---
+hostname "{hostname}"
+sv_lan {sv_lan}
+sv_region {sv_region}
+
+// Server passwords
+sv_password "{sv_password}"
+rcon_password "{rcon_password}"
+
+// --- Logging settings ---
+log {log}
+sv_logbans {sv_logbans}
+sv_logecho {sv_logecho}
+sv_logfile {sv_logfile}
+sv_log_onefile {sv_log_onefile}
+
+// --- Advanced RCON ---
+sv_rcon_banpenalty {sv_rcon_banpenalty}
+sv_rcon_maxfailures {sv_rcon_maxfailures}
+sv_rcon_minfailures {sv_rcon_minfailures}
+sv_rcon_minfailuretime {sv_rcon_minfailuretime}
+
+// --- Bandwidth rates/settings ---
+sv_minrate {sv_minrate}
+sv_maxrate {sv_maxrate}
+decalfrequency {decalfrequency}
+sv_maxupdaterate {sv_maxupdaterate}
+sv_minupdaterate {sv_minupdaterate}
+
+// --- Server cvars ---
+mp_friendlyfire {mp_friendlyfire}
+mp_footsteps {mp_footsteps}
+mp_autoteambalance {mp_autoteambalance}
+mp_autokick {mp_autokick}
+mp_flashlight {mp_flashlight}
+mp_tkpunish {mp_tkpunish}
+mp_forcecamera {mp_forcecamera}
+sv_alltalk {sv_alltalk}
+sv_pausable {sv_pausable}
+sv_consistency {sv_consistency}
+sv_cheats {sv_cheats}
+sv_allowupload {sv_allowupload}
+sv_allowdownload {sv_allowdownload}
+sv_maxspeed {sv_maxspeed}
+mp_limitteams {mp_limitteams}
+mp_hostagepenalty {mp_hostagepenalty}
+sv_voiceenable {sv_voiceenable}
+mp_allowspectators {mp_allowspectators}
+mp_timelimit {mp_timelimit}
+mp_chattime {mp_chattime}
+sv_timeout {sv_timeout}
+
+// --- Round specific cvars ---
+mp_freezetime {mp_freezetime}
+mp_roundtime {mp_roundtime}
+mp_startmoney {mp_startmoney}
+mp_c4timer {mp_c4timer}
+mp_fraglimit {mp_fraglimit}
+mp_maxrounds {mp_maxrounds}
+mp_winlimit {mp_winlimit}
+mp_playerid {mp_playerid}
+mp_spawnprotectiontime {mp_spawnprotectiontime}
+
+
+// --- Bot settings ---
+bot_quota {bot_quota}
+bot_quota_mode {bot_quota_mode}
+bot_difficulty {bot_difficulty}
+bot_chatter {bot_chatter}
+bot_auto_follow {bot_auto_follow}
+bot_auto_vacate {bot_auto_vacate}
+bot_join_after_player {bot_join_after_player}
+bot_defer_to_human {bot_defer_to_human}
+bot_allow_rogues {bot_allow_rogues}
+bot_walk {bot_walk}
+bot_join_team {bot_join_team}
+bot_eco_limit {bot_eco_limit}
+bot_all_weapons {bot_all_weapons}
+bot_allow_grenades {bot_allow_grenades}
+bot_allow_pistols {bot_allow_pistols}
+bot_allow_sub_machine_guns {bot_allow_sub_machine_guns}
+bot_allow_shotguns {bot_allow_shotguns}
+bot_allow_rifles {bot_allow_rifles}
+bot_allow_snipers {bot_allow_snipers}
+bot_allow_machine_guns {bot_allow_machine_guns}
+
+// --- Execute ban files ---
+exec banned_user.cfg
+exec banned_ip.cfg

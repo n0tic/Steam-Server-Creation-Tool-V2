@@ -123,7 +123,7 @@ namespace Steam_Server_Creation_Tool_V2
                     // Register installation if new and save settings.
                     if (!failed && install && steamCMD_type == InstallationType.NewInstall)
                     {
-                        string startScript = Properties.Resources.StartServerScript_txt;
+                        string startScript = Properties.Resources.StartServerScript_bat;
                         startScript = startScript
                             .Replace("{steamcmd_dir}", $"\"{Path.GetDirectoryName(form.settings.steamCMD_installLocation)}\"")
                             .Replace("{server_dir}", installDir)
@@ -169,7 +169,7 @@ namespace Steam_Server_Creation_Tool_V2
                 {
                     StartInfo = {
                         FileName = form.settings.steamCMD_installLocation,
-                        Arguments = $"+force_install_dir \"{installDir}\" +login " + login + " +app_update " + appID + " " + validated + quit,
+                        Arguments = $"+force_install_dir \"{installDir}\" +login " + login + " +app_update " + appID + " " + validated + " +quit",
                         UseShellExecute = false,
                         RedirectStandardInput = true,
                         RedirectStandardOutput = true,

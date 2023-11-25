@@ -183,6 +183,7 @@
     <None Include="Resources\033-feather.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\server.cfg.txt" />
     <None Include="Resources\PortScan.png" />
     <None Include="Resources\SteamCMD.png" />
     <None Include="Resources\NewServer.png" />
@@ -195,6 +196,7 @@
     <None Include="Resources\LoadingRequest.gif" />
     <None Include="Resources\014-cogwheel.png" />
     <None Include="Resources\ConsoleWindow.png" />
+    <None Include="Resources\090-upload.png" />
     <Content Include="Resources\LogoSSCT.ico" />
     <None Include="Resources\016-folder-24.png" />
     <None Include="Resources\refresh-1.png" />

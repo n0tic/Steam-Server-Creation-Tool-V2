@@ -47,7 +47,6 @@ namespace Steam_Server_Creation_Tool_V2
             //We do not await this async command
             InitializeAsyncStart();
 
-            new CS16_Config().ShowDialog();
         }
 
         #region System
@@ -68,6 +67,7 @@ namespace Steam_Server_Creation_Tool_V2
             PortResult_Label.Text = "";
             PortScanLoading_PictureBox.Enabled = false;
             PortScanLoading_PictureBox.Visible = false;
+            Setup_Button.Enabled = false;
             InstalledServerList_SelectedIndexChanged(null, null);
 
             Port_Numeric.Minimum = 0;
@@ -593,6 +593,8 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageGuide_Button.Enabled = true;
                 ManageServerName_Textbox.Enabled = true;
                 ManageInstallDirectory_Textbox.Enabled = true;
+                if(server.app.AppId == 90) Setup_Button.Enabled = true;
+                else Setup_Button.Enabled = false;
 
                 if (server != null)
                 {
@@ -614,6 +616,7 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageGuide_Button.Enabled = false;
                 ManageServerName_Textbox.Enabled = false;
                 ManageInstallDirectory_Textbox.Enabled = false;
+                Setup_Button.Enabled = false;
 
                 ManageServerName_Textbox.Text = "";
                 ManageInstallDirectory_Textbox.Text = "";
@@ -646,7 +649,7 @@ namespace Steam_Server_Creation_Tool_V2
 
                     workInProgress = true;
 
-                    string startScript = Properties.Resources.StartServerScript_txt;
+                    string startScript = Properties.Resources.StartServerScript_bat;
                     startScript = startScript.Replace("{steamcmd_dir}", "\"" + Path.GetDirectoryName(settings.steamCMD_installLocation) + "\"");
                     startScript = startScript.Replace("{server_dir}", settings.installedServer[server].installPath);
                     startScript = startScript.Replace("{app_id}", settings.installedServer[server].app.AppId.ToString());
@@ -1051,5 +1054,31 @@ namespace Steam_Server_Creation_Tool_V2
         private void PortScan_Button_MouseEnter(object sender, EventArgs e) => UIHandler.Label_MouseHover(sender, e);
         private void PortScan_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         #endregion One-line buttons
+
+        private void Setup_Button_Click(object sender, EventArgs e)
+        {
+            if (InstalledServerList.SelectedIndex != -1)
+            {
+                InstalledServer server = null;
+
+                foreach (var item in settings.installedServer)
+                {
+                    if (item.name == (string)InstalledServerList.SelectedItem)
+                    {
+                        server = item;
+                        break;
+                    }
+                }
+
+                if(server != null)
+                {
+                    using(CS16_Config configManager = new CS16_Config(server))
+                    {
+                        configManager.ShowDialog();
+                        GC.Collect();
+                    }
+                }
+            }
+        }
     }
 }
