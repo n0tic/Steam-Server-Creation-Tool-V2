@@ -245,7 +245,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(1266, 68);
+            this.TopPanel.Size = new System.Drawing.Size(1166, 68);
             this.TopPanel.TabIndex = 1;
             // 
             // button1
@@ -259,7 +259,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._090_upload;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(954, 29);
+            this.button1.Location = new System.Drawing.Point(840, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 29);
             this.button1.TabIndex = 56;
@@ -278,7 +278,7 @@
             this.SaveSettings_Button.ForeColor = System.Drawing.Color.White;
             this.SaveSettings_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources._028_download;
             this.SaveSettings_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveSettings_Button.Location = new System.Drawing.Point(1107, 29);
+            this.SaveSettings_Button.Location = new System.Drawing.Point(993, 29);
             this.SaveSettings_Button.Name = "SaveSettings_Button";
             this.SaveSettings_Button.Size = new System.Drawing.Size(147, 29);
             this.SaveSettings_Button.TabIndex = 55;
@@ -314,7 +314,7 @@
             this.MovePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MovePanel.Location = new System.Drawing.Point(0, 0);
             this.MovePanel.Name = "MovePanel";
-            this.MovePanel.Size = new System.Drawing.Size(1266, 23);
+            this.MovePanel.Size = new System.Drawing.Size(1166, 23);
             this.MovePanel.TabIndex = 10;
             this.MovePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MovePanel_MouseDown);
             // 
@@ -322,7 +322,7 @@
             // 
             this.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Close_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.close;
-            this.Close_Button.Location = new System.Drawing.Point(1244, 3);
+            this.Close_Button.Location = new System.Drawing.Point(1130, 3);
             this.Close_Button.Name = "Close_Button";
             this.Close_Button.Size = new System.Drawing.Size(18, 18);
             this.Close_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -341,7 +341,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
-            this.panel3.Location = new System.Drawing.Point(1264, 13);
+            this.panel3.Location = new System.Drawing.Point(1165, 13);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 643);
             this.panel3.TabIndex = 32;
@@ -368,7 +368,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox1.Location = new System.Drawing.Point(8, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(348, 564);
+            this.groupBox1.Size = new System.Drawing.Size(294, 564);
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Settings";
@@ -383,7 +383,7 @@
             this.groupBox6.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox6.Location = new System.Drawing.Point(6, 483);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(335, 74);
+            this.groupBox6.Size = new System.Drawing.Size(282, 74);
             this.groupBox6.TabIndex = 51;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SourceTV";
@@ -397,7 +397,7 @@
             this.auto_record.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.auto_record.Location = new System.Drawing.Point(208, 45);
+            this.auto_record.Location = new System.Drawing.Point(155, 44);
             this.auto_record.Name = "auto_record";
             this.auto_record.Size = new System.Drawing.Size(121, 21);
             this.auto_record.TabIndex = 44;
@@ -423,7 +423,7 @@
             this.tv_enabled.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.tv_enabled.Location = new System.Drawing.Point(208, 18);
+            this.tv_enabled.Location = new System.Drawing.Point(155, 17);
             this.tv_enabled.Name = "tv_enabled";
             this.tv_enabled.Size = new System.Drawing.Size(121, 21);
             this.tv_enabled.TabIndex = 41;
@@ -450,7 +450,7 @@
             "Generic CFG (Default)",
             "Optimized CFG",
             "High Performance CFG"});
-            this.ConfigBase_combobox.Location = new System.Drawing.Point(164, 16);
+            this.ConfigBase_combobox.Location = new System.Drawing.Point(110, 15);
             this.ConfigBase_combobox.Name = "ConfigBase_combobox";
             this.ConfigBase_combobox.Size = new System.Drawing.Size(178, 21);
             this.ConfigBase_combobox.TabIndex = 51;
@@ -472,7 +472,7 @@
             this.groupBox10.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox10.Location = new System.Drawing.Point(6, 166);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(335, 149);
+            this.groupBox10.Size = new System.Drawing.Size(282, 149);
             this.groupBox10.TabIndex = 46;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Bandwidth Rates";
@@ -482,7 +482,7 @@
             this.decalfrequency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.decalfrequency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.decalfrequency.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.decalfrequency.Location = new System.Drawing.Point(208, 122);
+            this.decalfrequency.Location = new System.Drawing.Point(155, 120);
             this.decalfrequency.Maximum = new decimal(new int[] {
             16000,
             0,
@@ -514,7 +514,7 @@
             this.sv_maxrate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_maxrate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_maxrate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_maxrate.Location = new System.Drawing.Point(208, 44);
+            this.sv_maxrate.Location = new System.Drawing.Point(155, 42);
             this.sv_maxrate.Maximum = new decimal(new int[] {
             16000,
             0,
@@ -541,7 +541,7 @@
             this.sv_minupdaterate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_minupdaterate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_minupdaterate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_minupdaterate.Location = new System.Drawing.Point(208, 96);
+            this.sv_minupdaterate.Location = new System.Drawing.Point(155, 94);
             this.sv_minupdaterate.Maximum = new decimal(new int[] {
             16000,
             0,
@@ -561,7 +561,7 @@
             this.sv_minrate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_minrate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_minrate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_minrate.Location = new System.Drawing.Point(208, 18);
+            this.sv_minrate.Location = new System.Drawing.Point(155, 16);
             this.sv_minrate.Maximum = new decimal(new int[] {
             16000,
             0,
@@ -600,7 +600,7 @@
             this.sv_maxupdaterate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_maxupdaterate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_maxupdaterate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_maxupdaterate.Location = new System.Drawing.Point(208, 70);
+            this.sv_maxupdaterate.Location = new System.Drawing.Point(155, 68);
             this.sv_maxupdaterate.Maximum = new decimal(new int[] {
             16000,
             0,
@@ -643,7 +643,7 @@
             this.groupBox5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox5.Location = new System.Drawing.Point(6, 321);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(335, 156);
+            this.groupBox5.Size = new System.Drawing.Size(282, 156);
             this.groupBox5.TabIndex = 51;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Server Logging";
@@ -657,7 +657,7 @@
             this.sv_log_onefile.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.sv_log_onefile.Location = new System.Drawing.Point(208, 127);
+            this.sv_log_onefile.Location = new System.Drawing.Point(155, 126);
             this.sv_log_onefile.Name = "sv_log_onefile";
             this.sv_log_onefile.Size = new System.Drawing.Size(121, 21);
             this.sv_log_onefile.TabIndex = 50;
@@ -683,7 +683,7 @@
             this.sv_logfile.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.sv_logfile.Location = new System.Drawing.Point(208, 100);
+            this.sv_logfile.Location = new System.Drawing.Point(155, 99);
             this.sv_logfile.Name = "sv_logfile";
             this.sv_logfile.Size = new System.Drawing.Size(121, 21);
             this.sv_logfile.TabIndex = 48;
@@ -709,7 +709,7 @@
             this.sv_logecho.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.sv_logecho.Location = new System.Drawing.Point(208, 73);
+            this.sv_logecho.Location = new System.Drawing.Point(155, 72);
             this.sv_logecho.Name = "sv_logecho";
             this.sv_logecho.Size = new System.Drawing.Size(121, 21);
             this.sv_logecho.TabIndex = 46;
@@ -735,7 +735,7 @@
             this.sv_logbans.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.sv_logbans.Location = new System.Drawing.Point(208, 46);
+            this.sv_logbans.Location = new System.Drawing.Point(155, 45);
             this.sv_logbans.Name = "sv_logbans";
             this.sv_logbans.Size = new System.Drawing.Size(121, 21);
             this.sv_logbans.TabIndex = 44;
@@ -761,7 +761,7 @@
             this.log.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.log.Location = new System.Drawing.Point(208, 19);
+            this.log.Location = new System.Drawing.Point(155, 18);
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(121, 21);
             this.log.TabIndex = 41;
@@ -800,7 +800,7 @@
             this.groupBox11.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox11.Location = new System.Drawing.Point(6, 86);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(335, 74);
+            this.groupBox11.Size = new System.Drawing.Size(282, 74);
             this.groupBox11.TabIndex = 41;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Operation";
@@ -821,7 +821,7 @@
             "Australia",
             "Middle East",
             "Africa"});
-            this.sv_region.Location = new System.Drawing.Point(208, 46);
+            this.sv_region.Location = new System.Drawing.Point(155, 46);
             this.sv_region.Name = "sv_region";
             this.sv_region.Size = new System.Drawing.Size(121, 21);
             this.sv_region.TabIndex = 48;
@@ -835,7 +835,7 @@
             this.sv_lan.Items.AddRange(new object[] {
             "LAN & Internet",
             "LAN Only"});
-            this.sv_lan.Location = new System.Drawing.Point(208, 19);
+            this.sv_lan.Location = new System.Drawing.Point(155, 18);
             this.sv_lan.Name = "sv_lan";
             this.sv_lan.Size = new System.Drawing.Size(121, 21);
             this.sv_lan.TabIndex = 41;
@@ -882,7 +882,7 @@
             this.hostname.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.hostname.Location = new System.Drawing.Point(6, 60);
             this.hostname.Name = "hostname";
-            this.hostname.Size = new System.Drawing.Size(336, 20);
+            this.hostname.Size = new System.Drawing.Size(282, 20);
             this.hostname.TabIndex = 0;
             this.hostname.Text = "New 1.6 Server with SSCTV2";
             // 
@@ -894,9 +894,9 @@
             this.groupBox3.Controls.Add(this.sv_password);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox3.Location = new System.Drawing.Point(362, 74);
+            this.groupBox3.Location = new System.Drawing.Point(308, 74);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(335, 118);
+            this.groupBox3.Size = new System.Drawing.Size(288, 118);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Passwords";
@@ -919,7 +919,7 @@
             this.rcon_password.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.rcon_password.Location = new System.Drawing.Point(7, 87);
             this.rcon_password.Name = "rcon_password";
-            this.rcon_password.Size = new System.Drawing.Size(322, 20);
+            this.rcon_password.Size = new System.Drawing.Size(271, 20);
             this.rcon_password.TabIndex = 44;
             // 
             // label4
@@ -940,7 +940,7 @@
             this.sv_password.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.sv_password.Location = new System.Drawing.Point(8, 38);
             this.sv_password.Name = "sv_password";
-            this.sv_password.Size = new System.Drawing.Size(321, 20);
+            this.sv_password.Size = new System.Drawing.Size(270, 20);
             this.sv_password.TabIndex = 42;
             // 
             // groupBox4
@@ -955,9 +955,9 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox4.Location = new System.Drawing.Point(362, 198);
+            this.groupBox4.Location = new System.Drawing.Point(308, 198);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(335, 129);
+            this.groupBox4.Size = new System.Drawing.Size(288, 129);
             this.groupBox4.TabIndex = 46;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Rcon Advanced";
@@ -967,7 +967,7 @@
             this.sv_rcon_minfaliures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_rcon_minfaliures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_rcon_minfaliures.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_rcon_minfaliures.Location = new System.Drawing.Point(208, 71);
+            this.sv_rcon_minfaliures.Location = new System.Drawing.Point(157, 71);
             this.sv_rcon_minfaliures.Maximum = new decimal(new int[] {
             20,
             0,
@@ -992,7 +992,7 @@
             this.sv_rcon_maxfaliures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.sv_rcon_maxfaliures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sv_rcon_maxfaliures.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sv_rcon_maxfaliures.Location = new System.Drawing.Point(208, 45);
+            this.sv_rcon_maxfaliures.Location = new System.Drawing.Point(157, 45);
             this.sv_rcon_maxfaliures.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1037,7 +1037,7 @@
             "30 minutes",
             "45 minutes",
             "60 minutes"});
-            this.sv_rcon_minfaliuretime.Location = new System.Drawing.Point(208, 96);
+            this.sv_rcon_minfaliuretime.Location = new System.Drawing.Point(157, 96);
             this.sv_rcon_minfaliuretime.Name = "sv_rcon_minfaliuretime";
             this.sv_rcon_minfaliuretime.Size = new System.Drawing.Size(121, 21);
             this.sv_rcon_minfaliuretime.TabIndex = 48;
@@ -1097,7 +1097,7 @@
             "50 min",
             "55 min",
             "60 min"});
-            this.sv_rcon_banpenalty_combobox.Location = new System.Drawing.Point(208, 18);
+            this.sv_rcon_banpenalty_combobox.Location = new System.Drawing.Point(157, 18);
             this.sv_rcon_banpenalty_combobox.Name = "sv_rcon_banpenalty_combobox";
             this.sv_rcon_banpenalty_combobox.Size = new System.Drawing.Size(121, 21);
             this.sv_rcon_banpenalty_combobox.TabIndex = 41;
@@ -1147,7 +1147,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox2.Location = new System.Drawing.Point(978, 74);
+            this.groupBox2.Location = new System.Drawing.Point(877, 74);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(279, 564);
             this.groupBox2.TabIndex = 47;
@@ -1783,7 +1783,7 @@
             this.groupBox13.Controls.Add(this.label54);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox13.Location = new System.Drawing.Point(703, 74);
+            this.groupBox13.Location = new System.Drawing.Point(602, 74);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(269, 516);
             this.groupBox13.TabIndex = 53;
@@ -2398,9 +2398,9 @@
             this.groupBox8.Controls.Add(this.label45);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox8.Location = new System.Drawing.Point(397, 333);
+            this.groupBox8.Location = new System.Drawing.Point(308, 333);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(267, 255);
+            this.groupBox8.Size = new System.Drawing.Size(288, 255);
             this.groupBox8.TabIndex = 54;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Round Cvars";
@@ -2451,7 +2451,7 @@
             this.mp_playerid.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.mp_playerid.Location = new System.Drawing.Point(140, 175);
+            this.mp_playerid.Location = new System.Drawing.Point(156, 175);
             this.mp_playerid.Name = "mp_playerid";
             this.mp_playerid.Size = new System.Drawing.Size(121, 21);
             this.mp_playerid.TabIndex = 67;
@@ -2461,7 +2461,7 @@
             this.label49.BackColor = System.Drawing.Color.Transparent;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(137, 154);
+            this.label49.Location = new System.Drawing.Point(153, 154);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(124, 18);
             this.label49.TabIndex = 66;
@@ -2473,7 +2473,7 @@
             this.mp_winlimit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.mp_winlimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mp_winlimit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mp_winlimit.Location = new System.Drawing.Point(140, 131);
+            this.mp_winlimit.Location = new System.Drawing.Point(156, 131);
             this.mp_winlimit.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -2488,7 +2488,7 @@
             this.label50.BackColor = System.Drawing.Color.Transparent;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(137, 110);
+            this.label50.Location = new System.Drawing.Point(153, 110);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(124, 18);
             this.label50.TabIndex = 64;
@@ -2500,7 +2500,7 @@
             this.mp_maxrounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.mp_maxrounds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mp_maxrounds.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mp_maxrounds.Location = new System.Drawing.Point(140, 87);
+            this.mp_maxrounds.Location = new System.Drawing.Point(156, 87);
             this.mp_maxrounds.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -2525,7 +2525,7 @@
             this.label51.BackColor = System.Drawing.Color.Transparent;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(137, 66);
+            this.label51.Location = new System.Drawing.Point(153, 66);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(124, 18);
             this.label51.TabIndex = 62;
@@ -2537,7 +2537,7 @@
             this.mp_fraglimit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
             this.mp_fraglimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mp_fraglimit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mp_fraglimit.Location = new System.Drawing.Point(140, 43);
+            this.mp_fraglimit.Location = new System.Drawing.Point(156, 43);
             this.mp_fraglimit.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -2552,7 +2552,7 @@
             this.label52.BackColor = System.Drawing.Color.Transparent;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(137, 22);
+            this.label52.Location = new System.Drawing.Point(153, 22);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(124, 18);
             this.label52.TabIndex = 60;
@@ -2706,7 +2706,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(1266, 648);
+            this.ClientSize = new System.Drawing.Size(1166, 648);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox2);
