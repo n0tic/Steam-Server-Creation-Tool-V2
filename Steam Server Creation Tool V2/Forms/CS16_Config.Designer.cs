@@ -91,11 +91,11 @@
             this.sv_rcon_banpenalty_combobox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bot_quota = new System.Windows.Forms.NumericUpDown();
             this.bot_eco_limit = new System.Windows.Forms.NumericUpDown();
             this.bot_prefix = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.bot_allow_machine_guns = new System.Windows.Forms.ComboBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.bot_allow_snipers = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
             this.bot_allow_rifles = new System.Windows.Forms.ComboBox();
@@ -108,6 +108,7 @@
             this.label40 = new System.Windows.Forms.Label();
             this.bot_allow_grenades = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.bot_join_team = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -128,6 +129,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.bot_difficulty = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.bot_quota_mode = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bot_add = new System.Windows.Forms.ComboBox();
@@ -194,8 +196,6 @@
             this.label46 = new System.Windows.Forms.Label();
             this.mp_freezetime = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
-            this.bot_quota_mode = new System.Windows.Forms.ComboBox();
-            this.bot_quota = new System.Windows.Forms.NumericUpDown();
             this.TopPanel.SuspendLayout();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).BeginInit();
@@ -214,6 +214,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sv_rcon_minfaliures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sv_rcon_maxfaliures)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bot_eco_limit)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -231,7 +232,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mp_startmoney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_roundtime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_freezetime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -681,8 +681,8 @@
             this.sv_logfile.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.sv_logfile.FormattingEnabled = true;
             this.sv_logfile.Items.AddRange(new object[] {
-            "On",
-            "Off"});
+            "No",
+            "Yes"});
             this.sv_logfile.Location = new System.Drawing.Point(208, 100);
             this.sv_logfile.Name = "sv_logfile";
             this.sv_logfile.Size = new System.Drawing.Size(121, 21);
@@ -707,8 +707,8 @@
             this.sv_logecho.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.sv_logecho.FormattingEnabled = true;
             this.sv_logecho.Items.AddRange(new object[] {
-            "On",
-            "Off"});
+            "No",
+            "Yes"});
             this.sv_logecho.Location = new System.Drawing.Point(208, 73);
             this.sv_logecho.Name = "sv_logecho";
             this.sv_logecho.Size = new System.Drawing.Size(121, 21);
@@ -733,8 +733,8 @@
             this.sv_logbans.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.sv_logbans.FormattingEnabled = true;
             this.sv_logbans.Items.AddRange(new object[] {
-            "Off",
-            "On"});
+            "No",
+            "Yes"});
             this.sv_logbans.Location = new System.Drawing.Point(208, 46);
             this.sv_logbans.Name = "sv_logbans";
             this.sv_logbans.Size = new System.Drawing.Size(121, 21);
@@ -759,8 +759,8 @@
             this.log.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.log.FormattingEnabled = true;
             this.log.Items.AddRange(new object[] {
-            "Off",
-            "On"});
+            "No",
+            "Yes"});
             this.log.Location = new System.Drawing.Point(208, 19);
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(121, 21);
@@ -1154,6 +1154,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bot Configuration";
             // 
+            // bot_quota
+            // 
+            this.bot_quota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.bot_quota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bot_quota.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bot_quota.Location = new System.Drawing.Point(13, 86);
+            this.bot_quota.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.bot_quota.Name = "bot_quota";
+            this.bot_quota.Size = new System.Drawing.Size(121, 20);
+            this.bot_quota.TabIndex = 80;
+            this.bot_quota.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // bot_eco_limit
             // 
             this.bot_eco_limit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
@@ -1221,18 +1241,6 @@
             this.bot_allow_machine_guns.Name = "bot_allow_machine_guns";
             this.bot_allow_machine_guns.Size = new System.Drawing.Size(121, 21);
             this.bot_allow_machine_guns.TabIndex = 67;
-            // 
-            // label41
-            // 
-            this.label41.BackColor = System.Drawing.Color.Transparent;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(54, 158);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(223, 34);
-            this.label41.TabIndex = 68;
-            this.label41.Text = "bot_allow_machine_guns";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bot_allow_snipers
             // 
@@ -1389,6 +1397,18 @@
             this.label38.TabIndex = 56;
             this.label38.Text = "bot_allow_grenades";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label41
+            // 
+            this.label41.BackColor = System.Drawing.Color.Transparent;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(54, 158);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(223, 34);
+            this.label41.TabIndex = 68;
+            this.label41.Text = "bot_allow_machine_guns";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label36
             // 
@@ -1652,6 +1672,20 @@
             this.label24.TabIndex = 58;
             this.label24.Text = "bot_difficulty";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bot_quota_mode
+            // 
+            this.bot_quota_mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.bot_quota_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bot_quota_mode.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bot_quota_mode.FormattingEnabled = true;
+            this.bot_quota_mode.Items.AddRange(new object[] {
+            "Fill",
+            "Normal"});
+            this.bot_quota_mode.Location = new System.Drawing.Point(13, 130);
+            this.bot_quota_mode.Name = "bot_quota_mode";
+            this.bot_quota_mode.Size = new System.Drawing.Size(121, 21);
+            this.bot_quota_mode.TabIndex = 55;
             // 
             // label23
             // 
@@ -2668,40 +2702,6 @@
             this.label45.Text = "mp_freezetime";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // bot_quota_mode
-            // 
-            this.bot_quota_mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.bot_quota_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bot_quota_mode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bot_quota_mode.FormattingEnabled = true;
-            this.bot_quota_mode.Items.AddRange(new object[] {
-            "Fill",
-            "Normal"});
-            this.bot_quota_mode.Location = new System.Drawing.Point(13, 130);
-            this.bot_quota_mode.Name = "bot_quota_mode";
-            this.bot_quota_mode.Size = new System.Drawing.Size(121, 21);
-            this.bot_quota_mode.TabIndex = 55;
-            // 
-            // bot_quota
-            // 
-            this.bot_quota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.bot_quota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bot_quota.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bot_quota.Location = new System.Drawing.Point(13, 86);
-            this.bot_quota.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.bot_quota.Name = "bot_quota";
-            this.bot_quota.Size = new System.Drawing.Size(121, 20);
-            this.bot_quota.TabIndex = 80;
-            this.bot_quota.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
             // CS16_Config
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2746,6 +2746,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sv_rcon_maxfaliures)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bot_eco_limit)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
@@ -2763,7 +2764,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mp_startmoney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_roundtime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_freezetime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).EndInit();
             this.ResumeLayout(false);
 
         }
