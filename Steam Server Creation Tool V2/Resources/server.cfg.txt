@@ -76,7 +76,6 @@ bot_allow_rogues {bot_allow_rogues}
 bot_walk {bot_walk}
 bot_join_team {bot_join_team}
 bot_eco_limit {bot_eco_limit}
-bot_all_weapons {bot_all_weapons}
 bot_allow_grenades {bot_allow_grenades}
 bot_allow_pistols {bot_allow_pistols}
 bot_allow_sub_machine_guns {bot_allow_sub_machine_guns}

@@ -108,8 +108,6 @@
             this.label40 = new System.Windows.Forms.Label();
             this.bot_allow_grenades = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.BotMode = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.bot_join_team = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -130,9 +128,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.bot_difficulty = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.bot_quota_mode = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.bot_quota = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bot_add = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -198,6 +194,8 @@
             this.label46 = new System.Windows.Forms.Label();
             this.mp_freezetime = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
+            this.bot_quota_mode = new System.Windows.Forms.ComboBox();
+            this.bot_quota = new System.Windows.Forms.NumericUpDown();
             this.TopPanel.SuspendLayout();
             this.MovePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).BeginInit();
@@ -233,6 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mp_startmoney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_roundtime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_freezetime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -1117,6 +1116,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.bot_quota);
             this.groupBox2.Controls.Add(this.bot_eco_limit);
             this.groupBox2.Controls.Add(this.bot_prefix);
             this.groupBox2.Controls.Add(this.groupBox7);
@@ -1142,7 +1142,6 @@
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.bot_quota_mode);
             this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.bot_quota);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.bot_add);
             this.groupBox2.Controls.Add(this.label1);
@@ -1187,7 +1186,6 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.bot_allow_machine_guns);
-            this.groupBox7.Controls.Add(this.label41);
             this.groupBox7.Controls.Add(this.bot_allow_snipers);
             this.groupBox7.Controls.Add(this.label42);
             this.groupBox7.Controls.Add(this.bot_allow_rifles);
@@ -1200,8 +1198,7 @@
             this.groupBox7.Controls.Add(this.label40);
             this.groupBox7.Controls.Add(this.bot_allow_grenades);
             this.groupBox7.Controls.Add(this.label38);
-            this.groupBox7.Controls.Add(this.BotMode);
-            this.groupBox7.Controls.Add(this.label37);
+            this.groupBox7.Controls.Add(this.label41);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox7.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox7.Location = new System.Drawing.Point(6, 337);
@@ -1220,7 +1217,7 @@
             this.bot_allow_machine_guns.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.bot_allow_machine_guns.Location = new System.Drawing.Point(137, 188);
+            this.bot_allow_machine_guns.Location = new System.Drawing.Point(70, 188);
             this.bot_allow_machine_guns.Name = "bot_allow_machine_guns";
             this.bot_allow_machine_guns.Size = new System.Drawing.Size(121, 21);
             this.bot_allow_machine_guns.TabIndex = 67;
@@ -1230,9 +1227,9 @@
             this.label41.BackColor = System.Drawing.Color.Transparent;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(134, 151);
+            this.label41.Location = new System.Drawing.Point(54, 158);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(127, 34);
+            this.label41.Size = new System.Drawing.Size(223, 34);
             this.label41.TabIndex = 68;
             this.label41.Text = "bot_allow_machine_guns";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1324,7 +1321,7 @@
             this.bot_allow_sub_machine_guns.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.bot_allow_sub_machine_guns.Location = new System.Drawing.Point(9, 188);
+            this.bot_allow_sub_machine_guns.Location = new System.Drawing.Point(7, 143);
             this.bot_allow_sub_machine_guns.Name = "bot_allow_sub_machine_guns";
             this.bot_allow_sub_machine_guns.Size = new System.Drawing.Size(121, 21);
             this.bot_allow_sub_machine_guns.TabIndex = 59;
@@ -1334,7 +1331,7 @@
             this.label39.BackColor = System.Drawing.Color.Transparent;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(6, 151);
+            this.label39.Location = new System.Drawing.Point(4, 106);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(127, 34);
             this.label39.TabIndex = 60;
@@ -1350,7 +1347,7 @@
             this.bot_allow_pistols.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.bot_allow_pistols.Location = new System.Drawing.Point(9, 127);
+            this.bot_allow_pistols.Location = new System.Drawing.Point(7, 82);
             this.bot_allow_pistols.Name = "bot_allow_pistols";
             this.bot_allow_pistols.Size = new System.Drawing.Size(121, 21);
             this.bot_allow_pistols.TabIndex = 57;
@@ -1360,7 +1357,7 @@
             this.label40.BackColor = System.Drawing.Color.Transparent;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(6, 106);
+            this.label40.Location = new System.Drawing.Point(4, 61);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(127, 18);
             this.label40.TabIndex = 58;
@@ -1376,7 +1373,7 @@
             this.bot_allow_grenades.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.bot_allow_grenades.Location = new System.Drawing.Point(9, 82);
+            this.bot_allow_grenades.Location = new System.Drawing.Point(7, 37);
             this.bot_allow_grenades.Name = "bot_allow_grenades";
             this.bot_allow_grenades.Size = new System.Drawing.Size(121, 21);
             this.bot_allow_grenades.TabIndex = 55;
@@ -1386,40 +1383,12 @@
             this.label38.BackColor = System.Drawing.Color.Transparent;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(6, 61);
+            this.label38.Location = new System.Drawing.Point(4, 16);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(127, 18);
             this.label38.TabIndex = 56;
             this.label38.Text = "bot_allow_grenades";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BotMode
-            // 
-            this.BotMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.BotMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.BotMode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BotMode.FormattingEnabled = true;
-            this.BotMode.Items.AddRange(new object[] {
-            "All Weapons",
-            "Knives Only",
-            "Pistols Only",
-            "Sniper Rifle Only"});
-            this.BotMode.Location = new System.Drawing.Point(9, 37);
-            this.BotMode.Name = "BotMode";
-            this.BotMode.Size = new System.Drawing.Size(121, 21);
-            this.BotMode.TabIndex = 53;
-            // 
-            // label37
-            // 
-            this.label37.BackColor = System.Drawing.Color.Transparent;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(6, 16);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(127, 18);
-            this.label37.TabIndex = 54;
-            this.label37.Text = "Bot Mode";
-            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label36
             // 
@@ -1684,20 +1653,6 @@
             this.label24.Text = "bot_difficulty";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // bot_quota_mode
-            // 
-            this.bot_quota_mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.bot_quota_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bot_quota_mode.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bot_quota_mode.FormattingEnabled = true;
-            this.bot_quota_mode.Items.AddRange(new object[] {
-            "Fill",
-            "Normal"});
-            this.bot_quota_mode.Location = new System.Drawing.Point(13, 130);
-            this.bot_quota_mode.Name = "bot_quota_mode";
-            this.bot_quota_mode.Size = new System.Drawing.Size(121, 21);
-            this.bot_quota_mode.TabIndex = 55;
-            // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.Transparent;
@@ -1709,28 +1664,6 @@
             this.label23.TabIndex = 56;
             this.label23.Text = "bot_quota_mode";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bot_quota
-            // 
-            this.bot_quota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
-            this.bot_quota.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bot_quota.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bot_quota.FormattingEnabled = true;
-            this.bot_quota.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.bot_quota.Location = new System.Drawing.Point(13, 85);
-            this.bot_quota.Name = "bot_quota";
-            this.bot_quota.Size = new System.Drawing.Size(121, 21);
-            this.bot_quota.TabIndex = 53;
             // 
             // label3
             // 
@@ -1850,7 +1783,7 @@
             this.label73.ForeColor = System.Drawing.Color.White;
             this.label73.Location = new System.Drawing.Point(139, 374);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(89, 18);
+            this.label73.Size = new System.Drawing.Size(121, 18);
             this.label73.TabIndex = 109;
             this.label73.Text = "mp_hostagepenalty";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2735,6 +2668,40 @@
             this.label45.Text = "mp_freezetime";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // bot_quota_mode
+            // 
+            this.bot_quota_mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.bot_quota_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bot_quota_mode.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bot_quota_mode.FormattingEnabled = true;
+            this.bot_quota_mode.Items.AddRange(new object[] {
+            "Fill",
+            "Normal"});
+            this.bot_quota_mode.Location = new System.Drawing.Point(13, 130);
+            this.bot_quota_mode.Name = "bot_quota_mode";
+            this.bot_quota_mode.Size = new System.Drawing.Size(121, 21);
+            this.bot_quota_mode.TabIndex = 55;
+            // 
+            // bot_quota
+            // 
+            this.bot_quota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(37)))));
+            this.bot_quota.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bot_quota.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bot_quota.Location = new System.Drawing.Point(13, 86);
+            this.bot_quota.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.bot_quota.Name = "bot_quota";
+            this.bot_quota.Size = new System.Drawing.Size(121, 20);
+            this.bot_quota.TabIndex = 80;
+            this.bot_quota.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // CS16_Config
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2796,6 +2763,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mp_startmoney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_roundtime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp_freezetime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_quota)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2876,9 +2844,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox bot_difficulty;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox bot_quota_mode;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox bot_quota;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -2896,8 +2862,6 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.ComboBox bot_allow_grenades;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.ComboBox BotMode;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox bot_join_team;
         private System.Windows.Forms.Label label35;
@@ -2971,5 +2935,7 @@
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.NumericUpDown mp_limitteams;
         private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.NumericUpDown bot_quota;
+        private System.Windows.Forms.ComboBox bot_quota_mode;
     }
 }
