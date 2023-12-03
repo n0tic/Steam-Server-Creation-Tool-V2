@@ -593,7 +593,7 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageGuide_Button.Enabled = true;
                 ManageServerName_Textbox.Enabled = true;
                 ManageInstallDirectory_Textbox.Enabled = true;
-                if(server.app.AppId == 90) Setup_Button.Enabled = true;
+                if (server.app.AppId == 90) Setup_Button.Enabled = true;
                 else Setup_Button.Enabled = false;
 
                 if (server != null)
@@ -1070,9 +1070,9 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                 }
 
-                if(server != null)
+                if (server != null)
                 {
-                    using(CS16_Config configManager = new CS16_Config(server))
+                    using (CS16_Config configManager = new CS16_Config(server))
                     {
                         configManager.ShowDialog();
                         GC.Collect();

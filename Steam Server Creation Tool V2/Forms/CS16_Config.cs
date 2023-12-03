@@ -1,8 +1,5 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
 
 namespace Steam_Server_Creation_Tool_V2.Forms
 {
@@ -313,7 +310,7 @@ namespace Steam_Server_Creation_Tool_V2.Forms
                 Core.SaveToFile(app.installPath + @"\cstrike\server.cfg", cfg_script);
                 MessageBox.Show("The config was saved successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception x)
+            catch (Exception x)
             {
                 MessageBox.Show(x.Message, "Something went wrong!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
