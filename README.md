@@ -20,7 +20,7 @@ The application is requesting a full list of applications from the Steam's API s
 
 [Steam Group](https://steamcommunity.com/groups/SSCTV2)
 
-[Video](https://www.youtube.com/watch?v=mlcq_PJ8zoQ)
+[Video](https://www.youtube.com/watch?v=aWx8Dah6AcA)
 
 [Downloads / Releases](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases)
 
