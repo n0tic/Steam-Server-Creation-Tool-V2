@@ -369,7 +369,6 @@ namespace Steam_Server_Creation_Tool_V2
                 try
                 {
                     SteamList = await client.GetAppListAsync();
-                    // Use the response here
 
                     NewInstall_Dropbox.Items.Clear();
 

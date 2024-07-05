@@ -53,6 +53,12 @@ public class SteamAppListClient
     /// <returns></returns>
     public SteamAppListResponse FilterAndSortAppList(SteamAppListResponse apps)
     {
+        // Remove duplicates based on AppId
+        apps.AppList.Apps = apps.AppList.Apps
+            .GroupBy(app => app.AppId)
+            .Select(group => group.First())
+            .ToList();
+
         // Identifying indexes to remove
         var removeIndexes = apps.AppList.Apps
             .Select((app, index) => new { app, index })
@@ -64,7 +70,6 @@ public class SteamAppListClient
         {
             if (item.AppId == 90) item.IdAppName = $"[{item.AppId}] Counter-strike 1.6 and {item.Name}";
             else item.IdAppName = $"[{item.AppId}] {item.Name}";
-
         }
 
         // Sort in descending order to avoid index shifting issues during removal
@@ -81,4 +86,5 @@ public class SteamAppListClient
 
         return apps;
     }
+
 }
