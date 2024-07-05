@@ -20,7 +20,7 @@ The application is requesting a full list of applications from the Steam's API s
 
 [Steam Group](https://steamcommunity.com/groups/SSCTV2)
 
-[Video](https://www.youtube.com/watch?v=mlcq_PJ8zoQ)
+[Video](https://www.youtube.com/watch?v=aWx8Dah6AcA)
 
 [Downloads / Releases](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/releases)
 
@@ -84,6 +84,11 @@ I am not affiliated, associated, endorsed by, or in any way officially connected
 There are inherent risks in the use of any software, and you are solely responsible for determining whether this software is compatible with your equipment and other software installed on it. You are also solely responsible for the protection of your equipment and backup of your data. The Steam Server Creation Tool V2 will not be liable for any damages you may suffer in connection with using, modifying, or distributing SSCT | Steam Server Creation Tool.
 
 # More Previews!
+
+Youtube video:
+[![Watch the video](https://img.youtube.com/vi/aWx8Dah6AcA/maxresdefault.jpg)](https://www.youtube.com/watch?v=aWx8Dah6AcA)
+
+
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/NewServer.png)
 ![Image Preview](https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/ManageServers.png)
