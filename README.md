@@ -59,6 +59,13 @@ If this would be valid information, the script would then run the server and mon
 
 Note: In the event of issues connecting to the server, server crashes, or misconfigurations, troubleshooting and configuration adjustments will be required. This aspect falls outside the scope of the script itself. Best of luck!
 
+# AutoUpdater
+
+The **AutoUpdater** is an addition to the **Steam Server Creation Tool V2** program. If you choose to download and use it, make sure you place the `AutoUpdater.exe` in the same folder as the **Steam Server Creation Tool V2** executable. Additionally, you need to enable the "Allow AutoUpdater" feature in the **Steam Server Creation Tool V2** settings (checkbox in the middle).
+
+Once set up, when you check for updates, the program will give you an option if a newer version is available. If everything is configured correctly, the AutoUpdater will automatically download the latest release, update your current installation, and restart the application. 
+
+In case of any issues, it should open the download page in your browser, allowing you to manually download and install the latest version.
 
 # Bugs?
 
