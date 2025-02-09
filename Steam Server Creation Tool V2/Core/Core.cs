@@ -124,8 +124,12 @@ namespace Steam_Server_Creation_Tool_V2
                                     {
                                         FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe"),
                                         Arguments = $"{downloadURLCorrected}",
-                                        UseShellExecute = true, // false
-                                        CreateNoWindow = false // true, for silent start
+                                        UseShellExecute = false, // false
+                                        CreateNoWindow = true // true, for silent start
+                                        /*
+                                         true,
+                                        false, for no silent start
+                                         */
                                     });
 
                                     // Exit the application
