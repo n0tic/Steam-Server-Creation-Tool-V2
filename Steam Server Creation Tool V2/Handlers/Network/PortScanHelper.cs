@@ -60,6 +60,9 @@ namespace Steam_Server_Creation_Tool_V2
                     response.EnsureSuccessStatusCode();
 
                     string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    Console.WriteLine(jsonResponse);
+
                     PortScanIP_Result result = JsonConvert.DeserializeObject<PortScanIP_Result>(jsonResponse);
 
                     return result;
