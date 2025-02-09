@@ -26,7 +26,6 @@ namespace AutoUpdater
             Console.WriteLine($"Found URL: {args[0]}");
 
             Console.WriteLine("Please wait while the update is being prepared... This should only take a few seconds...");
-            Thread.Sleep(1000);
 
             // Initiate variable
             string zipFilePath = "";
