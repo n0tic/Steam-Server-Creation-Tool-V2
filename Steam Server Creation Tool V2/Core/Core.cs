@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
@@ -96,6 +97,18 @@ namespace Steam_Server_Creation_Tool_V2
                         updateAvailable = true;
                         newUpdateVersion = $"{latestMajorVersion}.{latestMinorVersion}.{latestBuildVersion}";
 
+                        // Find the asset with the matching string "SSCTV2"
+                        var ssctv2Asset = releasesData[0].Assets.FirstOrDefault(asset => asset.Name.Contains("SSCTV2"));
+                        Uri downloadURLCorrected = null;
+                        if (ssctv2Asset != null)
+                        {
+                            downloadURLCorrected = ssctv2Asset.BrowserDownloadUrl;
+                        }
+                        else
+                        {
+                            downloadURLCorrected = releasesData[0].Assets[0].BrowserDownloadUrl; // Try first option.
+                        }
+
                         if (MessageBox.Show("An update is available. Would you like to update?", "Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
                             if (form.settings.allowAutoUpdate)
@@ -110,9 +123,9 @@ namespace Steam_Server_Creation_Tool_V2
                                     Process.Start(new ProcessStartInfo
                                     {
                                         FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoUpdater.exe"),
-                                        Arguments = $"{releasesData[0].Assets[0].BrowserDownloadUrl}",
-                                        UseShellExecute = false,
-                                        CreateNoWindow = true
+                                        Arguments = $"{downloadURLCorrected}",
+                                        UseShellExecute = true, // false
+                                        CreateNoWindow = false // true, for silent start
                                     });
 
                                     // Exit the application

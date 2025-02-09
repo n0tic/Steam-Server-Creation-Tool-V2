@@ -9,6 +9,11 @@ namespace AutoUpdater
     {
         static void Main(string[] args)
         {
+            //args = new string[1];
+            //args[0] = "";
+            //Console.WriteLine(args[0]);
+            //Console.ReadLine();
+
             UpdateHelper downloader = new UpdateHelper();
 
             if (args.Length < 1 || !downloader.IsValidUrl(args[0]))
@@ -18,7 +23,10 @@ namespace AutoUpdater
                 Environment.Exit(0);
             }
 
+            Console.WriteLine($"Found URL: {args[0]}");
+
             Console.WriteLine("Please wait while the update is being prepared... This should only take a few seconds...");
+            Thread.Sleep(1000);
 
             // Initiate variable
             string zipFilePath = "";

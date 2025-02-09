@@ -2098,6 +2098,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(642, 589);
+            this.Controls.Add(this.Panel_Settings);
             this.Controls.Add(this.Panel_PortScan);
             this.Controls.Add(this.Panel_ManageServers);
             this.Controls.Add(this.Panel_NewServer);
@@ -2108,7 +2109,6 @@
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.Panel_SteamCMD);
             this.Controls.Add(this.Panel_Console);
-            this.Controls.Add(this.Panel_Settings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
