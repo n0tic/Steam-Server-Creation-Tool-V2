@@ -528,6 +528,8 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = true;
             InstallServer_Button.Enabled = false;
 
+            NewServerInstallLocation_Textbox.Text = "";
+
             await SteamCMDHelper.RunSteamCMD(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
 
             UpdateInstalledServersInfo();
