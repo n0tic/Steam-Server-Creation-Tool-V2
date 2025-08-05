@@ -36,7 +36,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 9;
+        public static int buildVersion = 10;
 
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;
@@ -283,7 +283,12 @@ namespace Steam_Server_Creation_Tool_V2
         {
             try
             {
-                using (FileStream dataStream = new FileStream("data", FileMode.Create))
+                string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SSCTV2");
+                Directory.CreateDirectory(appDataPath); // Ensure folder exists
+                string fullPath = Path.Combine(appDataPath, "settings");
+
+                using (FileStream dataStream = new FileStream(fullPath, FileMode.Create))
+
                 {
                     BinaryFormatter converter = new BinaryFormatter();
                     converter.Serialize(dataStream, data);
@@ -298,9 +303,12 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static Settings LoadSettings()
         {
-            if (File.Exists("data"))
+            string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SSCTV2");
+            string fullPath = Path.Combine(appDataPath, "settings");
+
+            if (File.Exists(fullPath))
             {
-                using (FileStream dataStream = new FileStream("data", FileMode.Open))
+                using (FileStream dataStream = new FileStream(fullPath, FileMode.Open))
                 {
                     try
                     {
@@ -310,7 +318,6 @@ namespace Steam_Server_Creation_Tool_V2
                     }
                     catch (Exception ex)
                     {
-                        // Log or provide detailed information for debugging
                         MessageBox.Show($"Error reading binary data: {ex.Message}", "Error Reading Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return null;
                     }
