@@ -28,6 +28,7 @@ namespace Steam_Server_Creation_Tool_V2
 
         public static string steamCMDURL = "https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD";
         public static string steamCMDURL_Download = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
+        // https://api.steampowered.com/IStoreService/GetAppList/v1/?key=API_KEY&max_results=50000&start_offset=0
         public static string serversURL = "https://api.steampowered.com/ISteamApps/GetAppList/v2?utc=";
         public static string donateURL = "https://www.paypal.com/donate/?hosted_button_id=PTYHDUJBUJGA2";
 
