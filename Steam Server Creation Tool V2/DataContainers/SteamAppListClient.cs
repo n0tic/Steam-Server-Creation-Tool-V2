@@ -26,6 +26,7 @@ public class SteamAppListClient
         {
             string requestUri = Core.serversURL + Core.GetUTCTime();
             var responseString = await _httpClient.GetStringAsync(requestUri);
+            Console.WriteLine(responseString);
             var appListResponse = JsonConvert.DeserializeObject<SteamAppListResponse>(responseString);
 
             appListResponse = FilterAndSortAppList(appListResponse);
@@ -51,40 +52,45 @@ public class SteamAppListClient
     /// </summary>
     /// <param name="apps"></param>
     /// <returns></returns>
-    public SteamAppListResponse FilterAndSortAppList(SteamAppListResponse apps)
-{
-    // Remove duplicates based on AppId
-    apps.AppList.Apps = apps.AppList.Apps
-        .GroupBy(app => app.AppId)
-        .Select(group => group.First())
-        .ToList();
-
-    // Identifying indexes to remove
-    var removeIndexes = apps.AppList.Apps
-        .Select((app, index) => new { app, index })
-        .Where(x => (x.app.AppId != 570 && x.app.AppId != 730) && (x.app.Name.Equals("Dedicated Server") || !x.app.Name.Contains("Server") || x.app.Name.Contains("linux")))
-        .Select(x => x.index)
-        .ToList();
-
-    foreach (var item in apps.AppList.Apps)
+    public SteamAppListResponse FilterAndSortAppList(SteamAppListResponse data)
     {
-        if (item.AppId == 90) item.IdAppName = $"[{item.AppId}] Counter-strike 1.6 and {item.Name}";
-        else item.IdAppName = $"[{item.AppId}] {item.Name}";
+        var list = data?.Response?.Apps;
+        if (list == null || list.Count == 0)
+            return data;
+
+        // Remove duplicates based on AppId
+        data.Response.Apps = list
+            .GroupBy(app => app.AppId)
+            .Select(group => group.First())
+            .ToList();
+
+        list = data.Response.Apps;
+
+        // Identifying indexes to remove
+        var removeIndexes = list
+            .Select((app, index) => new { app, index })
+            .Where(x =>
+                (x.app.AppId != 570 && x.app.AppId != 730) &&
+                (x.app.Name.Equals("Dedicated Server") ||
+                 !x.app.Name.Contains("Server") ||
+                 x.app.Name.Contains("linux")))
+            .Select(x => x.index)
+            .ToList();
+
+        foreach (var item in list)
+        {
+            if (item.AppId == 90) item.IdAppName = $"[{item.AppId}] Counter-strike 1.6 and {item.Name}";
+            else item.IdAppName = $"[{item.AppId}] {item.Name}";
+        }
+
+        removeIndexes.Sort((a, b) => b.CompareTo(a));
+        removeIndexes.ForEach(index => list.RemoveAt(index));
+
+        GC.Collect();
+
+        list.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
+
+        return data;
     }
-
-    // Sort in descending order to avoid index shifting issues during removal
-    removeIndexes.Sort((a, b) => b.CompareTo(a));
-
-    // Remove items from the list
-    removeIndexes.ForEach(index => apps.AppList.Apps.RemoveAt(index));
-
-    // Optional: Force garbage collection
-    GC.Collect();
-
-    // Sort the apps by name
-    apps.AppList.Apps.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
-
-    return apps;
-}
 
 }

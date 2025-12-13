@@ -2,21 +2,26 @@
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Response-container for Steam API data
-/// </summary>
 [Serializable]
 public class SteamAppListResponse
 {
-    [JsonProperty("applist")]
-    public AppList AppList { get; set; }
+    [JsonProperty("response")]
+    public ResponseData Response { get; set; }
 }
+
 [Serializable]
-public class AppList
+public class ResponseData
 {
     [JsonProperty("apps")]
     public List<App> Apps { get; set; }
+
+    [JsonProperty("have_more_results")]
+    public bool HaveMoreResults { get; set; }
+
+    [JsonProperty("last_appid")]
+    public uint LastAppId { get; set; }
 }
+
 [Serializable]
 public class App
 {
@@ -25,6 +30,13 @@ public class App
 
     [JsonProperty("name")]
     public string Name { get; set; }
+
+    // Extra fält i nya JSON:en (valfritt, men bra att ha)
+    [JsonProperty("last_modified")]
+    public long? LastModified { get; set; }
+
+    [JsonProperty("price_change_number")]
+    public long? PriceChangeNumber { get; set; }
 
     public string IdAppName { get; set; }
 }

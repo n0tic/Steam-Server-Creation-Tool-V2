@@ -14,9 +14,10 @@ namespace Steam_Server_Creation_Tool_V2.Forms
 
             this.mainForm = form;
         }
+
         private void SearchForm_Load(object sender, EventArgs e)
         {
-            foreach (var item in mainForm.SteamList.AppList.Apps)
+            foreach (var item in mainForm.SteamList.Response.Apps)
             {
                 SearchServerList_Listbox.Items.Add(item.IdAppName);
             }
@@ -24,6 +25,7 @@ namespace Steam_Server_Creation_Tool_V2.Forms
             Search_Textbox.Select();
             Search_Textbox.Focus();
         }
+
 
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
 
@@ -35,9 +37,10 @@ namespace Steam_Server_Creation_Tool_V2.Forms
 
             List<string> results = new List<string>();
 
-            foreach (var item in mainForm.SteamList.AppList.Apps)
+            foreach (var item in mainForm.SteamList.Response.Apps)
             {
-                if (Core.Contains(item.IdAppName, Search_Textbox.Text, StringComparison.OrdinalIgnoreCase)) results.Add(item.IdAppName);
+                if (Core.Contains(item.IdAppName, Search_Textbox.Text, StringComparison.OrdinalIgnoreCase))
+                    results.Add(item.IdAppName);
             }
 
             foreach (var item in results)

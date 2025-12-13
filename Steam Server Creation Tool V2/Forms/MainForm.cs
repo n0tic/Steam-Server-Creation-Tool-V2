@@ -372,22 +372,23 @@ namespace Steam_Server_Creation_Tool_V2
 
                     NewInstall_Dropbox.Items.Clear();
 
-                    foreach (var item in SteamList.AppList.Apps)
+                    foreach (var item in SteamList.Response.Apps)
                     {
                         NewInstall_Dropbox.Items.Add(item.IdAppName);
                     }
 
-                    NewInstall_Dropbox.SelectedIndex = 0;
+                    if (NewInstall_Dropbox.Items.Count > 0)
+                        NewInstall_Dropbox.SelectedIndex = 0;
 
-                    Install_New_Server_Label.Text = $"Install New Server ({SteamList.AppList.Apps.Count})";
+                    Install_New_Server_Label.Text = $"Install New Server ({SteamList.Response.Apps.Count})";
                 }
                 catch (Exception e)
                 {
-                    // Handle or log the exception here
                     MessageBox.Show(e.Message, "Error reading data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         /// <summary>
         /// Google query search for selected game regarding server setup
@@ -417,19 +418,18 @@ namespace Steam_Server_Creation_Tool_V2
         {
             string selectedItem = NewInstall_Dropbox.SelectedItem?.ToString();
 
-            if (string.IsNullOrEmpty(selectedItem)) return null;
-            else
-            {
-                foreach (var item in SteamList.AppList.Apps)
-                {
-                    if (selectedItem.Equals(item.IdAppName, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return item;
-                    }
-                }
+            if (string.IsNullOrEmpty(selectedItem))
                 return null;
+
+            foreach (var item in SteamList.Response.Apps)
+            {
+                if (selectedItem.Equals(item.IdAppName, StringComparison.OrdinalIgnoreCase))
+                    return item;
             }
+
+            return null;
         }
+
 
         /// <summary>
         /// Selection change logic
