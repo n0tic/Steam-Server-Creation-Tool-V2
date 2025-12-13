@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/JsonTupleToServersJson48
+/Steam Server Creation Tool V2/fixlist.json
+/SteamAPIJsonBuilder
+/SteamAPIJsonBuilderV2
