@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Steam Server Creation Tool V2")]
-[assembly: AssemblyDescription("Steam Server Creation Tool V2 is an upgraded utility for effortless setup of multiplayer game servers on the Steam platform. Unlike the traditional console commands, this version features a user-friendly interface, simplifying tasks like installation and updates.")]
+[assembly: AssemblyDescription("Steam Server Creation Tool V2 is a utility designed to simplify the setup and management of multiplayer game servers distributed through Steam. Instead of relying on manual console commands, it provides a user-friendly interface that streamlines tasks such as installation and updates.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ByteVault Studio")]
 [assembly: AssemblyProduct("Steam Server Creation Tool V2")]

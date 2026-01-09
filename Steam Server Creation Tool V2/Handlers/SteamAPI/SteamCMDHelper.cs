@@ -123,15 +123,18 @@ namespace Steam_Server_Creation_Tool_V2
                     // Register installation if new and save settings.
                     if (!failed && install && steamCMD_type == InstallationType.NewInstall)
                     {
-                        string startScript = Properties.Resources.StartServerScript_bat;
-                        startScript = startScript
-                            .Replace("{steamcmd_dir}", $"\"{Path.GetDirectoryName(form.settings.steamCMD_installLocation)}\"")
-                            .Replace("{server_dir}", installDir)
-                            .Replace("{app_id}", appID)
-                            .Replace("{app_name}", app.Name)
-                            .Replace("{login_cred}", form.settings.GetLogin());
+                        if (Core.IsRunningAsAdministrator())
+                        {
+                            string startScript = Properties.Resources.StartServerScript_bat;
+                            startScript = startScript
+                                .Replace("{steamcmd_dir}", $"\"{Path.GetDirectoryName(installDir)}\"")
+                                .Replace("{server_dir}", installDir)
+                                .Replace("{app_id}", appID)
+                                .Replace("{app_name}", app.Name)
+                                .Replace("{login_cred}", form.settings.GetLogin());
 
-                        Core.SaveToFile(installDir + @"\StartServerScript.bat", startScript);
+                            Core.SaveToFile(installDir + @"\StartServerScript.bat", startScript);
+                        }
 
                         form.settings.installedServer.Add(new InstalledServer(installName, installDir, DateTime.Now.ToString("dd/MM/yyyy HH:mm"), app));
                         Core.SaveSettings(form.settings);

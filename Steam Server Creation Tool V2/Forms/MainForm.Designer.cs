@@ -2099,9 +2099,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(19)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(642, 589);
             this.Controls.Add(this.Panel_Settings);
+            this.Controls.Add(this.Panel_NewServer);
             this.Controls.Add(this.Panel_PortScan);
             this.Controls.Add(this.Panel_ManageServers);
-            this.Controls.Add(this.Panel_NewServer);
             this.Controls.Add(this.bottom_border_panel);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel12);

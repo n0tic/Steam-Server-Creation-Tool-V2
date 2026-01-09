@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,7 +37,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 11;
+        public static int buildVersion = 12;
 
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;
@@ -362,5 +363,15 @@ namespace Steam_Server_Creation_Tool_V2
         }
 
         #endregion Encode
+        /// <summary>
+        /// Check if the application is running with administrator privileges
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsRunningAsAdministrator()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
     }
 }

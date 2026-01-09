@@ -528,11 +528,11 @@ namespace Steam_Server_Creation_Tool_V2
             App_ProgressBar.Visible = true;
             InstallServer_Button.Enabled = false;
 
-            NewServerInstallLocation_Textbox.Text = "";
-
             await SteamCMDHelper.RunSteamCMD(this, app, NewServerName_Textbox.Text, NewServerInstallLocation_Textbox.Text);
 
             UpdateInstalledServersInfo();
+
+            NewServerInstallLocation_Textbox.Text = "";
 
             InstallServer_Button.Enabled = true;
             App_ProgressBar.Visible = false;
@@ -981,7 +981,7 @@ namespace Steam_Server_Creation_Tool_V2
             settings = new Settings();
             Core.SaveSettings(settings);
 
-            MessageBox.Show("Settings reset was successful.", "Reset result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Settings reset was successful. It's recommended to close the application and restart.", "Reset result", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Set default values to labels and fields
             ClearDefaultNSetup();
