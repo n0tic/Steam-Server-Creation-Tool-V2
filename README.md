@@ -10,9 +10,9 @@
 
 <img src="https://github.com/n0tic/Steam-Server-Creation-Tool-V2/blob/master/Steam%20Server%20Creation%20Tool%20V2/Resources/SteamCMD.png" alt="Image Preview" />
 
-Steam Server Creation Tool V2 is an upgraded utility for effortless download of multiplayer game servers using the Steam platform. Unlike the traditional SteamCMD console commands, this version features a user-friendly interface, simplifying tasks like installation, updates and managment. The tool is built with the idea of staying up-to-date and functional, even if Steam makes additions or remove servers.
+Steam Server Creation Tool V2 is a utility designed to simplify downloading and managing multiplayer game servers originally distributed through Steam. Instead of relying on manual SteamCMD console commands, it provides a user-friendly interface that makes installation, updates, and server management easier and more accessible.
 
-The application is requesting a full list of applications from the Steam's API so it will always stay up-to-date with what steam has to offer. It extrapolates servers from that list, creates a database with name and reference ID which the application then uses.
+Due to Steam deprecating the API previously used to retrieve server data, the tool now operates using a maintained, precompiled server database included with the project. This ensures the application remains functional and reliable even as Steam adds, removes, or changes available server packages.
 
 ---------------------------------------------------------------------------------------------------------------------------------
 # Links
@@ -31,7 +31,7 @@ The application is requesting a full list of applications from the Steam's API s
 
 # How does it work?
 - Application fetch steam "apps":
-  - API: https://api.steampowered.com/ISteamApps/GetAppList/v2
+  - Database: https://raw.githubusercontent.com/n0tic/Steam-Server-Creation-Tool-V2/master/Steam%20Server%20Creation%20Tool%20V2/servers.json
 - Application fetch steamcmd from:
   - Direct: https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
   - Website: https://developer.valvesoftware.com/wiki/SteamCMD
