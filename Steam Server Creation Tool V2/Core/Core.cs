@@ -37,7 +37,7 @@ namespace Steam_Server_Creation_Tool_V2
         public static BuildTypes buildType = BuildTypes.Alpha;
         public static int majorVersion = 0;
         public static int minorVersion = 0;
-        public static int buildVersion = 12;
+        public static int buildVersion = 13;
 
         private static bool checkingUpdate = false;
         public static bool updateAvailable = false;
