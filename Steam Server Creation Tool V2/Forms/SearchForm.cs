@@ -29,7 +29,7 @@ namespace Steam_Server_Creation_Tool_V2.Forms
 
         private void MovePanel_MouseDown(object sender, MouseEventArgs e) => Core.MoveWindow(this, e);
 
-        private void Close_Button_Click(object sender, EventArgs e) => Environment.Exit(0);
+        private void Close_Button_Click(object sender, EventArgs e) => this.Close();
 
         private void Search_Textbox_TextChanged(object sender, EventArgs e)
         {
