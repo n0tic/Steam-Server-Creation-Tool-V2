@@ -233,6 +233,11 @@ namespace Steam_Server_Creation_Tool_V2.Forms
 
         private void Manual_ImportButton_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show($"You are about to import a manual server. SSCTV2 will not verify information and if the information you have entered is not correct it may completely destroy your server files. Would you like to continue?", "WARNING!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            {
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(Manual_NameTextbox.Text))
             {
                 MessageBox.Show("Server name cannot be empty.");

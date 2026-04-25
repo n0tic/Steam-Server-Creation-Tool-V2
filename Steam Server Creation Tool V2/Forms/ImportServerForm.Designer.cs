@@ -186,10 +186,10 @@
             this.Radio_Manual.ForeColor = System.Drawing.Color.White;
             this.Radio_Manual.Location = new System.Drawing.Point(14, 80);
             this.Radio_Manual.Name = "Radio_Manual";
-            this.Radio_Manual.Size = new System.Drawing.Size(91, 17);
+            this.Radio_Manual.Size = new System.Drawing.Size(92, 17);
             this.Radio_Manual.TabIndex = 37;
             this.Radio_Manual.TabStop = true;
-            this.Radio_Manual.Text = "Manual import";
+            this.Radio_Manual.Text = "Manual Import";
             this.Radio_Manual.UseVisualStyleBackColor = true;
             this.Radio_Manual.CheckedChanged += new System.EventHandler(this.Radio_Manual_CheckedChanged);
             // 
