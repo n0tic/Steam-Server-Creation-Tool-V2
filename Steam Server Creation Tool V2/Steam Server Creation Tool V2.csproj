@@ -65,11 +65,11 @@
     <Compile Include="DataContainers\Settings\InstalledServer.cs" />
     <Compile Include="DataContainers\Settings\Settings.cs" />
     <Compile Include="DataContainers\Settings\UserData.cs" />
-    <Compile Include="Forms\CS16_Config.cs">
+    <Compile Include="Forms\ImportServerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CS16_Config.Designer.cs">
-      <DependentUpon>CS16_Config.cs</DependentUpon>
+    <Compile Include="Forms\ImportServerForm.Designer.cs">
+      <DependentUpon>ImportServerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
@@ -92,14 +92,15 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\SteamAPI\SteamServerScanner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataContainers\SteamAppListClient.cs" />
     <Compile Include="DataContainers\SteamAppListResponse.cs" />
     <Compile Include="Handlers\UI\UIHandler.cs" />
     <Compile Include="Handlers\SteamAPI\SteamCMDHelper.cs" />
-    <EmbeddedResource Include="Forms\CS16_Config.resx">
-      <DependentUpon>CS16_Config.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ImportServerForm.resx">
+      <DependentUpon>ImportServerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -191,7 +192,6 @@
     <None Include="Resources\NewServer.png" />
     <None Include="Resources\ManageServers.png" />
     <None Include="Resources\Settings.png" />
-    <None Include="Comments.txt" />
     <None Include="Resources\073-question.png" />
     <None Include="Resources\Donate.png" />
     <None Include="Resources\004-arrow up.png" />

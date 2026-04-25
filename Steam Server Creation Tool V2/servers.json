@@ -23,9 +23,7 @@
       },
       {
         "appid": 2218990,
-        "name": "Aeon Wars 
-
-Server Beta"
+        "name": "Aeon Wars Test Server Beta"
       },
       {
         "appid": 683720,
@@ -3878,6 +3876,10 @@ Server Beta"
       {
         "appid": 3393460,
         "name": "绝世好武功测试 test server Tool"
+      },
+      {
+        "appid": 4129620,
+        "name": "Windrose Dedicated Server"
       }
     ]
   }

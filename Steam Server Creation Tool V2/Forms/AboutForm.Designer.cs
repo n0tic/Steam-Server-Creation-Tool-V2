@@ -42,8 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Donate_Button = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ProjectURL_Label = new System.Windows.Forms.Label();
             this.Discord_Label = new System.Windows.Forms.Label();
@@ -54,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Donate_Button)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +154,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox1.Location = new System.Drawing.Point(8, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(397, 179);
+            this.groupBox1.Size = new System.Drawing.Size(397, 101);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
@@ -171,7 +168,7 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label2.Location = new System.Drawing.Point(3, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(391, 160);
+            this.label2.Size = new System.Drawing.Size(391, 82);
             this.label2.TabIndex = 38;
             this.label2.Text = resources.GetString("label2.Text");
             // 
@@ -180,9 +177,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox2.Location = new System.Drawing.Point(8, 259);
+            this.groupBox2.Location = new System.Drawing.Point(8, 181);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(397, 114);
+            this.groupBox2.Size = new System.Drawing.Size(397, 124);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Backstory";
@@ -196,33 +193,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label3.Location = new System.Drawing.Point(3, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(391, 95);
+            this.label3.Size = new System.Drawing.Size(391, 105);
             this.label3.TabIndex = 39;
             this.label3.Text = resources.GetString("label3.Text");
-            // 
-            // Donate_Button
-            // 
-            this.Donate_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Donate_Button.Image = global::Steam_Server_Creation_Tool_V2.Properties.Resources.Donate;
-            this.Donate_Button.Location = new System.Drawing.Point(134, 518);
-            this.Donate_Button.Name = "Donate_Button";
-            this.Donate_Button.Size = new System.Drawing.Size(142, 55);
-            this.Donate_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Donate_Button.TabIndex = 37;
-            this.Donate_Button.TabStop = false;
-            this.Donate_Button.Click += new System.EventHandler(this.Donate_Button_Click);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 499);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(397, 18);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Donations are not forced upon you but greatly appreciated!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // groupBox3
             // 
@@ -232,7 +205,7 @@
             this.groupBox3.Controls.Add(this.AppName_Label);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox3.Location = new System.Drawing.Point(8, 379);
+            this.groupBox3.Location = new System.Drawing.Point(8, 311);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(397, 114);
             this.groupBox3.TabIndex = 40;
@@ -296,10 +269,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(414, 582);
+            this.ClientSize = new System.Drawing.Size(414, 434);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.Donate_Button);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
@@ -318,7 +289,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Close_Button)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Donate_Button)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -336,8 +306,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.PictureBox Donate_Button;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Version_Label;

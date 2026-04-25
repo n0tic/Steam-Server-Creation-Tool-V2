@@ -166,6 +166,8 @@ namespace Steam_Server_Creation_Tool_V2
         {
             Process process = null;
 
+            Console.WriteLine($"+force_install_dir \"{installDir}\" +login " + login + " +app_update " + appID + " " + validated + quit);
+
             if (wrapSteamCMD)
             {
                 process = new Process()

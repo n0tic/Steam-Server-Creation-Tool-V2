@@ -67,7 +67,6 @@ namespace Steam_Server_Creation_Tool_V2
             PortResult_Label.Text = "";
             PortScanLoading_PictureBox.Enabled = false;
             PortScanLoading_PictureBox.Visible = false;
-            Setup_Button.Enabled = false;
             InstalledServerList_SelectedIndexChanged(null, null);
 
             Port_Numeric.Minimum = 0;
@@ -559,7 +558,7 @@ namespace Steam_Server_Creation_Tool_V2
         /// <summary>
         /// Update installed server information into listbox of Manage section
         /// </summary>
-        private void UpdateInstalledServersInfo()
+        public void UpdateInstalledServersInfo()
         {
             InstalledServerList.Items.Clear();
             foreach (var item in settings.installedServer) InstalledServerList.Items.Add(item.name);
@@ -594,8 +593,6 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageGuide_Button.Enabled = true;
                 ManageServerName_Textbox.Enabled = true;
                 ManageInstallDirectory_Textbox.Enabled = true;
-                if (server.app.AppId == 90) Setup_Button.Enabled = true;
-                else Setup_Button.Enabled = false;
 
                 if (server != null)
                 {
@@ -617,7 +614,6 @@ namespace Steam_Server_Creation_Tool_V2
                 ManageGuide_Button.Enabled = false;
                 ManageServerName_Textbox.Enabled = false;
                 ManageInstallDirectory_Textbox.Enabled = false;
-                Setup_Button.Enabled = false;
 
                 ManageServerName_Textbox.Text = "";
                 ManageInstallDirectory_Textbox.Text = "";
@@ -1034,7 +1030,7 @@ namespace Steam_Server_Creation_Tool_V2
         private void AutoClose_Checkbox_CheckedChanged(object sender, EventArgs e) => settings.autoClose = AutoClose_Checkbox.Checked;
         private void NewServerInstallLocation_Button_Click(object sender, EventArgs e) => NewServerInstallLocation_Textbox.Text = Core.SelectFolder();
         private async void RefreshAPI_Button_Click(object sender, EventArgs e) => await RefreshAPIData();
-        private void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.ManageServers, this);
+        public void ManageServers_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.ManageServers, this);
         private void Settings_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(null, UIHandler.Panel.Settings, this);
         private void SteamCMD_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.SteamCMD, this);
         private void NewServer_Button_Click(object sender, EventArgs e) => UIHandler.ChangePanel(sender, UIHandler.Panel.NewServer, this);
@@ -1056,29 +1052,11 @@ namespace Steam_Server_Creation_Tool_V2
         private void PortScan_Button_MouseLeave(object sender, EventArgs e) => UIHandler.Label_MouseLeave(sender, e);
         #endregion One-line buttons
 
-        private void Setup_Button_Click(object sender, EventArgs e)
+        private void ManageImportServer_Button_Click(object sender, EventArgs e)
         {
-            if (InstalledServerList.SelectedIndex != -1)
+            using (ImportServerForm s = new ImportServerForm(this))
             {
-                InstalledServer server = null;
-
-                foreach (var item in settings.installedServer)
-                {
-                    if (item.name == (string)InstalledServerList.SelectedItem)
-                    {
-                        server = item;
-                        break;
-                    }
-                }
-
-                if (server != null)
-                {
-                    using (CS16_Config configManager = new CS16_Config(server))
-                    {
-                        configManager.ShowDialog();
-                        GC.Collect();
-                    }
-                }
+                s.ShowDialog();
             }
         }
     }
